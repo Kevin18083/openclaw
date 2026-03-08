@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-03-06T22:59:10.401Z",
+  "statistics": {
+    "total": 0,
+    "open": 0,
+    "resolved": 0,
+    "bySeverity": {
+      "critical": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "byType": {
+      "code": 0,
+      "config": 0,
+      "logic": 0,
+      "operation": 0,
+      "communication": 0,
+      "other": 0
+    },
+    "repeatedErrors": 0
+  },
+  "recentErrors": [],
+  "repeatedErrors": []
+}

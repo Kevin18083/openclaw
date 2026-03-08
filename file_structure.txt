@@ -1,0 +1,125 @@
+# OpenClaw 文件结构文档
+# 生成时间: 2026-03-06 03:06
+# 状态: 稳定优化版
+
+## 核心目录结构
+
+### 1. 工作空间 (workspace)
+位置: C:\Users\17589\.openclaw\workspace\
+用途: 主要工作目录，包含所有配置和工具
+
+#### 关键文件:
+- AGENTS.md, BOOTSTRAP.md, HEARTBEAT.md, IDENTITY.md
+- MEMORY.md, SOUL.md, TOOLS.md, USER.md
+- 拼音指南文档: yichang_*.md, zhake_*.md, kuajing_*.md
+- 管理工具: zack_admin_panel.bat, *_en.bat, zhake_*.bat
+
+### 2. 记忆目录 (memory)
+位置: C:\Users\17589\.openclaw\workspace\memory\
+用途: 日常操作记录和长期记忆
+
+#### 关键文件:
+- 2026-03-04.md (日常记录)
+- caozuo_rizhi.md (操作日志-拼音版)
+- self-improvement.md (自我改进记录)
+
+### 3. 镜像备份 (OpenClaw_Mirrors_Pinyin)
+位置: C:\Users\17589\OpenClaw_Mirrors_Pinyin\
+用途: 拼音版完整系统镜像
+
+#### 最新镜像:
+- Zack_Mirror_Pinyin_20260306_0257 (52个文件)
+- 包含: restore.bat (一键恢复脚本)
+
+### 4. 快速备份 (OpenClaw_QuickBackups)
+位置: C:\Users\17589\OpenClaw_QuickBackups\
+用途: 快速关键文件备份
+
+#### 最新备份:
+- QuickBackup_20260306_ 255 (最新)
+- QuickBackup_20260306_ 248
+- QuickBackup_20260306_ 201
+
+### 5. 原版镜像 (OpenClaw_Mirrors)
+位置: C:\Users\17589\OpenClaw_Mirrors\
+用途: 历史完整镜像备份
+
+#### 镜像列表:
+- Zack_Mirror_20260305_2311
+- Zack_Mirror_20260305_2323
+- Zack_Mirror_Backup_20260305_2311
+- Zack_Mirror_Backup_20260305_2323
+
+### 6. 配置目录 (openclaw)
+位置: C:\Users\17589\.openclaw\
+用途: 系统配置和运行文件
+
+#### 关键目录:
+- cron\ - 定时任务配置
+- credentials\ - 凭证管理
+- logs\ - 系统日志
+- workspace\ - 工作空间
+
+## 工具分类
+
+### A. 综合管理工具
+1. zack_admin_panel.bat - 主管理面板
+2. zhake_xitong_weihu.bat - 系统维护工具
+
+### B. 英文管理工具套件
+1. health_check_en.bat - 健康检查
+2. manage_openclaw_en.bat - 服务管理
+3. quick_backup_en.bat - 快速备份
+4. fix_openclaw_path_en.bat - PATH修复
+
+### C. 拼音版工具
+1. zhake_jingxiang_chakanban.bat - 镜像查看
+2. zhake_xitong_weihu.bat - 系统维护
+
+### D. 备份恢复工具
+1. create_openclaw_image.bat - 创建完整镜像
+2. quick_backup_en.bat - 快速备份
+3. restore.bat - 恢复脚本（在镜像目录中）
+
+## 系统状态
+
+### 进程状态:
+- node.exe (13308): 27MB - 稳定
+- node.exe (13524): 390MB - 正常服务
+
+### 服务状态:
+- OpenClaw版本: 0.1.7
+- 命令可用: openclaw-cn
+- PATH配置: 正常
+
+### 备份状态:
+- 拼音镜像: 1个最新
+- 快速备份: 3个最新
+- 原版镜像: 4个历史
+- 恢复能力: 一键恢复可用
+
+### 编码状态:
+- 拼音文件: 5个指南文档
+- 英文工具: 5个管理工具
+- 中文问题: 已解决
+
+## 使用建议
+
+### 日常使用:
+1. 运行 zack_admin_panel.bat 进行管理
+2. 定期运行 health_check_en.bat 检查健康
+3. 重要操作前运行 quick_backup_en.bat
+
+### 问题解决:
+1. 检查 memory\caozuo_rizhi.md 操作记录
+2. 使用相应管理工具修复
+3. 从镜像恢复 if needed
+
+### 维护建议:
+1. 每周创建完整镜像
+2. 每日快速备份记忆文件
+3. 每月清理旧备份
+
+---
+*本文档由扎克自动生成和维护*
+*最后更新: 2026-03-06 03:06*

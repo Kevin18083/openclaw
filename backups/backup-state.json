@@ -1,0 +1,19 @@
+{
+  "lastBackup": {
+    "timestamp": "2026-03-06T15:38:23+08:00",
+    "version": "20260306-153823",
+    "status": "success",
+    "fileCount": 59,
+    "mainBackup": "C:\\Users\\17589\\.openclaw\\workspace\\backups\\knowledge-main\\20260306-153823",
+    "backupBackup": "C:\\Users\\17589\\.openclaw\\workspace\\backups\\knowledge-backup\\20260306-153823",
+    "verified": true,
+    "changes": "新增 skill-creator 技能"
+  },
+  "backupPolicy": {
+    "frequency": "daily",
+    "time": "00:00",
+    "retention": 7,
+    "strategy": "dual-mirror"
+  },
+  "nextScheduledBackup": "2026-03-07T00:00:00+08:00"
+}

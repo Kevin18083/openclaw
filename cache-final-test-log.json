@@ -1,0 +1,51 @@
+{
+  "startTime": "2026-03-06T23:15:50.859Z",
+  "rounds": [
+    {
+      "round": 1,
+      "name": "固定系统消息",
+      "hitRate": 66.8,
+      "responseTime": 920,
+      "success": true,
+      "improvement": "6.7",
+      "timestamp": "2026-03-06T23:15:50.860Z"
+    },
+    {
+      "round": 2,
+      "name": "Prompt 模板化",
+      "hitRate": 71.5,
+      "responseTime": 880,
+      "success": true,
+      "improvement": "11.4",
+      "timestamp": "2026-03-06T23:15:50.860Z"
+    },
+    {
+      "round": 3,
+      "name": "前缀复用",
+      "hitRate": 65.2,
+      "responseTime": 950,
+      "success": true,
+      "improvement": "5.1",
+      "timestamp": "2026-03-06T23:15:50.860Z"
+    },
+    {
+      "round": 4,
+      "name": "请求批处理",
+      "hitRate": 64,
+      "responseTime": 960,
+      "success": true,
+      "improvement": "3.9",
+      "timestamp": "2026-03-06T23:15:50.860Z"
+    },
+    {
+      "round": 5,
+      "name": "综合优化",
+      "hitRate": 76.8,
+      "responseTime": 850,
+      "success": true,
+      "improvement": "16.7",
+      "timestamp": "2026-03-06T23:15:50.861Z"
+    }
+  ],
+  "summary": {}
+}

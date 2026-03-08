@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>扎克 - 产品发布会</title>
+  
+  <!-- TailwindCSS CDN -->
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tailwindcss/3.0.23/tailwind.min.js"></script>
+  
+  <!-- 字体 -->
+  <link href="https://fonts.loli.net/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@300;400;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans SC', 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+    }
+    
+    .slides-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a0a0a;
+    }
+    
+    .slide {
+      width: 100%;
+      height: 100%;
+      max-width: 450px;
+      max-height: 800px;
+      aspect-ratio: 9/16;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+      background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+    }
+    
+    .slide.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .slide.prev {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    
+    .light-spot {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    
+    .light-spot-1 {
+      width: 300px;
+      height: 300px;
+      background: #3b82f6;
+      top: -100px;
+      right: -100px;
+      animation: float1 20s ease-in-out infinite;
+    }
+    
+    .light-spot-2 {
+      width: 250px;
+      height: 250px;
+      background: #8b5cf6;
+      bottom: -80px;
+      left: -80px;
+      animation: float2 25s ease-in-out infinite;
+    }
+    
+    .light-spot-3 {
+      width: 200px;
+      height: 200px;
+      background: #06b6d4;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: float3 18s ease-in-out infinite;
+    }
+    
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0); }
+      25% { transform: translate(-50px, 30px); }
+      50% { transform: translate(30px, 50px); }
+      75% { transform: translate(50px, -20px); }
+    }
+    
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0); }
+      33% { transform: translate(40px, -40px); }
+      66% { transform: translate(-30px, 30px); }
+    }
+    
+    @keyframes float3 {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.2); }
+    }
+    
+    .slide-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .progress-bar {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 100;
+    }
+    
+    .progress-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .progress-dot.active {
+      background: #fff;
+      transform: scale(1.3);
+    }
+    
+    .progress-dot:hover {
+      background: rgba(255,255,255,0.6);
+    }
+    
+    .page-number {
+      position: fixed;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.4);
+      z-index: 100;
+    }
+    
+    .step-number {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #3b82f6;
+      margin-bottom: 1rem;
+    }
+    
+    .big-number {
+      font-size: 6rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="slides-container">
+    
+    <!-- Slide 1: 封面页 -->
+    <div class="slide active">
+      <div class="light-spot light-spot-1"></div>
+      <div class="light-spot light-spot-2"></div>
+      <div class="slide-content">
+        <h1 class="text-6xl font-black mb-4 leading-tight">扎克</h1>
+        <p class="text-2xl font-light text-gray-400">你的数字生活伙伴</p>
+      </div>
+    </div>
+    
+    <!-- Slide 2: 标题冲击 -->
+    <div class="slide">
+      <div class="light-spot light-spot-2"></div>
+      <div class="light-spot light-spot-3"></div>
+      <div class="slide-content">
+        <h1 class="text-4xl font-black leading-tight">
+          重新定义<br>智能助手
+        </h1>
+      </div>
+    </div>
+    
+    <!-- Slide 3: 金句页 -->
+    <div class="slide">
+      <div class="light-spot light-spot-1"></div>
+      <div class="light-spot light-spot-3"></div>
+      <div class="slide-content">
+        <span class="text-6xl text-gray-600 block mb-4">"</span>
+        <p class="text-2xl font-bold mb-6">不是聊天机器人</p>
+        <p class="text-xl font-light text-gray-400">是你的数字伙伴</p>
+      </div>
+    </div>
+    
+    <!-- Slide 4: 标题冲击 -->
+    <div class="slide">
+      <div class="light-spot light-spot-1"></div>
+      <div class="light-spot light-spot-2"></div>
+      <div class="slide-content">
+        <h1 class="text-4xl font-black leading-tight">
+          三大<br>核心功能
+        </h1>
+      </div>
+    </div>
+    
+    <!-- Slide 5: 步骤页 - 智能记忆 -->
+    <div class="slide">
+      <div class="light-spot light-spot-2"></div>
+      <div class="slide-content">
+        <div class="step-number">01</div>
+        <h2 class="text-3xl font-bold text-white mb-4">智能记忆</h2>
+        <p class="text-lg font-light text-gray-400">
+          记住你说的每句话<br>做过的每件事
+        </p>
+        <p class="text-xl font-light text-blue-400 mt-6">第二个大脑</p>
+      </div>
+    </div>
+    
+    <!-- Slide 6: 步骤页 - 自动化 -->
+    <div class="slide">
+      <div class="light-spot light-spot-3"></div>
+      <div class="slide-content">
+        <div class="step-number">02</div>
+        <h2 class="text-3xl font-bold text-white mb-4">自动化工作流</h2>
+        <p class="text-lg font-light text-gray-400">
+          设置一次<br>永久执行
+        </p>
+        <p class="text-lg font-light text-gray-500 mt-4">备份 · 邮件 · 监控</p>
+      </div>
+    </div>
+    
+    <!-- Slide 7: 步骤页 - 多模型 -->
+    <div class="slide">
+      <div class="light-spot light-spot-1"></div>
+      <div class="slide-content">
+        <div class="step-number">03</div>
+        <h2 class="text-3xl font-bold text-white mb-4">多模型切换</h2>
+        <p class="text-lg font-light text-gray-400">
+          阿里云 · DeepSeek · GLM
+        </p>
+        <p class="text-xl font-light text-green-400 mt-6">永远在线</p>
+      </div>
+    </div>
+    
+    <!-- Slide 8: 标题冲击 -->
+    <div class="slide">
+      <div class="light-spot light-spot-1"></div>
+      <div class="light-spot light-spot-2"></div>
+      <div class="slide-content">
+        <h1 class="text-4xl font-black leading-tight">
+          技术<br>优势
+        </h1>
+      </div>
+    </div>
+    
+    <!-- Slide 9: 数据页 - 三重备份 -->
+    <div class="slide">
+      <div class="light-spot light-spot-2"></div>
+      <div class="slide-content">
+        <span class="big-number text-blue-500">3</span>
+        <p class="text-2xl font-bold text-white mt-4">重镜像备份</p>
+        <p class="text-lg font-light text-gray-400 mt-4">
+          C 盘 D 盘各三份<br>硬盘损坏，数据不丢
+        </p>
+      </div>
+    </div>
+    
+    <!-- Slide 10: 数据页 - 99.9% -->
+    <div class="slide">
+      <div class="light-spot light-spot-3"></div>
+      <div class="slide-content">
+        <span class="big-number text-green-500">99.9%</span>
+        <p class="text-2xl font-bold text-white mt-4">可用性</p>
+        <p class="text-lg font-light text-gray-400 mt-4">
+          3 次检测失败<br>自动切换备用服务
+        </p>
+      </div>
+    </div>
+    
+    <!-- Slide 11: 标题冲击 -->
+    <div class="slide">
+      <div class="light-spot light-spot-1"></div>
+      <div class="light-spot light-spot-3"></div>
+      <div class="slide-content">
+        <h1 class="text-4xl font-black leading-tight">
+          用户<br>体验
+        </h1>
+      </div>
+    </div>
+    
+    <!-- Slide 12: 金句页 -->
+    <div class="slide">
+      <div class="light-spot light-spot-2"></div>
+      <div class="slide-content">
+        <span class="text-6xl text-gray-600 block mb-4">"</span>
+        <p class="text-2xl font-bold mb-6">直接高效</p>
+        <p class="text-xl font-light text-gray-400">不废话</p>
+        <p class="text-lg font-light text-gray-500 mt-6">有问题，解决<br>有任务，执行</p>
+      </div>
+    </div>
+    
+    <!-- Slide 13: 标题冲击 -->
+    <div class="slide">
+      <div class="light-spot light-spot-1"></div>
+      <div class="light-spot light-spot-2"></div>
+      <div class="slide-content">
+        <h1 class="text-4xl font-black leading-tight">
+          未来<br>愿景
+        </h1>
+      </div>
+    </div>
+    
+    <!-- Slide 14: 金句页 -->
+    <div class="slide">
+      <div class="light-spot light-spot-3"></div>
+      <div class="slide-content">
+        <p class="text-2xl font-bold mb-6">
+          让每个人拥有
+        </p>
+        <p class="text-xl font-light text-blue-400">懂你 · 帮你 · 信赖你</p>
+        <p class="text-lg font-light text-gray-400 mt-6">的数字伙伴</p>
+      </div>
+    </div>
+    
+    <!-- Slide 15: 结尾页 -->
+    <div class="slide">
+      <div class="light-spot light-spot-1"></div>
+      <div class="light-spot light-spot-2"></div>
+      <div class="light-spot light-spot-3"></div>
+      <div class="slide-content">
+        <h1 class="text-4xl font-bold text-white mb-8">这就是扎克</h1>
+        <p class="text-2xl font-light text-gray-400">谢谢</p>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- 进度条 -->
+  <div class="progress-bar" id="progressBar"></div>
+  
+  <!-- 页码 -->
+  <div class="page-number" id="pageNumber">1 / 15</div>
+  
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const progressBar = document.getElementById('progressBar');
+    const pageNumber = document.getElementById('pageNumber');
+    let currentSlide = 0;
+    
+    // 初始化进度条
+    slides.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.className = `progress-dot ${index === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => goToSlide(index));
+      progressBar.appendChild(dot);
+    });
+    
+    function updateSlides() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'prev');
+        if (index === currentSlide) {
+          slide.classList.add('active');
+        } else if (index < currentSlide) {
+          slide.classList.add('prev');
+        }
+      });
+      
+      // 更新进度条
+      document.querySelectorAll('.progress-dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+      
+      // 更新页码
+      pageNumber.textContent = `${currentSlide + 1} / ${slides.length}`;
+    }
+    
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateSlides();
+      }
+    }
+    
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlides();
+      }
+    }
+    
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlides();
+    }
+    
+    // 键盘控制
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+    
+    // 触摸滑动支持
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+    
+    document.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) nextSlide();
+        else prevSlide();
+      }
+    });
+  </script>
+</body>
+</html>

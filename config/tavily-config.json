@@ -1,0 +1,12 @@
+{
+  "apiKey": "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",
+  "timeout": 30000,
+  "maxRetries": 3,
+  "cacheEnabled": true,
+  "cacheTTL": 3600000,
+  "maxResults": 10,
+  "searchDepth": "basic",
+  "includeAnswer": true,
+  "configuredAt": "2026-03-06T09:13:00+08:00",
+  "configuredBy": "罗总"
+}

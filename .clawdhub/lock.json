@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "skills": {
+    "ppt-generator": {
+      "version": "1.0.0",
+      "installedAt": 1772826479769
+    },
+    "obsidian-ontology-sync": {
+      "version": "1.0.1",
+      "installedAt": 1772828535185
+    },
+    "microsoft-excel": {
+      "version": "1.0.3",
+      "installedAt": 1772828659020
+    },
+    "markdown-to-word-skill": {
+      "version": "1.0.0",
+      "installedAt": 1772829502120
+    },
+    "word-docx": {
+      "version": "1.0.0",
+      "installedAt": 1772829607938
+    },
+    "nano-pdf": {
+      "version": "1.0.0",
+      "installedAt": 1772831304452
+    },
+    "desktop-control": {
+      "version": "1.0.0",
+      "installedAt": 1772831649368
+    },
+    "obsidian": {
+      "version": "1.0.0",
+      "installedAt": 1772831961864
+    },
+    "git-workflows": {
+      "version": "1.0.0",
+      "installedAt": 1772832243784
+    },
+    "cron-backup": {
+      "version": "0.3.2",
+      "installedAt": 1772832381351
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1772832724062
+    },
+    "playwright-scraper-skill": {
+      "version": "1.2.0",
+      "installedAt": 1772834876795
+    },
+    "coding-agent-backup": {
+      "version": "1.0.0",
+      "installedAt": 1772835856977
+    },
+    "openai-whisper": {
+      "version": "1.0.0",
+      "installedAt": 1772840881091
+    },
+    "video-frames": {
+      "version": "1.0.0",
+      "installedAt": 1772841002170
+    },
+    "ohmytoken": {
+      "version": "2.0.3",
+      "installedAt": 1772993657878
+    },
+    "tiangong-notebooklm-cli": {
+      "version": "0.1.1",
+      "installedAt": 1772993952626
+    },
+    "superpowers": {
+      "version": "1.0.0",
+      "installedAt": 1772994009917
+    },
+    "claude-optimised": {
+      "version": "1.0.1",
+      "installedAt": 1773002400398
+    }
+  }
+}

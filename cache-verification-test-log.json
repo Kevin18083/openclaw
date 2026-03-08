@@ -1,0 +1,51 @@
+{
+  "startTime": "2026-03-06T23:14:02.061Z",
+  "rounds": [
+    {
+      "round": 1,
+      "optimization": "固定系统消息",
+      "predictedHitRate": "66.6",
+      "expectedImprovement": 6.5,
+      "responseTime": "935ms",
+      "status": "待实际测试",
+      "timestamp": "2026-03-06T23:14:02.062Z"
+    },
+    {
+      "round": 2,
+      "optimization": "Prompt 模板化",
+      "predictedHitRate": "70.1",
+      "expectedImprovement": 10,
+      "responseTime": "900ms",
+      "status": "待实际测试",
+      "timestamp": "2026-03-06T23:14:02.062Z"
+    },
+    {
+      "round": 3,
+      "optimization": "前缀复用",
+      "predictedHitRate": "64.1",
+      "expectedImprovement": 4,
+      "responseTime": "960ms",
+      "status": "待实际测试",
+      "timestamp": "2026-03-06T23:14:02.062Z"
+    },
+    {
+      "round": 4,
+      "optimization": "请求批处理",
+      "predictedHitRate": "63.1",
+      "expectedImprovement": 3,
+      "responseTime": "970ms",
+      "status": "待实际测试",
+      "timestamp": "2026-03-06T23:14:02.062Z"
+    },
+    {
+      "round": 5,
+      "optimization": "综合优化",
+      "predictedHitRate": "75.1-85.1",
+      "expectedImprovement": "15-25",
+      "responseTime": "800-900ms",
+      "status": "待实际测试",
+      "timestamp": "2026-03-06T23:14:02.062Z"
+    }
+  ],
+  "summary": {}
+}

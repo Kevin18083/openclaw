@@ -1,0 +1,296 @@
+{
+  "testDate": "2026-03-06T22:44:46.093Z",
+  "totalRounds": 20,
+  "requestsPerRound": 10,
+  "results": [
+    {
+      "round": 1,
+      "name": "简单问答",
+      "difficulty": 1,
+      "category": "basic",
+      "strategies": [
+        "固定系统消息",
+        "标准化 prompt 格式"
+      ],
+      "hitRate": "42.2",
+      "responseTime": "1580ms",
+      "tokenUsage": 700,
+      "timestamp": "2026-03-06T22:44:46.072Z"
+    },
+    {
+      "round": 2,
+      "name": "事实查询",
+      "difficulty": 1,
+      "category": "basic",
+      "strategies": [
+        "固定系统消息",
+        "标准化 prompt 格式"
+      ],
+      "hitRate": "44.7",
+      "responseTime": "1560ms",
+      "tokenUsage": 700,
+      "timestamp": "2026-03-06T22:44:46.073Z"
+    },
+    {
+      "round": 3,
+      "name": "简单计算",
+      "difficulty": 2,
+      "category": "basic",
+      "strategies": [
+        "固定系统消息",
+        "标准化 prompt 格式"
+      ],
+      "hitRate": "45.7",
+      "responseTime": "1640ms",
+      "tokenUsage": 900,
+      "timestamp": "2026-03-06T22:44:46.073Z"
+    },
+    {
+      "round": 4,
+      "name": "定义解释",
+      "difficulty": 2,
+      "category": "basic",
+      "strategies": [
+        "固定系统消息",
+        "标准化 prompt 格式"
+      ],
+      "hitRate": "48.2",
+      "responseTime": "1620ms",
+      "tokenUsage": 900,
+      "timestamp": "2026-03-06T22:44:46.073Z"
+    },
+    {
+      "round": 5,
+      "name": "列表生成",
+      "difficulty": 2,
+      "category": "basic",
+      "strategies": [
+        "固定系统消息",
+        "标准化 prompt 格式"
+      ],
+      "hitRate": "50.7",
+      "responseTime": "1600ms",
+      "tokenUsage": 900,
+      "timestamp": "2026-03-06T22:44:46.073Z"
+    },
+    {
+      "round": 6,
+      "name": "代码片段",
+      "difficulty": 3,
+      "category": "coding",
+      "strategies": [
+        "代码模板复用",
+        "固定注释格式",
+        "统一代码风格"
+      ],
+      "hitRate": "51.7",
+      "responseTime": "1680ms",
+      "tokenUsage": 1100,
+      "timestamp": "2026-03-06T22:44:46.073Z"
+    },
+    {
+      "round": 7,
+      "name": "数据分析",
+      "difficulty": 3,
+      "category": "analysis",
+      "strategies": [
+        "分析框架模板",
+        "固定输出结构"
+      ],
+      "hitRate": "54.2",
+      "responseTime": "1660ms",
+      "tokenUsage": 1100,
+      "timestamp": "2026-03-06T22:44:46.073Z"
+    },
+    {
+      "round": 8,
+      "name": "文本摘要",
+      "difficulty": 3,
+      "category": "nlp",
+      "strategies": [
+        "文本处理模板",
+        "固定摘要格式"
+      ],
+      "hitRate": "56.7",
+      "responseTime": "1640ms",
+      "tokenUsage": 1100,
+      "timestamp": "2026-03-06T22:44:46.073Z"
+    },
+    {
+      "round": 9,
+      "name": "对比分析",
+      "difficulty": 4,
+      "category": "analysis",
+      "strategies": [
+        "分析框架模板",
+        "固定输出结构"
+      ],
+      "hitRate": "57.7",
+      "responseTime": "1720ms",
+      "tokenUsage": 1300,
+      "timestamp": "2026-03-06T22:44:46.073Z"
+    },
+    {
+      "round": 10,
+      "name": "问题解决",
+      "difficulty": 4,
+      "category": "problem",
+      "strategies": [
+        "问题分解模板",
+        "标准解决流程"
+      ],
+      "hitRate": "65.2",
+      "responseTime": "1700ms",
+      "tokenUsage": 1300,
+      "timestamp": "2026-03-06T22:44:46.074Z"
+    },
+    {
+      "round": 11,
+      "name": "复杂代码",
+      "difficulty": 5,
+      "category": "coding",
+      "strategies": [
+        "代码模板复用",
+        "固定注释格式",
+        "统一代码风格"
+      ],
+      "hitRate": "66.2",
+      "responseTime": "1780ms",
+      "tokenUsage": 1500,
+      "timestamp": "2026-03-06T22:44:46.074Z"
+    },
+    {
+      "round": 12,
+      "name": "系统设计",
+      "difficulty": 5,
+      "category": "design",
+      "strategies": [
+        "设计模式模板",
+        "架构描述框架"
+      ],
+      "hitRate": "68.7",
+      "responseTime": "1760ms",
+      "tokenUsage": 1500,
+      "timestamp": "2026-03-06T22:44:46.074Z"
+    },
+    {
+      "round": 13,
+      "name": "多步推理",
+      "difficulty": 6,
+      "category": "reasoning",
+      "strategies": [
+        "逻辑推理框架",
+        "步骤化思考模板"
+      ],
+      "hitRate": "69.7",
+      "responseTime": "1840ms",
+      "tokenUsage": 1700,
+      "timestamp": "2026-03-06T22:44:46.074Z"
+    },
+    {
+      "round": 14,
+      "name": "创意写作",
+      "difficulty": 6,
+      "category": "creative",
+      "strategies": [
+        "创意框架模板",
+        "固定叙事结构"
+      ],
+      "hitRate": "72.2",
+      "responseTime": "1820ms",
+      "tokenUsage": 1700,
+      "timestamp": "2026-03-06T22:44:46.074Z"
+    },
+    {
+      "round": 15,
+      "name": "调试分析",
+      "difficulty": 6,
+      "category": "debug",
+      "strategies": [
+        "调试检查清单",
+        "错误分类模板"
+      ],
+      "hitRate": "74.7",
+      "responseTime": "1800ms",
+      "tokenUsage": 1700,
+      "timestamp": "2026-03-06T22:44:46.074Z"
+    },
+    {
+      "round": 16,
+      "name": "跨领域综合",
+      "difficulty": 7,
+      "category": "hybrid",
+      "strategies": [
+        "多模板组合",
+        "分段处理"
+      ],
+      "hitRate": "75.7",
+      "responseTime": "1880ms",
+      "tokenUsage": 1900,
+      "timestamp": "2026-03-06T22:44:46.074Z"
+    },
+    {
+      "round": 17,
+      "name": "长上下文",
+      "difficulty": 7,
+      "category": "context",
+      "strategies": [
+        "上下文管理",
+        "对话历史压缩"
+      ],
+      "hitRate": "75.7",
+      "responseTime": "1860ms",
+      "tokenUsage": 1900,
+      "timestamp": "2026-03-06T22:44:46.074Z"
+    },
+    {
+      "round": 18,
+      "name": "多语言混合",
+      "difficulty": 8,
+      "category": "multilingual",
+      "strategies": [
+        "语言切换标记",
+        "翻译模板"
+      ],
+      "hitRate": "74.2",
+      "responseTime": "1940ms",
+      "tokenUsage": 2100,
+      "timestamp": "2026-03-06T22:44:46.074Z"
+    },
+    {
+      "round": 19,
+      "name": "实时数据",
+      "difficulty": 8,
+      "category": "realtime",
+      "strategies": [
+        "时间戳标记",
+        "知识版本控制"
+      ],
+      "hitRate": "74.2",
+      "responseTime": "1920ms",
+      "tokenUsage": 2100,
+      "timestamp": "2026-03-06T22:44:46.075Z"
+    },
+    {
+      "round": 20,
+      "name": "综合挑战",
+      "difficulty": 9,
+      "category": "hybrid",
+      "strategies": [
+        "多模板组合",
+        "分段处理"
+      ],
+      "hitRate": "72.7",
+      "responseTime": "2000ms",
+      "tokenUsage": 2300,
+      "timestamp": "2026-03-06T22:44:46.075Z"
+    }
+  ],
+  "summary": {
+    "averageHitRate": "62.1",
+    "averageResponseTime": 1750,
+    "averageTokenUsage": 1420,
+    "highPerformanceCount": 11,
+    "lowPerformanceCount": 4
+  }
+}

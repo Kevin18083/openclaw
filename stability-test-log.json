@@ -1,0 +1,106 @@
+{
+  "startTime": "2026-03-06T23:10:02.822Z",
+  "rounds": [
+    {
+      "round": 1,
+      "name": "基础文件读写",
+      "difficulty": 1,
+      "success": true,
+      "duration": 1,
+      "expectedTime": 100,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:02.848Z"
+    },
+    {
+      "round": 2,
+      "name": "JSON 数据处理",
+      "difficulty": 2,
+      "success": true,
+      "duration": 0,
+      "expectedTime": 150,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:02.909Z"
+    },
+    {
+      "round": 3,
+      "name": "多文件操作",
+      "difficulty": 3,
+      "success": true,
+      "duration": 8,
+      "expectedTime": 200,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:02.972Z"
+    },
+    {
+      "round": 4,
+      "name": "目录遍历和统计",
+      "difficulty": 3,
+      "success": true,
+      "duration": 0,
+      "expectedTime": 250,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:03.034Z"
+    },
+    {
+      "round": 5,
+      "name": "大数据量处理",
+      "difficulty": 4,
+      "success": true,
+      "duration": 5,
+      "expectedTime": 300,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:03.095Z"
+    },
+    {
+      "round": 6,
+      "name": "并发文件操作",
+      "difficulty": 5,
+      "success": true,
+      "duration": 16,
+      "expectedTime": 400,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:03.175Z"
+    },
+    {
+      "round": 7,
+      "name": "错误处理和恢复",
+      "difficulty": 6,
+      "success": true,
+      "duration": 2,
+      "expectedTime": 350,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:03.230Z"
+    },
+    {
+      "round": 8,
+      "name": "内存密集操作",
+      "difficulty": 7,
+      "success": true,
+      "duration": 47,
+      "expectedTime": 500,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:03.331Z"
+    },
+    {
+      "round": 9,
+      "name": "复杂数据处理",
+      "difficulty": 8,
+      "success": true,
+      "duration": 3,
+      "expectedTime": 600,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:03.398Z"
+    },
+    {
+      "round": 10,
+      "name": "综合压力测试",
+      "difficulty": 9,
+      "success": true,
+      "duration": 24,
+      "expectedTime": 800,
+      "error": null,
+      "timestamp": "2026-03-06T23:10:03.474Z"
+    }
+  ],
+  "summary": {}
+}

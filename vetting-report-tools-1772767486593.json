@@ -1,0 +1,83 @@
+{
+  "skill": {
+    "path": "tools",
+    "name": "tools",
+    "exists": true,
+    "hasSkillMd": false
+  },
+  "summary": {
+    "overallScore": 75,
+    "securityScore": 80,
+    "qualityScore": 75,
+    "dependenciesScore": 100,
+    "documentationScore": 0,
+    "riskLevel": "中风险",
+    "totalIssues": 3,
+    "totalWarnings": 1,
+    "passed": true
+  },
+  "details": {
+    "security": {
+      "issues": [
+        {
+          "level": "high",
+          "message": "发现危险操作: /shutdown/",
+          "file": "skill-vetter-core.js",
+          "suggestion": "避免使用危险的系统操作"
+        }
+      ],
+      "warnings": [],
+      "score": 80,
+      "filesScanned": 4
+    },
+    "codeQuality": {
+      "issues": [
+        {
+          "level": "medium",
+          "message": "文件过大: 514 行",
+          "file": "skill-vetter-core.js",
+          "suggestion": "考虑拆分为多个小文件"
+        }
+      ],
+      "warnings": [
+        {
+          "level": "low",
+          "message": "未发现测试文件",
+          "suggestion": "添加单元测试确保代码质量"
+        }
+      ],
+      "metrics": {
+        "totalFiles": 4,
+        "jsFiles": 4,
+        "mdFiles": 0,
+        "testFiles": 0,
+        "totalLines": 1539,
+        "avgLinesPerFile": 385,
+        "maxFileLines": 514,
+        "maxFileName": "skill-vetter-core.js"
+      },
+      "score": 75
+    },
+    "dependencies": {
+      "totalDependencies": 0,
+      "score": 100
+    },
+    "documentation": {
+      "hasSkillMd": false,
+      "skillMdScore": 0,
+      "hasReadme": false,
+      "exampleFiles": 0,
+      "issues": [
+        {
+          "level": "high",
+          "message": "缺少SKILL.md文件",
+          "suggestion": "创建SKILL.md文档，描述技能功能和使用方法"
+        }
+      ],
+      "score": 0
+    }
+  },
+  "timestamp": "2026-03-06T03:24:46.587Z",
+  "generatedBy": "Skill Vetter Core",
+  "version": "1.0.0"
+}

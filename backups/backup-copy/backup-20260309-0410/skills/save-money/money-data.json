@@ -1,0 +1,29 @@
+{
+  "expenses": [
+    {
+      "id": "1772827146088",
+      "amount": 50,
+      "category": "餐饮",
+      "description": "测试午餐",
+      "date": "2026-03-06",
+      "paymentMethod": "现金",
+      "tags": [],
+      "createdAt": "2026-03-06T19:59:06.089Z"
+    }
+  ],
+  "budgets": {},
+  "goals": [],
+  "settings": {
+    "currency": "CNY",
+    "categories": [
+      "餐饮",
+      "交通",
+      "住房",
+      "购物",
+      "娱乐",
+      "医疗",
+      "教育",
+      "其他"
+    ]
+  }
+}

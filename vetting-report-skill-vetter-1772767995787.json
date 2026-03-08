@@ -1,0 +1,71 @@
+{
+  "skill": {
+    "path": "skills/skill-vetter",
+    "name": "Skill Vetter",
+    "exists": true,
+    "description": "技能审查和验证工具 - 用于分析、评估和验证OpenClaw技能的安全性、质量和兼容性。提供安全检查、代码审查、依赖分析等功能。",
+    "hasSkillMd": true,
+    "skillMdSize": 6101
+  },
+  "summary": {
+    "overallScore": 89,
+    "securityScore": 100,
+    "qualityScore": 80,
+    "dependenciesScore": 100,
+    "documentationScore": 50,
+    "riskLevel": "低风险",
+    "totalIssues": 1,
+    "totalWarnings": 1,
+    "passed": true
+  },
+  "details": {
+    "security": {
+      "issues": [],
+      "warnings": [],
+      "score": 100,
+      "filesScanned": 0
+    },
+    "codeQuality": {
+      "issues": [],
+      "warnings": [
+        {
+          "level": "low",
+          "message": "未发现测试文件",
+          "suggestion": "添加单元测试确保代码质量"
+        }
+      ],
+      "metrics": {
+        "totalFiles": 1,
+        "jsFiles": 0,
+        "mdFiles": 1,
+        "testFiles": 0,
+        "totalLines": 0,
+        "avgLinesPerFile": 0,
+        "maxFileLines": 0,
+        "maxFileName": ""
+      },
+      "score": 80
+    },
+    "dependencies": {
+      "totalDependencies": 0,
+      "score": 100
+    },
+    "documentation": {
+      "hasSkillMd": true,
+      "skillMdScore": 50,
+      "hasReadme": false,
+      "exampleFiles": 0,
+      "issues": [
+        {
+          "level": "medium",
+          "message": "SKILL.md文档不完整 (50分)",
+          "suggestion": "补充缺失的部分: name, description, usage, installation"
+        }
+      ],
+      "score": 50
+    }
+  },
+  "timestamp": "2026-03-06T03:33:15.777Z",
+  "generatedBy": "Skill Vetter Core",
+  "version": "1.0.0"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "openclaw-anything",
+  "version": "1.0.0",
+  "description": "多功能工具集 - 提供各种实用工具和功能，包括文件处理、系统管理、网络工具等",
+  "main": "tools-example.js",
+  "scripts": {
+    "start": "node tools-example.js --diagnose",
+    "monitor": "node tools-example.js --monitor",
+    "list-files": "node tools-example.js --list-files",
+    "test": "echo \"运行测试...\" && node tools-example.js --diagnose"
+  },
+  "keywords": [
+    "openclaw",
+    "tools",
+    "utilities",
+    "file-processing",
+    "system-monitoring",
+    "network-tools"
+  ],
+  "author": "扎克 (Zack)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "optionalDependencies": {
+    "cheerio": "^1.0.0",
+    "fs-extra": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

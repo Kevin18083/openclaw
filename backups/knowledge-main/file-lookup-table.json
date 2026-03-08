@@ -1,0 +1,334 @@
+{
+  "name": "快速查找表",
+  "description": "中文文件名映射表 - 说中文自动定位文件",
+  "lastUpdated": "2026-03-08 23:13",
+  "files": [
+    {
+      "filename": "MEMORY.md",
+      "pinyin": "memory.md",
+      "zhName": "长期记忆",
+      "keywords": ["记忆", "长期记忆", "系统状态", "用户偏好", "学习方向"],
+      "path": "workspace/MEMORY.md"
+    },
+    {
+      "filename": "HEARTBEAT.md",
+      "pinyin": "heartbeat.md",
+      "zhName": "心跳检查清单",
+      "keywords": ["心跳", "检查", "主动代理", "每日检查", "每周检查"],
+      "path": "workspace/HEARTBEAT.md"
+    },
+    {
+      "filename": "SOUL.md",
+      "pinyin": "soul.md",
+      "zhName": "灵魂文件",
+      "keywords": ["灵魂", "核心", "身份", "行为准则"],
+      "path": "workspace/SOUL.md"
+    },
+    {
+      "filename": "IDENTITY.md",
+      "pinyin": "identity.md",
+      "zhName": "身份文件",
+      "keywords": ["身份", "名字", "扎克", "AI 助手"],
+      "path": "workspace/IDENTITY.md"
+    },
+    {
+      "filename": "USER.md",
+      "pinyin": "user.md",
+      "zhName": "用户信息",
+      "keywords": ["用户", "罗总", "偏好", "沟通风格"],
+      "path": "workspace/USER.md"
+    },
+    {
+      "filename": "AGENTS.md",
+      "pinyin": "agents.md",
+      "zhName": "代理工作区指南",
+      "keywords": ["工作区", "指南", "规则", "记忆系统"],
+      "path": "workspace/AGENTS.md"
+    },
+    {
+      "filename": "TOOLS.md",
+      "pinyin": "tools.md",
+      "zhName": "工具本地笔记",
+      "keywords": ["工具", "配置", "设备", "环境"],
+      "path": "workspace/TOOLS.md"
+    },
+    {
+      "filename": "caozuo_rizhi.md",
+      "pinyin": "caozuo_rizhi.md",
+      "zhName": "操作日志",
+      "keywords": ["操作", "日志", "记录", "历史"],
+      "path": "workspace/memory/caozuo_rizhi.md"
+    },
+    {
+      "filename": "kuajing_leimu_shendu_xuexi.md",
+      "pinyin": "kuajing_leimu_shendu_xuexi.md",
+      "zhName": "跨境类目深度学习",
+      "keywords": ["跨境", "类目", "深度学习", "电商"],
+      "path": "workspace/memory/kuajing_leimu_shendu_xuexi.md"
+    },
+    {
+      "filename": "self-improvement.md",
+      "pinyin": "self-improvement.md",
+      "zhName": "自我改进",
+      "keywords": ["自我改进", "优化", "提升"],
+      "path": "workspace/memory/self-improvement.md"
+    },
+    {
+      "filename": "aliyun-health-check.js",
+      "pinyin": "aliyun-health-check.js",
+      "zhName": "阿里云健康检查",
+      "keywords": ["阿里云", "健康检查", "API", "模型状态"],
+      "path": "workspace/memory/aliyun-health-check.js"
+    },
+    {
+      "filename": "memory-maintenance.js",
+      "pinyin": "memory-maintenance.js",
+      "zhName": "记忆维护脚本",
+      "keywords": ["记忆", "维护", "自动整理", "备份"],
+      "path": "workspace/memory/memory-maintenance.js"
+    },
+    {
+      "filename": "auto-save-learning.js",
+      "pinyin": "auto-save-learning.js",
+      "zhName": "学习自动保存",
+      "keywords": ["学习", "自动保存", "记忆系统"],
+      "path": "workspace/memory/auto-save-learning.js"
+    },
+    {
+      "filename": "self-improvement-system.py",
+      "pinyin": "self-improvement-system.py",
+      "zhName": "自我改进系统",
+      "keywords": ["自我改进", "系统", "Python", "自动化"],
+      "path": "workspace/memory/self-improvement-system.py"
+    },
+    {
+      "filename": "zhake_xitong_weihu.bat",
+      "pinyin": "zhake_xitong_weihu.bat",
+      "zhName": "扎克系统维护",
+      "keywords": ["系统维护", "扎克", "批处理", "维护"],
+      "path": "workspace/zhake_xitong_weihu.bat"
+    },
+    {
+      "filename": "zhake_jingxiang_xitong_shiyong_zhinan.md",
+      "pinyin": "zhake_jingxiang_xitong_shiyong_zhinan.md",
+      "zhName": "镜像系统使用指南",
+      "keywords": ["镜像", "系统", "使用指南", "备份"],
+      "path": "workspace/zhake_jingxiang_xitong_shiyong_zhinan.md"
+    },
+    {
+      "filename": "zhake_anquan_quanxian_zhinan.md",
+      "pinyin": "zhake_anquan_quanxian_zhinan.md",
+      "zhName": "安全权限指南",
+      "keywords": ["安全", "权限", "指南", "操作分类"],
+      "path": "workspace/zhake_anquan_quanxian_zhinan.md"
+    },
+    {
+      "filename": "yichang_chuli_jizhi.md",
+      "pinyin": "yichang_chuli_jizhi.md",
+      "zhName": "异常处理机制",
+      "keywords": ["异常", "处理", "机制", "错误"],
+      "path": "workspace/yichang_chuli_jizhi.md"
+    },
+    {
+      "filename": "model-switch-state.json",
+      "pinyin": "model-switch-state.json",
+      "zhName": "模型切换状态",
+      "keywords": ["模型", "切换", "状态", "阿里云", "DeepSeek"],
+      "path": "workspace/model-switch-state.json"
+    },
+    {
+      "filename": "auto-switch-model.js",
+      "pinyin": "auto-switch-model.js",
+      "zhName": "自动模型切换",
+      "keywords": ["模型", "自动切换", "脚本"],
+      "path": "workspace/auto-switch-model.js"
+    },
+    {
+      "filename": "performance-monitor.js",
+      "pinyin": "performance-monitor.js",
+      "zhName": "性能监控",
+      "keywords": ["性能", "监控", "系统状态"],
+      "path": "workspace/performance-monitor.js"
+    },
+    {
+      "filename": "error-monitor.js",
+      "pinyin": "error-monitor.js",
+      "zhName": "错误监控",
+      "keywords": ["错误", "监控", "异常"],
+      "path": "workspace/error-monitor.js"
+    },
+    {
+      "filename": "error-log.md",
+      "pinyin": "error-log.md",
+      "zhName": "错误日志",
+      "keywords": ["错误", "日志", "记录"],
+      "path": "workspace/error-log.md"
+    },
+    {
+      "filename": "self-optimization-log.md",
+      "pinyin": "self-optimization-log.md",
+      "zhName": "自优化日志",
+      "keywords": ["自优化", "日志", "改进"],
+      "path": "workspace/self-optimization-log.md"
+    },
+    {
+      "filename": "zach-learned-jack-standards.md",
+      "pinyin": "zach-learned-jack-standards.md",
+      "zhName": "Jack 标准学习记录",
+      "keywords": ["Jack", "标准", "学习", "规范"],
+      "path": "workspace/memory/zach-learned-jack-standards.md"
+    },
+    {
+      "filename": "zach-learning-jack-coding-style.md",
+      "pinyin": "zach-learning-jack-coding-style.md",
+      "zhName": "Jack 代码风格学习",
+      "keywords": ["Jack", "代码风格", "编程", "学习"],
+      "path": "workspace/memory/zach-learning-jack-coding-style.md"
+    },
+    {
+      "filename": "code_learning_plan.md",
+      "pinyin": "code_learning_plan.md",
+      "zhName": "代码学习计划",
+      "keywords": ["代码", "学习", "计划", "目标", "钉钉", "机器人"],
+      "path": "workspace/code_learning_plan.md"
+    },
+    {
+      "filename": "moxing_qiehuan_ceshi_jihua.md",
+      "pinyin": "moxing_qiehuan_ceshi_jihua.md",
+      "zhName": "模型切换测试计划",
+      "keywords": ["模型", "切换", "测试", "阿里云", "DeepSeek"],
+      "path": "workspace/moxing_qiehuan_ceshi_jihua.md"
+    },
+    {
+      "filename": "zhake_jingxiang_zhengshiban_guanli.bat",
+      "pinyin": "zhake_jingxiang_zhengshiban_guanli.bat",
+      "zhName": "镜像系统正式版管理",
+      "keywords": ["镜像", "管理", "备份", "恢复", "正式版"],
+      "path": "workspace/zhake_jingxiang_zhengshiban_guanli.bat"
+    },
+    {
+      "filename": "quick_backup.bat",
+      "pinyin": "quick_backup.bat",
+      "zhName": "快速备份工具",
+      "keywords": ["备份", "快速", "工具", "记忆", "配置"],
+      "path": "workspace/quick_backup.bat"
+    },
+    {
+      "filename": "full-backup-system.js",
+      "pinyin": "full-backup-system.js",
+      "zhName": "完整备份系统",
+      "keywords": ["备份", "系统", "完整", "自动化"],
+      "path": "workspace/full-backup-system.js"
+    },
+    {
+      "filename": "cache-optimization-system.js",
+      "pinyin": "cache-optimization-system.js",
+      "zhName": "缓存优化系统",
+      "keywords": ["缓存", "优化", "性能", "系统"],
+      "path": "workspace/cache-optimization-system.js"
+    },
+    {
+      "filename": "tech-trend-monitor.js",
+      "pinyin": "tech-trend-monitor.js",
+      "zhName": "技术趋势监控",
+      "keywords": ["技术", "趋势", "监控", "追踪"],
+      "path": "workspace/tech-trend-monitor.js"
+    },
+    {
+      "filename": "jack-activity.js",
+      "pinyin": "jack-activity.js",
+      "zhName": "Jack 活动监控",
+      "keywords": ["Jack", "活动", "监控", "状态"],
+      "path": "workspace/jack-activity.js"
+    },
+    {
+      "filename": "zack-logger.js",
+      "pinyin": "zack-logger.js",
+      "zhName": "Zack 日志记录器",
+      "keywords": ["Zack", "日志", "记录", "系统"],
+      "path": "workspace/zack-logger.js"
+    },
+    {
+      "filename": "daily-update-simple.bat",
+      "pinyin": "daily-update-simple.bat",
+      "zhName": "每日更新脚本",
+      "keywords": ["每日", "更新", "自动", "脚本"],
+      "path": "workspace/daily-update-simple.bat"
+    },
+    {
+      "filename": "health_check.bat",
+      "pinyin": "health_check.bat",
+      "zhName": "健康检查脚本",
+      "keywords": ["健康", "检查", "系统", "状态"],
+      "path": "workspace/health_check.bat"
+    },
+    {
+      "filename": "update-openclaw.bat",
+      "pinyin": "update-openclaw.bat",
+      "zhName": "OpenClaw 更新脚本",
+      "keywords": ["OpenClaw", "更新", "升级", "系统"],
+      "path": "workspace/update-openclaw.bat"
+    },
+    {
+      "filename": "manage_openclaw.bat",
+      "pinyin": "manage_openclaw.bat",
+      "zhName": "OpenClaw 管理工具",
+      "keywords": ["OpenClaw", "管理", "启动", "停止"],
+      "path": "workspace/manage_openclaw.bat"
+    },
+    {
+      "filename": "zhake_guanli.bat",
+      "pinyin": "zhake_guanli.bat",
+      "zhName": "扎克管理工具",
+      "keywords": ["扎克", "管理", "工具", "控制"],
+      "path": "workspace/zhake_guanli.bat"
+    },
+    {
+      "filename": "file_structure.txt",
+      "pinyin": "file_structure.txt",
+      "zhName": "文件结构说明",
+      "keywords": ["文件", "结构", "目录", "说明"],
+      "path": "workspace/file_structure.txt"
+    },
+    {
+      "filename": "maintenance_plan.txt",
+      "pinyin": "maintenance_plan.txt",
+      "zhName": "维护计划",
+      "keywords": ["维护", "计划", "时间表", "任务"],
+      "path": "workspace/maintenance_plan.txt"
+    },
+    {
+      "filename": "prevention-checklist.md",
+      "pinyin": "prevention-checklist.md",
+      "zhName": "预防检查清单",
+      "keywords": ["预防", "检查", "清单", "安全"],
+      "path": "workspace/prevention-checklist.md"
+    },
+    {
+      "filename": "SYSTEM-CHECK-AND-OPTIMIZE.md",
+      "pinyin": "system-check-and-optimize.md",
+      "zhName": "系统检查与优化",
+      "keywords": ["系统", "检查", "优化", "性能"],
+      "path": "workspace/SYSTEM-CHECK-AND-OPTIMIZE.md"
+    },
+    {
+      "filename": "SELF-IMPROVEMENT-SYSTEM.md",
+      "pinyin": "self-improvement-system.md",
+      "zhName": "自我改进系统文档",
+      "keywords": ["自我改进", "系统", "文档", "说明"],
+      "path": "workspace/SELF-IMPROVEMENT-SYSTEM.md"
+    },
+    {
+      "filename": "KNOWLEDGE-UPDATE-SYSTEM.md",
+      "pinyin": "knowledge-update-system.md",
+      "zhName": "知识更新系统",
+      "keywords": ["知识", "更新", "系统", "学习"],
+      "path": "workspace/KNOWLEDGE-UPDATE-SYSTEM.md"
+    }
+  ],
+  "usage": {
+    "method1": "直接说中文名 - 例如：'查看操作日志' → 自动找到 caozuo_rizhi.md",
+    "method2": "说关键词 - 例如：'跨境' → 自动找到 kuajing_leimu_shendu_xuexi.md",
+    "method3": "说功能 - 例如：'健康检查' → 自动找到 aliyun-health-check.js"
+  }
+}

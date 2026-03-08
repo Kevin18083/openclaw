@@ -1,0 +1,9 @@
+{
+  "consecutiveFailures": 0,
+  "consecutiveSuccesses": 61,
+  "currentModel": "bailian/qwen3.5-plus",
+  "lastSwitchAt": null,
+  "totalChecks": 61,
+  "totalSwitches": 0,
+  "testStartTime": null
+}

@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@tavily/core": "^0.7.2",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "chart.js": "^4.5.1",
+    "depcheck": "^1.4.7",
+    "eslint": "^10.0.2",
+    "exceljs": "^4.4.0",
+    "license-checker": "^25.0.1",
+    "moment": "^2.30.1"
+  }
+}
