@@ -1,6 +1,6 @@
 # 每日自动备份任务说明
 
-> 每天凌晨 3 点自动备份所有关键文件
+> 每天下午 6 点和凌晨 12 点自动备份所有关键文件
 
 ---
 
@@ -8,8 +8,8 @@
 
 | 项目 | 内容 |
 |------|------|
-| **任务名称** | Claude-Auto-Backup-Daily |
-| **执行时间** | 每天凌晨 3:00 |
+| **任务名称** | Claude-Auto-Backup-Daily-18 和 Claude-Auto-Backup-Daily-00 |
+| **执行时间** | 每天下午 6:00 和 凌晨 12:00 |
 | **执行脚本** | auto-backup-all.ps1 |
 | **备份内容** | MEMORY.md, skills/, CLAUDE.md |
 
@@ -46,13 +46,15 @@ cd C:\Users\17589\.openclaw\workspace
 ### 方法 2：PowerShell
 
 ```powershell
-Get-ScheduledTask -TaskName "Claude-Auto-Backup-Daily"
+Get-ScheduledTask -TaskName "Claude-Auto-Backup-Daily-18"
+Get-ScheduledTask -TaskName "Claude-Auto-Backup-Daily-00"
 ```
 
 ### 方法 3：命令行
 
 ```cmd
-schtasks /query /tn "Claude-Auto-Backup-Daily"
+schtasks /query /tn "Claude-Auto-Backup-Daily-18"
+schtasks /query /tn "Claude-Auto-Backup-Daily-00"
 ```
 
 ---
@@ -60,8 +62,11 @@ schtasks /query /tn "Claude-Auto-Backup-Daily"
 ## 🧪 手动测试
 
 ```powershell
-# 立即运行任务
-schtasks /run /tn "Claude-Auto-Backup-Daily"
+# 立即运行任务（下午 6 点）
+schtasks /run /tn "Claude-Auto-Backup-Daily-18"
+
+# 立即运行任务（凌晨 12 点）
+schtasks /run /tn "Claude-Auto-Backup-Daily-00"
 
 # 或运行脚本
 .\auto-backup-all.ps1
@@ -90,7 +95,7 @@ Get-Content ~\.restore-log.txt -Tail 20
 | 电池模式 | 使用电池时也运行 |
 | 网络要求 | 不要求网络 |
 | 执行超时 | 1 小时 |
-| 重复策略 | 每天一次 |
+| 重复策略 | 每天两次（6PM 和 12AM） |
 
 ---
 

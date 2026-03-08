@@ -8,27 +8,42 @@ Write-Host ""
 
 $taskName = "Claude-Auto-Backup-Daily"
 $scriptPath = "$PSScriptRoot\auto-backup-all.ps1"
-$triggerTime = "3:00 AM"
+$triggerTime1 = "6:00 PM"
+$triggerTime2 = "12:00 AM"
 
 Write-Host "任务名称：$taskName"
 Write-Host "备份脚本：$scriptPath"
-Write-Host "执行时间：每天 $triggerTime"
+Write-Host "执行时间：每天 $triggerTime1 和 $triggerTime2"
 Write-Host ""
 
 # 检查是否已存在
-$existingTask = Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue
+$existingTask1 = Get-ScheduledTask -TaskName "$taskName-18" -ErrorAction SilentlyContinue
+$existingTask2 = Get-ScheduledTask -TaskName "$taskName-00" -ErrorAction SilentlyContinue
 
-if ($existingTask) {
-    Write-Host "[INFO] 任务已存在，正在更新..." -ForegroundColor Yellow
-    Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+if ($existingTask1) {
+    Write-Host "[INFO] 任务 1 已存在，正在更新..." -ForegroundColor Yellow
+    Unregister-ScheduledTask -TaskName "$taskName-18" -Confirm:$false
+}
+if ($existingTask2) {
+    Write-Host "[INFO] 任务 2 已存在，正在更新..." -ForegroundColor Yellow
+    Unregister-ScheduledTask -TaskName "$taskName-00" -Confirm:$false
 }
 
 # 创建任务设置
 $principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType S4U -RunLevel Highest
-$trigger = New-ScheduledTaskTrigger -Daily -At 3am
-$action = New-ScheduledTaskAction -Execute "powershell.exe" `
+
+# 任务 1：下午 6 点
+$trigger1 = New-ScheduledTaskTrigger -Daily -At 6pm
+$action1 = New-ScheduledTaskAction -Execute "powershell.exe" `
     -Argument "-ExecutionPolicy Bypass -File `"$scriptPath`"" `
     -WorkingDirectory "$PSScriptRoot"
+
+# 任务 2：凌晨 12 点
+$trigger2 = New-ScheduledTaskTrigger -Daily -At 12am
+$action2 = New-ScheduledTaskAction -Execute "powershell.exe" `
+    -Argument "-ExecutionPolicy Bypass -File `"$scriptPath`"" `
+    -WorkingDirectory "$PSScriptRoot"
+
 $settings = New-ScheduledTaskSettingsSet `
     -AllowStartIfOnBatteries `
     -DontStopIfGoingOnBatteries `
@@ -39,12 +54,21 @@ $settings = New-ScheduledTaskSettingsSet `
 # 注册任务
 try {
     Register-ScheduledTask `
-        -TaskName $taskName `
+        -TaskName "$taskName-18" `
         -Principal $principal `
-        -Trigger $trigger `
-        -Action $action `
+        -Trigger $trigger1 `
+        -Action $action1 `
         -Settings $settings `
-        -Description "每天凌晨 3 点自动备份 Claude 关键文件" `
+        -Description "每天下午 6 点自动备份 Claude 关键文件" `
+        -ErrorAction Stop
+
+    Register-ScheduledTask `
+        -TaskName "$taskName-00" `
+        -Principal $principal `
+        -Trigger $trigger2 `
+        -Action $action2 `
+        -Settings $settings `
+        -Description "每天凌晨 12 点自动备份 Claude 关键文件" `
         -ErrorAction Stop
 
     Write-Host ""
@@ -53,8 +77,8 @@ try {
     Write-Host "========================================"
     Write-Host ""
     Write-Host "任务详情:"
-    Write-Host "  - 名称：$taskName"
-    Write-Host "  - 时间：每天凌晨 3:00"
+    Write-Host "  - 名称：$taskName-18 和 $taskName-00"
+    Write-Host "  - 时间：每天下午 6:00 和 凌晨 12:00"
     Write-Host "  - 操作：运行 auto-backup-all.ps1"
     Write-Host ""
     Write-Host "查看任务：打开 '任务计划程序' -> '任务计划程序库'"
