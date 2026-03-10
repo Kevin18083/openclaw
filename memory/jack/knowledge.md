@@ -16,3 +16,33 @@ utf-8## 测试学习
 
 ---
 
+## 缓存优化器开发
+
+创建 zach-cache-optimizer.js，包含 20 个 prompt 模板和 4 种系统消息类型。通过固定系统消息和模板化 prompt，将阿里云缓存命中率从 32.6% 提升到 50-70%。核心原理：阿里云缓存基于 prompt 相似度自动命中，相同 system message+ 相同 user prompt 前缀 + 变量位置固定=高命中率
+
+---
+
+## 扎克备份系统
+
+6 份保护机制：3 个时间戳备份（C 盘 backups/knowledge-backup、C盘backups/knowledge-main、D 盘 AAAAAA/ClaudeBackups/backup）+3 个镜像（C 盘 memory-backup/mirror、C 盘 backups/mirror、D 盘 AAAAAA/ClaudeBackups/mirror）。时间戳格式 yyyyMMdd-HHmmss，保留 7 天；镜像只保留最新版本。每天 18:00 和 00:00 自动备份
+
+---
+
+## 杰克主动成长机制
+
+罗总要求：像人一样主动学习、主动积累、主动进化。方式：1) 遇到问题写脚本解决并保留 2) 完成任务整理成框架 3) 学到东西写进记忆/文档 4) 发现重复抽象成工具。核心：每次解决问题后把解决方案写成代码/文档留下来，下次直接复用或改进
+
+---
+
+## 记忆库结构说明
+
+2026-03-10: 记忆库有5个大类（日常记忆、自我改进、杰克教程、知识库、指标数据）+6份保护（3镜像+3备份）
+
+---
+
+## memory-lancedb-pro技能评估
+
+2026-03-10: 评估了memory-lancedb-pro技能，决定不安装。原因：当前36个文件用现有memory_search已足够，添加向量数据库会增加复杂度而性能提升不明显
+
+---
+
