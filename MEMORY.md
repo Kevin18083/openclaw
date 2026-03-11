@@ -2,8 +2,8 @@
 
 ## System Status
 - **Created**: 2026-03-05 20:50
-- **Last Update**: 2026-03-11 20:30
-- **Reason**: Memory system not working, fixed and established
+- **Last Update**: 2026-03-12 00:00
+- **Reason**: Memory system not working, fixed and established; ECC learned; full system update; 12-class comments applied 100%
 - **Maintainer**: Zack
 
 ## Important Event Timeline
@@ -204,12 +204,12 @@
 - ✅ 故障自愈：主用恢复后自动切回
 - ✅ 状态可追踪：所有切换有记录
 
-## System Configuration
-- **Default Model**: DeepSeek (deepseek/deepseek-chat)
-- **Test Model**: Alibaba Cloud Tongyi Qianwen (aliyun/qwen-max)
-- **Health Check**: Check Alibaba Cloud connection status every 1 hour
-- **Permission Strategy**: Security-optimized strategy (A/B/C permission classification)
-- **Mirror Protection**: Dual-mirror + desktop view version
+## 系统配置
+- **默认模型**: DeepSeek (deepseek/deepseek-chat)
+- **测试模型**: 阿里云通义千问 (aliyun/qwen-max)
+- **健康检查**: 每1小时检查阿里云连接状态
+- **权限策略**: 安全优化策略 (A/B/C 权限分类)
+- **镜像保护**: 双镜像 + 桌面视图版本
 
 ## Security Policy
 - **Permission Principles**: Minimum permission, user confirmation, security audit, transparent communication
