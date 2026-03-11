@@ -1,11 +1,11 @@
 {
-  "lastCheck": "2026-03-11T00:02:11.924Z",
+  "lastCheck": "2026-03-11T12:15:35.306Z",
   "system": {
-    "cpu": 1,
-    "memory": 86,
+    "cpu": 7,
+    "memory": 78,
     "disk": 27,
-    "diskFreeGB": "182.03",
-    "timestamp": "2026-03-11T00:02:01.916Z"
+    "diskFreeGB": "182.47",
+    "timestamp": "2026-03-11T12:15:25.297Z"
   },
   "gateway": {
     "running": false,
@@ -20,6 +20,6 @@
     "syncStatus": false,
     "healthy": false
   },
-  "alertCount": 1,
-  "healthScore": 25
+  "alertCount": 0,
+  "healthScore": 40
 }

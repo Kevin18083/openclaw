@@ -1,6 +1,6 @@
 {
   "currentMirror": "primary",
-  "lastCheck": "2026-03-11T00:01:18.727Z",
+  "lastCheck": "2026-03-11T02:03:45.929Z",
   "lastSwitch": "2026-03-09T18:28:24.985Z",
   "switchReason": null,
   "healthHistory": [
@@ -412,6 +412,64 @@
     },
     {
       "timestamp": "2026-03-11T00:01:18.726Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-11T02:03:12.152Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-11T02:03:45.928Z",
       "checks": {
         "primary": {
           "exists": true,
