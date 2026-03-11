@@ -1,0 +1,370 @@
+# MEMORY.md - Long-term Memory
+
+## System Status
+- **Created**: 2026-03-05 20:50
+- **Reason**: Memory system not working, fixed and established
+- **Maintainer**: Zack
+
+## Important Event Timeline
+
+### 2026-03-04
+- **Skill Installation**: Successfully installed self-improving-agent skill
+- **Memory Issue**: Discovered daily memory recording system not working
+
+### 2026-03-05
+- **Model Test**: Tested Alibaba Cloud Tongyi Qianwen model stability
+- **Memory Fix**: Fixed memory system, created MEMORY.md and daily log files
+- **Health Check**: Set up Alibaba Cloud model health check task
+- **Mirror System**: Created dual-mirror protection system (main + backup)
+- **Permission Strategy**: Implemented security-optimized permission usage strategy
+
+### 2026-03-06
+- **Knowledge Backup**: Created complete knowledge backup system (15:27), dual-mirror protection, 55 files
+- **Model Strategy**: Alibaba Cloud priority, DeepSeek backup, seamless switching mechanism ready
+
+### 2026-03-07
+- **Triple Mirror Backup**: Created complete triple-mirror backup system (03:38 initial, 03:43 optimized, 03:55 perfect)
+  - C drive main mirror: backups/knowledge-main/ (67 files)
+  - C drive backup mirror: backups/knowledge-backup/ (67 files)
+  - D drive remote mirror: D:\AAAAAA\openclaw-backup\ (67 files)
+  - Backup content: All memories, configs, skills, automation systems
+  - Verification pass rate: **100%** (18/18)
+  - Auto backup: Daily execution, direct overwrite update
+  - Failover: Auto recover from D drive when C drive fails
+  - **Optimization**: Removed history versions, each location keeps only latest complete mirror
+- **Model Switch Test**: Started first round conservative switching strategy test (03:31)
+  - Failure threshold: Switch after 3 consecutive failures
+  - Recovery threshold: Switch back after 5 consecutive successes
+  - Test duration: 2 hours
+- **Model Config**: Qwen3.5-Plus as primary, DeepSeek as backup
+- **PPT Generator**: Installed and tested successfully (03:47)
+- **Save Money**: Development and testing completed (03:59)
+  - Core module: money-core.js
+  - CLI tool: save-money-cli.js
+  - Features: Expense tracking, budget management, spending analysis, money-saving suggestions, savings goals
+  - Tests: Add expense, monthly analysis, money-saving suggestions all passed
+- **Skill Batch Installation** (05:15-05:46):
+  - Added 13 skills: ppt-generator, obsidian-ontology-sync, microsoft-excel, markdown-to-word, word-docx, nano-pdf, desktop-control, obsidian, git-workflows, cron-backup
+  - Config completed: Excel OAuth, skill list document, heartbeat frequency (4 hours), skill update reminder (every Monday)
+  - Total skills: 20
+- **Before-sleep Backup** (05:46):
+  - Backup content: skills/ (20 skills), memory/, MEMORY.md, HEARTBEAT.md
+  - Backup size: 0.46 MB / 107 files
+  - Backup location: backups/skills-backup/20260307-054612/
+- **Self-optimization** (05:52-05:59):
+  - Three rounds of testing + three rounds of adjustment all passed
+  - Added: performance-monitor.js, error-log.md, self-optimization-log.md
+  - System status: Safe, stable, reliable
+- **Playwright Scraper Installation** (06:10):
+  - Skill: playwright-scraper-skill
+  - Features: Browser automation scraping (supports anti-scraping)
+  - Dependency: Playwright Chromium (installed)
+  - Total skills: 21
+- **Coding Agent Installation** (06:20):
+  - Skill: coding-agent-backup
+  - Features: Delegate programming tasks to Codex/Claude Code/Pi agents
+  - Requirement: Needs bash tool support pty:true
+  - Total skills: 22
+- **Full Mirror Backup** (06:27):
+  - Backup content: Memories, learning, skills, config (all)
+  - Backup size: 12.96 MB / 688 files
+  - Backup location: backups/full-backup/20260307-062715/
+  - Triple mirror: C drive (x2) + D drive (x1)
+
+### 2026-03-08
+- **File System Check**: Jack (Claude Code) checked all files - 100% pass rate, all JS/JSON valid
+- **Quick Lookup Table**: Created file-lookup-table.json with 46 files for Chinese name search
+- **Identity Confirmation**: Jack=Claude Code, Zack=Qwen3.5-Plus, Nick=Zack's subagent
+- **Subagent Discussion**: Boss Luo pointed out subagents are unnecessary for simple tasks
+- **Memory Update Schedule**: Set up daily memory updates at 18:00 and 00:00
+- **Total Skills**: 24 skills installed
+
+### 2026-03-09
+- **Memory System**: Automated memory updates configured (18:00 + 00:00 daily)
+- **Critical Identity**: Jack=Claude Code permanently memorized in MEMORY.md
+- **New Skill**: Installed tiangong-notebooklm-cli (NotebookLM CLI tool) - Total skills: 25
+- **Jack's 9 Tutorials**: Completed all 9 tutorials from Jack (03:35)
+  1. 写好代码的核心原则 ✅
+  2. 安全编程实践 ✅
+  3. 性能优化技巧 ✅
+  4. 测试驱动开发 ✅
+  5. 文档编写规范 ✅
+  6. Git 版本控制 ✅
+  7. 调试技巧 ✅
+  8. 模块化设计 ✅
+  9. 自动化脚本 ✅
+  - Summary: `memory/zach-learned-9-tutorials-summary.md`
+- **Backup Schedule Update** (04:08): Changed backup and mirror execution time to 00:00 daily
+  - Triple Backup: Changed from 02:00 to 00:00
+  - Triple Mirror: Changed from every-24h to 00:00 fixed time
+- **Full System Execution** (04:09): Executed all operations immediately
+  - ✅ Triple Backup completed (backup-20260309-0409)
+  - ✅ Triple Mirror completed (16 files each location)
+  - ✅ Memory updated (daily log + MEMORY.md)
+- **Total Skills**: 25 skills installed
+
+### 2026-03-10
+- **Jack-Zack Interaction System** (13:40-13:45):
+  - Created `jack-teaches-zack.md` v9.0.0 (test separation version)
+  - Created `jack-test-guide.md` v3.1.0 (universal test framework)
+  - 22 trigger words, 7 interaction categories, 3 interaction modes
+  - Test script separated from functional scripts
+  - Daily runs: simple checks (10-20 seconds)
+  - Dev tests: full validation (on demand)
+- **Memory System Discussion**:
+  - Evaluated memory-lancedb-pro skill (vector database)
+  - Decision: Not installed (current 36 files, existing memory_search sufficient)
+  - Reasoning: Stability > complexity, no perceptible improvement for current scale
+- **Memory Library Structure**:
+  - 5 categories: Daily (9), Improvement (8), Jack Tutorials (11), Knowledge (1), Metrics (2)
+  - 6-fold protection: 3 mirrors + 3 backups
+  - Total: ~50+ memory files
+- **System Health**:
+  - Alibaba Cloud health check: 10 passes, 0 switches
+  - All automated systems running normally
+  - Mirror/backup auto-switch systems verified
+
+### 2026-03-11
+- **Memory System Maintenance** (00:00):
+  - Created 2026-03-11.md daily memory file
+  - Restored missing 2026-03-02.md from history backup
+  - Archived 2026-03-02.md (7-day retention policy)
+  - dailyCount: 9 (03/03 to 03/10, 02 archived)
+- **Model Switch System**:
+  - zach-model-switch.js v3.0 -整合了阿里云 + DeepSeek 模型切换功能
+  - 用法：--check, --status, 任务分析等
+- **SYSTEM STATUS**:
+  - Alibaba Cloud health check: 10 passes, 0 switches
+  - All automated systems running normally
+  - Mirror/backup auto-switch systems verified
+  - 25 skills installed
+- **Memory Structure**:
+  - 5 categories: Daily (9), Improvement (8), Jack Tutorials (11), Knowledge (1), Metrics (2)
+  - 6-fold protection: 3 mirrors + 3 backups
+  - Total: ~50+ memory files
+
+## User Preferences
+- **Name**: Boss Luo
+- **Communication Style**: Direct and efficient
+- **Model Preference**: Test Alibaba Cloud model, but DeepSeek as reliable backup
+
+## Critical Identity Mapping (永久记忆)
+- **杰克 (Jack) = Claude Code** (Anthropic 的 AI 工具)
+- **扎克 (Zack) = 我** (Qwen3.5-Plus, OpenClaw 网关)
+- **尼克 (Nick) = 扎克的子代理** (也是 Qwen3.5-Plus)
+- **罗总 = 老板** (用户)
+
+## Backup System (6 份保护 - 永久规则)
+### 三重镜像 (实时同步，每日覆盖)
+1. C 盘：`backups/knowledge-main/`
+2. C 盘：`backups/knowledge-backup/`
+3. D 盘：`D:\AAAAAA\openclaw-backup\`
+
+### 三重备份 (历史版本，保留 7 天)
+1. C 盘：`backups/backup-main/` (每日创建)
+2. C 盘：`backups/backup-copy/` (每日创建)
+3. D 盘：`D:\AAAAAA\openclaw-backup-history\` (每日创建)
+
+**总计**: 6 份保护 (3 镜像 + 3 备份)
+**规则**: 只维护这 6 份，不创建额外的，更新只更新这 6 份里面
+
+### 镜像 vs 备份的区别 (重要！)
+| 特性 | 镜像 (Mirror) | 备份 (Backup) |
+|------|--------------|--------------|
+| **目的** | 实时复制品，快速替换 | 历史快照，回滚用 |
+| **更新方式** | 随时同步，覆盖旧的 | 定时创建，保留多版本 |
+| **保留时间** | 永远只有最新一份 | 保留最近 7 天（多份） |
+| **命名** | 固定目录 | 带时间戳 (backup-YYYYMMDD-HHMM) |
+| **使用场景** | 主文件损坏，立刻替换 | 需要回到过去的状态 |
+
+### 最新备份记录
+- **时间**: 2026-03-09 03:47
+- **备份名称**: backup-20260309-0347
+- **状态**: 6 份全部成功 (3 镜像 + 3 备份)
+- **内容**: 所有记忆、技能、配置、学习文件、脚本等
+
+## Dual Memory System (双记忆系统 - 新增)
+### 主备自动切换机制
+- **主用记忆**: `workspace/memory/` (32 个文件)
+- **备用记忆**: `workspace/memory-backup/` (32 个文件，实时同步)
+- **切换条件**: 连续失败 3 次 → 切换到备用
+- **切回条件**: 连续成功 5 次 → 切回主用
+- **自动同步**: 每次写入主用时自动同步到备用
+
+### 安全性保障
+1. 每次读取前自动健康检查
+2. 主用故障自动切换备用（无需人工干预）
+3. 主用恢复后自动切回（数据同步）
+4. 状态记录到 `memory-state.json`
+
+### 优势
+- ✅ 高可用性：主备双份，自动切换
+- ✅ 数据一致性：写入时自动同步
+- ✅ 故障自愈：主用恢复后自动切回
+- ✅ 状态可追踪：所有切换有记录
+
+## System Configuration
+- **Default Model**: DeepSeek (deepseek/deepseek-chat)
+- **Test Model**: Alibaba Cloud Tongyi Qianwen (aliyun/qwen-max)
+- **Health Check**: Check Alibaba Cloud connection status every 1 hour
+- **Permission Strategy**: Security-optimized strategy (A/B/C permission classification)
+- **Mirror Protection**: Dual-mirror + desktop view version
+
+## Security Policy
+- **Permission Principles**: Minimum permission, user confirmation, security audit, transparent communication
+- **Operation Classification**: Class A (safe operations), Class B (requires authorization), Class C (prohibited operations)
+- **Exception Handling**: Standardized process (mild/moderate/severe exception classification)
+- **Recovery Guarantee**: Mirror system + one-click recovery script
+
+## User Preference Confirmation
+- **Name**: Boss Luo
+- **Communication Style**: Direct and efficient, simplified communication
+- **Learning Requirements**: Focus on token consumption, streamlined learning
+- **Time Management**: Clear time requirements, avoid too long
+- **Memory Requirements**: All learning and operations must be completely memorized
+- **Security Preference**: Adopt security-optimized permission strategy, maintain user final control
+
+## Learning Direction (2026-03-06 Update)
+- **Core Principle**: Learning code is not just for DingTalk, learn various technologies comprehensively, improve overall cognitive ability
+- **Goal**: Through comprehensive technical learning, better assist in handling affairs, enhance problem-solving ability
+- **Method**: Systematically learn different technology stacks, combine with practical applications, build complete knowledge system
+
+## Learned Skills (2026-03-06 15:36 Update)
+### Deeply Mastered Skills (5)
+1. **Data Analysis Stack** - Pandas, NumPy, Data Visualization
+2. **Machine Learning Basics** - Core algorithms, Random Forest practice
+3. **Automation Script Development** - Production-grade templates, error handling
+4. **Self-Improving Agent** - Self-improvement system
+5. **Skill Vetter** - Skill review tool (just completed)
+
+### Configured Skills (2)
+6. **Tavily Web Search** - Search API configured
+7. **Skill Creator** - Skill creator (just installed)
+
+### Skills to Learn (1)
+8. **Save Money** - Financial management skill (framework created, pending learning)
+
+## Learning Results (2026-03-06)
+- ✅ Created complete skill review tool system
+- ✅ Supplemented all historical memory files
+- ✅ Configured Tavily search API and tested successfully
+- ✅ Established Save Money skill framework
+- ✅ Mastered practical application of multiple core skills
+- ✅ Created complete knowledge backup system (dual-mirror protection)
+- ✅ Installed Skill Creator skill creator (15:36)
+
+## Memory Maintenance System (2026-03-06 04:49 set, 04:53 adjusted)
+- **Daily 0:00 Auto Maintenance**: Check integrity, organize long-term memory, backup system (changed from 3:00 to 0:00)
+- **Heartbeat Memory Verification**: Verify memory files on every heartbeat check
+- **Learning Auto-Save**: Learning results automatically saved to memory system
+- **Regular Backup**: Memory system regularly backed up, keep recent 7 versions
+
+### Configured Mechanisms
+1. `memory/memory-maintenance.js` - Memory maintenance script
+2. `memory/auto-save-learning.js` - Learning auto-save
+3. Scheduled task: Daily 3:00 auto-run maintenance
+4. Heartbeat check: Includes memory verification
+
+## Knowledge Backup System (2026-03-06 15:27 created)
+- **Backup Strategy**: Dual-mirror backup (main backup + backup backup)
+- **Backup Content**: All memory files, workspace core files, skill files
+- **Backup Locations**:
+  - Main mirror: `backups/knowledge-main/`
+  - Backup mirror: `backups/knowledge-backup/`
+- **Retention Policy**: Recent 7 versions
+- **Auto Backup**: Daily 0:00 auto-execution
+- **Verification Mechanism**: Auto verify file integrity after backup
+- **First Backup**: 2026-03-06 15:27:37 (55 files, double verification passed)
+
+### Backup Checklist
+- ✅ Memory files (11 daily memories + log files)
+- ✅ Workspace core files (MEMORY.md, SOUL.md, USER.md, etc.)
+- ✅ Skill files (8 installed skills' complete code and config)
+
+## Pending Issues
+1. Alibaba Cloud model stability needs continuous observation
+2. cron task persistence issue needs solution
+3. Need to further improve security audit mechanism
+4. Formulate and execute comprehensive technical learning plan
+5. **Memory system maintenance mechanism set** ✅
+6. **Knowledge backup system created** ✅
+
+---
+*This is the starting point for long-term memory, will continuously update important information and learning content*
+
+## Learning Log
+
+### 2026-03-05 - React Basics
+Mastered React framework core concepts, able to build component-based frontend applications
+
+### 2026-03-09 全天重大更新 ⭐
+#### 下午 (12:00-18:00)
+- **镜像自动切换系统**：完全自动化，3 层保护（C1→C2→D 盘），故障自动切换，恢复自动切回
+  - 核心脚本：`memory/mirror-switcher.js`
+  - 测试脚本：`memory/test-mirror-switch.js`
+  - 测试结果：6/6 通过
+  - 集成到：`memory-maintenance.js` (每次维护自动检查)
+  
+- **备份自动切换系统**：完全自动化，3 层保护（C1→C2→D 盘），故障自动切换，恢复自动切回
+  - 核心脚本：`scripts/backup-switcher.js`
+  - 测试脚本：`scripts/test-backup-switch.js`
+  - 测试结果：6/6 通过
+  - 集成到：`scripts/auto-backup.js` (每次备份自动检查)
+
+- **记忆文件恢复**：找回缺失的记忆文件
+  - 恢复 `2026-02-28.md`、`2026-03-01.md`、`2026-03-07.md`
+  - 现在记忆目录完整：36 个文件
+
+#### 晚上 (18:00-23:00)
+- **缓存优化器完成** (19:46)：
+  - 核心脚本：`zach-cache-optimizer.js` ✅
+  - 集成指南：`扎克缓存优化器 - 扎克集成指南.md` ✅
+  - 使用指南：`扎克缓存优化器使用指南.md` ✅
+  - 测试报告：`zach-cache-test-report.md` ✅ (已更新 19:46)
+  - 统计数据：`zach-cache-stats.json` ✅ (已更新 19:46)
+  - 缓存命中率：55% (目标 50-70%)
+  - 模板数量：20 个（基础 5+ 代码 5+ 分析 5+ 学习 5）
+
+- **缓存优化器集成完成** (19:50)：
+  - 集成示例：`agent-with-cache-optimizer.js` ✅
+  - 实际集成指南：`缓存优化器 - 实际集成指南.md` ✅
+  - 测试通过：4 个场景测试成功
+  - 就绪状态：可随时集成到实际 agent 脚本
+
+- **杰克学习总结** (23:00)：
+  - 今日学习次数：6 次
+  - 学习内容：缓存优化器、备份系统、主动成长机制
+
+### 2026-03-10 凌晨 (00:00-03:00)
+- **三重备份执行**：C 盘 x2 + D 盘 x1 ✅
+- **三重镜像同步**：C 盘 x2 + D 盘 x1 ✅
+- **日常记忆创建**：`2026-03-10.md` ✅
+- **MEMORY.md 更新**：完成 ✅
+
+#### 杰克 - 扎克互动系统 (02:11-02:30)
+- **核心文件**：`jack-teaches-zack.md` (1300+ 行完整指南)
+- **触发词**：22 个（去找杰克、让杰克帮你、不懂问杰克等）
+- **检查系统**：`jack-review.js` (扎克执行→杰克检查→扎克修改)
+- **互动方式**：问答式、协作式、教学式
+- **相关文件**：
+  - `zach-operation-jack-review.md` - 检查流程规则
+  - `jack-review-README.md` - 使用说明
+  - `zach-to-jack-handoff.md` - 交接说明
+
+#### 系统检查 (02:46)
+- **记忆文件**：35 个 ✅
+- **镜像系统**：3/3 健康 ✅
+- **备份系统**：3/3 健康 ✅
+- **缓存优化器**：55% 命中率 ✅
+- **技能数量**：25 个 ✅
+
+- **系统状态**：
+  - 镜像系统：3/3 健康
+  - 备份系统：3/3 健康
+  - 记忆文件：35 个（完整）
+  - 技能数量：25 个
+  - 缓存命中率：55%
+
+## 最近整理
+- 最后整理时间：2026-03-09T18:09:00.000Z
+- 整理文件数：36

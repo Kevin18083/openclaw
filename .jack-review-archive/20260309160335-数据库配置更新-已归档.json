@@ -1,0 +1,53 @@
+{
+  "id": "20260309160335",
+  "name": "数据库配置更新",
+  "submitter": "Zack",
+  "createdAt": "2026/3/10 00:03:35",
+  "status": "passed",
+  "history": [
+    {
+      "time": "2026/3/10 00:03:35",
+      "action": "created",
+      "details": "任务创建，触发者：user"
+    },
+    {
+      "time": "2026/3/10 00:03:41",
+      "action": "submission_received",
+      "details": "数据库配置已更新，修改了连接池大小和超时时间"
+    },
+    {
+      "time": "2026/3/10 00:03:41",
+      "action": "status_change",
+      "details": "initial_review"
+    },
+    {
+      "time": "2026/3/10 00:03:41",
+      "action": "initial_review",
+      "details": {
+        "passed": true,
+        "issues": [],
+        "suggestions": []
+      }
+    },
+    {
+      "time": "2026/3/10 00:03:41",
+      "action": "status_change",
+      "details": "deep_review"
+    },
+    {
+      "time": "2026/3/10 00:03:41",
+      "action": "deep_review",
+      "details": {
+        "passed": true,
+        "issues": [],
+        "suggestions": []
+      }
+    },
+    {
+      "time": "2026/3/10 00:03:41",
+      "action": "status_change",
+      "details": "passed"
+    }
+  ],
+  "revisions": 0
+}

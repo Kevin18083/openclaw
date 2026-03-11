@@ -1,0 +1,53 @@
+{
+  "id": "20260310225104",
+  "name": "测试自动化流程",
+  "submitter": "Zack",
+  "createdAt": "2026/3/11 06:51:04",
+  "status": "passed",
+  "history": [
+    {
+      "time": "2026/3/11 06:51:04",
+      "action": "created",
+      "details": "任务创建，触发者：user"
+    },
+    {
+      "time": "2026/3/11 06:51:10",
+      "action": "submission_received",
+      "details": "测试任务 - 扎克已完成自我优化检查"
+    },
+    {
+      "time": "2026/3/11 06:51:10",
+      "action": "status_change",
+      "details": "initial_review"
+    },
+    {
+      "time": "2026/3/11 06:51:16",
+      "action": "initial_review",
+      "details": {
+        "passed": true,
+        "issues": [],
+        "suggestions": []
+      }
+    },
+    {
+      "time": "2026/3/11 06:51:16",
+      "action": "status_change",
+      "details": "deep_review"
+    },
+    {
+      "time": "2026/3/11 06:51:18",
+      "action": "deep_review",
+      "details": {
+        "passed": true,
+        "issues": [],
+        "suggestions": []
+      }
+    },
+    {
+      "time": "2026/3/11 06:51:18",
+      "action": "status_change",
+      "details": "passed"
+    }
+  ],
+  "revisions": 0
+}

@@ -1,0 +1,32 @@
+{
+  "totalRequests": 100,
+  "cacheHits": 55,
+  "cacheMisses": 45,
+  "templates": {
+    "weather": {
+      "used": 20,
+      "hits": 15
+    },
+    "fact": {
+      "used": 15,
+      "hits": 12
+    },
+    "func": {
+      "used": 25,
+      "hits": 10
+    },
+    "debug": {
+      "used": 15,
+      "hits": 8
+    },
+    "data": {
+      "used": 10,
+      "hits": 5
+    },
+    "concept": {
+      "used": 15,
+      "hits": 5
+    }
+  },
+  "lastUpdated": "2026-03-10T22:10:38.607Z"
+}

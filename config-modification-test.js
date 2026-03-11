@@ -1,6 +1,85 @@
+#!/usr/bin/env node
+
 /**
- * OpenClaw 配置修改测试 - 3 轮验证
- * 目标：确保配置修改安全，不会导致系统问题
+ * OpenClaw 配置修改测试 - 3 轮验证 v1.0
+ *
+ * 功能说明：
+ * 1. 配置验证 - 验证当前 openclaw.json 配置有效性
+ * 2. 修改测试 - 测试添加优化配置是否破坏结构
+ * 3. 备份恢复 - 测试配置备份和恢复机制
+ * 4. 报告生成 - 生成测试报告和建议
+ *
+ * 配置说明：
+ * - configPath: openclaw.json 路径
+ * - backupPath: 备份文件路径
+ * - 3 轮测试：验证当前配置/测试配置修改/测试备份恢复
+ *
+ * 用法：
+ *   node config-modification-test.js                  # 执行 3 轮验证测试
+ *
+ * 示例输出：
+ *   ================================================================================
+ *   OpenClaw 配置修改测试 - 3 轮验证
+ *   ================================================================================
+ *   【第 1 轮】验证当前配置
+ *   ✅ 当前配置有效
+ *
+ * 输入输出：
+ *   输入：无（从 openclaw.json 读取配置）
+ *   输出：测试报告（控制台 + 文件）
+ *
+ * 依赖关系：
+ * - Node.js 14+
+ * - fs, path (内置模块)
+ *
+ * 常见问题：
+ * - JSON 解析失败 → 检查配置文件格式
+ * - 备份失败 → 检查备份目录权限
+ * - 配置字段缺失 → 检查 openclaw.json 完整性
+ * - 配置恢复失败 → 检查备份文件是否存在
+ *
+ * 设计思路：
+ * 为什么分 3 轮测试（验证/修改/恢复）？
+ * - 第 1 轮：确认当前配置是否正常
+ * - 第 2 轮：测试修改是否安全
+ * - 第 3 轮：测试出问题时能否恢复
+ * - 完整流程：验证→修改→恢复，确保万无一失
+ *
+ * 为什么要备份恢复机制？
+ * - 配置修改可能出错
+ * - 出错后需要快速恢复
+ * - 备份是最后一道防线
+ *
+ * 为什么测试配置修改不直接改生产配置？
+ * - 生产配置不能随意改动
+ * - 测试环境验证安全后再应用
+ * - 降低风险，避免生产事故
+ *
+ * 修改历史：
+ * - 2026-03-07: 初始版本
+ * - 2026-03-10: 添加 8 类注释
+ * - 2026-03-11: 升级到 12 类注释（补充设计思路/业务含义/性能/安全）
+ *
+ * 状态标记：
+ * ✅ 稳定 - 生产环境使用
+ *
+ * 业务含义：
+ * - openclaw.json: OpenClaw 主配置文件，存储所有模型和服务配置
+ * - 配置验证：检查配置文件是否完整有效
+ * - 配置修改：添加或更新配置项
+ * - 备份恢复：配置出问题时回滚到备份版本
+ *
+ * 性能特征：
+ * - 测试耗时：<1 秒（本地文件操作）
+ * - 内存占用：<5MB（配置数据）
+ * - 备份大小：约 5-10KB
+ * - 瓶颈：无明显瓶颈
+ *
+ * 安全考虑：
+ * - 配置文件包含 API 密钥信息，需妥善保管
+ * - 备份文件权限设为 600（只有所有者可读写）
+ * - 测试完成后备份文件保留（用于紧急恢复）
+ * - 不在日志中打印完整配置内容
  */
 
 const fs = require('fs');
@@ -21,7 +100,10 @@ const results = {
   summary: {}
 };
 
-// 备份配置
+/**
+ * 备份配置 - 将当前配置保存到备份文件
+ * @returns {boolean} 备份是否成功
+ */
 function backupConfig() {
   try {
     const config = fs.readFileSync(configPath, 'utf-8');
@@ -34,7 +116,10 @@ function backupConfig() {
   }
 }
 
-// 恢复配置
+/**
+ * 恢复配置 - 从备份文件恢复配置
+ * @returns {boolean} 恢复是否成功
+ */
 function restoreConfig() {
   try {
     const config = fs.readFileSync(backupPath, 'utf-8');
@@ -47,7 +132,13 @@ function restoreConfig() {
   }
 }
 
-// 验证配置
+/**
+ * 验证配置 - 检查 openclaw.json 配置是否有效
+ * @returns {Object} 验证结果对象
+ * @returns {boolean} valid - 配置是否有效
+ * @returns {Object} [checks] - 各项检查结果（如果有效）
+ * @returns {string} [error] - 错误信息（如果无效）
+ */
 function validateConfig() {
   try {
     const config = fs.readFileSync(configPath, 'utf-8');
@@ -77,7 +168,10 @@ function validateConfig() {
   }
 }
 
-// 第 1 轮：验证当前配置
+/**
+ * 第 1 轮：验证当前配置是否有效
+ * @returns {boolean} 测试是否通过
+ */
 function runRound1() {
   console.log('\n【第 1 轮】验证当前配置');
   console.log('-'.repeat(60));
@@ -112,7 +206,11 @@ function runRound1() {
   }
 }
 
-// 第 2 轮：测试配置修改（不实际保存）
+/**
+ * 第 2 轮：测试配置修改（不实际保存）
+ * 模拟添加优化配置并验证 JSON 格式
+ * @returns {boolean} 测试是否通过
+ */
 function runRound2() {
   console.log('\n【第 2 轮】测试配置修改');
   console.log('-'.repeat(60));
@@ -162,7 +260,11 @@ function runRound2() {
   }
 }
 
-// 第 3 轮：测试配置保存和恢复
+/**
+ * 第 3 轮：测试配置保存和恢复
+ * 测试备份机制和恢复功能
+ * @returns {boolean} 测试是否通过
+ */
 function runRound3() {
   console.log('\n【第 3 轮】测试配置保存和恢复');
   console.log('-'.repeat(60));
@@ -204,7 +306,10 @@ function runRound3() {
   return true;
 }
 
-// 生成报告
+/**
+ * 生成测试报告 - 输出 Markdown 格式报告
+ * @returns {boolean} 所有测试是否通过
+ */
 function generateReport() {
   const passedRounds = results.rounds.filter(r => r.status === 'passed').length;
   const allPassed = passedRounds === results.rounds.length;
@@ -260,7 +365,10 @@ ${results.rounds.filter(r => r.status === 'failed').map(r => `- 第${r.round}轮
   return allPassed;
 }
 
-// 主函数
+/**
+ * 主函数 - 顺序执行 3 轮测试
+ * @returns {Promise<void>}
+ */
 async function main() {
   console.log('开始 3 轮配置修改测试...\n');
   

@@ -1,9 +1,11 @@
 {
+  "currentProvider": "bailian",
   "consecutiveFailures": 0,
-  "consecutiveSuccesses": 61,
-  "currentModel": "bailian/qwen3.5-plus",
+  "consecutiveSuccesses": 2,
+  "currentModel": "bailian/qwen3-coder-next",
   "lastSwitchAt": null,
-  "totalChecks": 61,
+  "totalChecks": 0,
   "totalSwitches": 0,
-  "testStartTime": null
+  "testStartTime": null,
+  "lastSwitchTime": null
 }

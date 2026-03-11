@@ -1,0 +1,148 @@
+{
+  "id": "20260309160115",
+  "name": "API 路由修改",
+  "submitter": "Zack",
+  "createdAt": "2026/3/10 00:01:15",
+  "status": "passed",
+  "history": [
+    {
+      "time": "2026/3/10 00:01:15",
+      "action": "created",
+      "details": "任务创建，触发者：user"
+    },
+    {
+      "time": "2026/3/10 00:01:21",
+      "action": "submission_received",
+      "details": "添加了新的 API 路由 /api/users，支持 GET 和 POST 方法，修改了 routes.js 文件"
+    },
+    {
+      "time": "2026/3/10 00:01:21",
+      "action": "status_change",
+      "details": "initial_review"
+    },
+    {
+      "time": "2026/3/10 00:01:30",
+      "action": "initial_review",
+      "details": {
+        "passed": false,
+        "issues": [
+          {
+            "description": "缺少请求参数验证",
+            "location": "routes.js 第 20 行",
+            "severity": "高"
+          },
+          {
+            "description": "缺少错误处理",
+            "location": "routes.js 第 25 行",
+            "severity": "中"
+          }
+        ],
+        "suggestions": [
+          "添加 req.body 参数验证",
+          "添加 try-catch 错误处理"
+        ]
+      }
+    },
+    {
+      "time": "2026/3/10 00:01:30",
+      "action": "status_change",
+      "details": "modifying"
+    },
+    {
+      "time": "2026/3/10 00:01:48",
+      "action": "submission_received",
+      "details": "第一次修改：已添加参数验证和 try-catch 错误处理"
+    },
+    {
+      "time": "2026/3/10 00:01:48",
+      "action": "status_change",
+      "details": "initial_review"
+    },
+    {
+      "time": "2026/3/10 00:01:55",
+      "action": "initial_review",
+      "details": {
+        "passed": true,
+        "issues": [],
+        "suggestions": []
+      }
+    },
+    {
+      "time": "2026/3/10 00:01:55",
+      "action": "status_change",
+      "details": "deep_review"
+    },
+    {
+      "time": "2026/3/10 00:02:01",
+      "action": "deep_review",
+      "details": {
+        "passed": false,
+        "issues": [
+          {
+            "description": "缺少输入数据 sanitization",
+            "location": "routes.js",
+            "severity": "中"
+          },
+          {
+            "description": "未添加 rate limiting",
+            "location": "API 路由",
+            "severity": "低"
+          }
+        ],
+        "suggestions": [
+          "添加输入数据过滤",
+          "添加速率限制防止滥用"
+        ]
+      }
+    },
+    {
+      "time": "2026/3/10 00:02:01",
+      "action": "revision",
+      "details": "第 1 次修改"
+    },
+    {
+      "time": "2026/3/10 00:02:01",
+      "action": "status_change",
+      "details": "modifying"
+    },
+    {
+      "time": "2026/3/10 00:02:05",
+      "action": "submission_received",
+      "details": "第二次修改：已添加输入数据过滤和速率限制，请重新检查"
+    },
+    {
+      "time": "2026/3/10 00:02:05",
+      "action": "status_change",
+      "details": "initial_review"
+    },
+    {
+      "time": "2026/3/10 00:02:10",
+      "action": "initial_review",
+      "details": {
+        "passed": true,
+        "issues": [],
+        "suggestions": []
+      }
+    },
+    {
+      "time": "2026/3/10 00:02:10",
+      "action": "status_change",
+      "details": "deep_review"
+    },
+    {
+      "time": "2026/3/10 00:02:14",
+      "action": "deep_review",
+      "details": {
+        "passed": true,
+        "issues": [],
+        "suggestions": []
+      }
+    },
+    {
+      "time": "2026/3/10 00:02:14",
+      "action": "status_change",
+      "details": "passed"
+    }
+  ],
+  "revisions": 1
+}

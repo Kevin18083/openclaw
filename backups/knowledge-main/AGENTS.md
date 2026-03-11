@@ -41,6 +41,21 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
 
+### ⚡ Token Efficiency - Optimize Resource Usage
+- **Memory Loading**: Use `memory/memory-index.json` for on-demand loading
+  - Default: Load only critical (MEMORY.md) + recent 2 days
+  - Full load: Only when explicitly needed
+  - Saves ~30-50% token consumption
+- **Large Files**: Use `offset/limit` for files >100KB
+  - Read in chunks, prioritize key sections
+  - Saves ~20-40% token consumption
+- **Context Management**: Trim old conversation history
+  - Keep key decisions and context
+  - Summarize when needed
+- **Tool Calls**: Use minimal required parameters
+  - Avoid redundant data in tool calls
+  - Cache results when possible
+
 ## Safety
 
 - Don't exfiltrate private data. Ever.

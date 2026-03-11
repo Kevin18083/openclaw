@@ -1,0 +1,25 @@
+{
+  "lastCheck": "2026-03-11T00:02:11.924Z",
+  "system": {
+    "cpu": 1,
+    "memory": 86,
+    "disk": 27,
+    "diskFreeGB": "182.03",
+    "timestamp": "2026-03-11T00:02:01.916Z"
+  },
+  "gateway": {
+    "running": false,
+    "responseTime": 0,
+    "error": "spawnSync C:\\WINDOWS\\system32\\cmd.exe ETIMEDOUT"
+  },
+  "memory": {
+    "memoryDirExists": true,
+    "memoryBackupDirExists": true,
+    "memoryMdExists": true,
+    "dailyFileCount": 8,
+    "syncStatus": false,
+    "healthy": false
+  },
+  "alertCount": 1,
+  "healthScore": 25
+}

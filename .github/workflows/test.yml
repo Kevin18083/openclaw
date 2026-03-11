@@ -1,0 +1,147 @@
+name: 杰克测试框架 - CI/CD
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  #════════════════════════════════════════════════════════════
+  # 快速检查 Job
+  #════════════════════════════════════════════════════════════
+  quick-check:
+    runs-on: ubuntu-latest
+    name: 快速检查
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 设置 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 安装依赖
+        run: npm install --ignore-scripts || true
+
+      - name: 运行快速检查
+        run: bash unified-gateway.sh --quick .
+
+      - name: 上传快速检查报告
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quick-check-report
+          path: test-logs/quick-check-*.md
+          retention-days: 7
+
+  #════════════════════════════════════════════════════════════
+  # 决策树评估 Job
+  #════════════════════════════════════════════════════════════
+  decision-tree:
+    runs-on: ubuntu-latest
+    name: 决策树评估
+    needs: quick-check
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 设置 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 安装依赖
+        run: npm install --ignore-scripts || true
+
+      - name: 运行决策树评估
+        run: bash unified-gateway.sh --decision .
+
+      - name: 上传决策树报告
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: decision-tree-report
+          path: test-logs/decision-tree-*.md
+          retention-days: 7
+
+      - name: 显示决策结果
+        if: always()
+        run: |
+          echo "## 决策树评估结果" >> $GITHUB_STEP_SUMMARY
+          cat test-logs/decision-tree-*.md >> $GITHUB_STEP_SUMMARY 2>/dev/null || echo "无报告生成" >> $GITHUB_STEP_SUMMARY
+
+  #════════════════════════════════════════════════════════════
+  # 完整测试 Job
+  #════════════════════════════════════════════════════════════
+  full-test:
+    runs-on: ubuntu-latest
+    name: 完整测试
+    needs: [quick-check, decision-tree]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 设置 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 安装依赖
+        run: npm install --ignore-scripts || true
+
+      - name: 运行完整测试流程
+        run: bash unified-gateway.sh --full .
+
+      - name: 上传所有测试报告
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: all-test-reports
+          path: test-logs/
+          retention-days: 14
+
+  #════════════════════════════════════════════════════════════
+  # 自测 Job - 测试框架自身验证
+  #════════════════════════════════════════════════════════════
+  self-test:
+    runs-on: ubuntu-latest
+    name: 框架自测
+    needs: quick-check
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 运行框架自测
+        run: bash self-test.sh
+
+      - name: 上传自测报告
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: self-test-report
+          path: test-logs/self-test-*.md
+          retention-days: 7
+
+  #════════════════════════════════════════════════════════════
+  # 记忆库回顾 Job
+  #════════════════════════════════════════════════════════════
+  memory-review:
+    runs-on: ubuntu-latest
+    name: 记忆库回顾
+    needs: quick-check
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 运行记忆库回顾
+        run: bash memory-review.sh .
+
+      - name: 上传记忆库报告
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: memory-review-report
+          path: memory-review-*.md
+          retention-days: 7
