@@ -1,9 +1,64 @@
+## 记忆系统整理记录
+
+### 整理时间: 2026-03-12T03:11:16.794Z
+### 整理者: 扎克
+### 整理方案: 按周、月、年维度分类
+
+### 新的目录结构
+```
+memory/
+├── daily/          # 每日记忆 (保留最近7天)
+├── weekly/         # 每周总结 (保留最近4周)
+├── monthly/        # 每月总结 (保留最近12个月)
+├── yearly/         # 年度总结 (永久保留)
+├── categories/     # 分类记忆
+│   ├── learning/   # 学习记录
+│   ├── skills/     # 技能掌握
+│   ├── system/     # 系统状态
+│   └── events/     # 重要事件
+└── archive/        # 归档文件
+```
+
+### 保留策略
+- **每日记忆**: 保留最近7天
+- **每周汇总**: 保留最近4周
+- **每月汇总**: 保留最近12个月
+- **年度汇总**: 永久保留
+
+---
+
 # MEMORY.md - Long-term Memory
 
 ## System Status
 - **Created**: 2026-03-05 20:50
 - **Reason**: Memory system not working, fixed and established
 - **Maintainer**: Zack
+
+## 文件命名规则（永久记忆 - 2026-03-12 制定）
+### 允许使用中文的文件：
+1. **12类注释相关文件**（如：`12-lei-zhushi-jiaoxue-zhinan.md`）
+2. **文档文件**（README、指南、说明等文档类文件）
+
+### 必须使用英文或拼音的文件：
+1. **代码文件**（.js、.py、.java等）
+2. **框架文件**
+3. **脚本文件**（.sh、.bat等）
+4. **配置文件**（.json、.yaml、.toml等）
+5. **其他非文档类文件**
+
+### 处理规则：
+- 已经是英文的文件名 → 保持不变
+- 中文文件名 → 改为拼音（使用连字符连接）
+- 混合中英文件名 → 改为全英文或拼音
+- 下划线改为连字符（如：`caozuo_rizhi.md` → `caozuo-rizhi.md`）
+
+### 今日整理（2026-03-12）：
+1. `caozuo_rizhi.md` → `caozuo-rizhi.md`
+2. `caozuo_rizhi_orig.md` → `caozuo-rizhi-orig.md`
+3. `kuajing_leimu_shendu_xuexi.md` → `kuajing-leimu-shendu-xuexi.md`
+4. `zhake-memory-peizhi.md` → `zhake-memory-config.md`
+5. `zhake-memory-zhengli-baogao.md` → `zhake-memory-cleanup-report.md`
+6. `zhake-ziwo-gaijin-shiyong-zhinan.md` → `zhake-self-improvement-guide.md`
 
 ## Important Event Timeline
 

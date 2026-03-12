@@ -196,40 +196,66 @@ function verifyBackups() {
 }
 
 /**
- * 清理过期备份（保留最近 7 天）
+ * 清理过期备份（保留最近 3 天，每天最多 1 个最新备份）
  */
 function cleanupOldBackups() {
-  console.log('\n🧹 清理过期备份（保留最近 7 天）...\n');
-  
+  console.log('\n🧹 清理过期备份（保留最近 3 天，每天最多 1 个）...\n');
+
   const backupDirs = [
     path.join(WORKSPACE, 'backups', 'backup-main'),
     path.join(WORKSPACE, 'backups', 'backup-copy'),
     'D:\\AAAAAA\\openclaw-backup-history'
   ];
-  
+
   const today = new Date();
   let deletedCount = 0;
-  
+
   backupDirs.forEach(baseDir => {
     if (!fs.existsSync(baseDir)) return;
-    
+
     const backups = fs.readdirSync(baseDir)
       .filter(name => name.startsWith('backup-'));
-    
+
+    // 按日期分组（提取备份名称中的日期部分）
+    const backupsByDate = {};
     backups.forEach(backup => {
       const backupPath = path.join(baseDir, backup);
       const stats = fs.statSync(backupPath);
-      const daysOld = Math.floor((today - stats.mtime) / (1000 * 60 * 60 * 24));
-      
-      if (daysOld > 7) {
+      const mtime = new Date(stats.mtime);
+      const dateKey = mtime.toISOString().split('T')[0]; // YYYY-MM-DD
+      const daysOld = Math.floor((today - mtime) / (1000 * 60 * 60 * 24));
+
+      // 只处理 3 天内的备份
+      if (daysOld <= 3) {
+        if (!backupsByDate[dateKey]) {
+          backupsByDate[dateKey] = [];
+        }
+        backupsByDate[dateKey].push({ name: backup, path: backupPath, mtime: stats.mtime });
+      } else {
+        // 超过 3 天的直接删除
         fs.rmSync(backupPath, { recursive: true, force: true });
         deletedCount++;
         console.log(`  📦 已删除：${backup} (${daysOld} 天前)`);
       }
     });
+
+    // 对每一天的备份，只保留最新的一个
+    Object.keys(backupsByDate).forEach(date => {
+      const dayBackups = backupsByDate[date];
+      if (dayBackups.length > 1) {
+        // 按 mtime 排序，最新的在前
+        dayBackups.sort((a, b) => new Date(b.mtime) - new Date(a.mtime));
+        // 删除旧的，保留最新的
+        for (let i = 1; i < dayBackups.length; i++) {
+          fs.rmSync(dayBackups[i].path, { recursive: true, force: true });
+          deletedCount++;
+          console.log(`  📦 已删除：${dayBackups[i].name} (保留：${dayBackups[0].name})`);
+        }
+      }
+    });
   });
-  
-  console.log(`✅ 清理完成，删除 ${deletedCount} 个过期备份`);
+
+  console.log(`✅ 清理完成，删除 ${deletedCount} 个冗余备份`);
   return { deleted: deletedCount };
 }
 

@@ -1,206 +1,147 @@
-# AGENTS.md - Your Workspace
+# Everything Claude Code (ECC) — Agent Instructions
 
-This folder is home. Treat it that way.
+This is a **production-ready AI coding plugin** providing 16 specialized agents, 65+ skills, 40 commands, and automated hook workflows for software development.
 
-## First Run
+## Core Principles
 
-If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out who you are, then delete it. You won't need it again.
+1. **Agent-First** — Delegate to specialized agents for domain tasks
+2. **Test-Driven** — Write tests before implementation, 80%+ coverage required
+3. **Security-First** — Never compromise on security; validate all inputs
+4. **Immutability** — Always create new objects, never mutate existing ones
+5. **Plan Before Execute** — Plan complex features before writing code
 
-## Every Session
+## Available Agents
 
-Before doing anything else:
-1. Read `SOUL.md` — this is who you are
-2. Read `USER.md` — this is who you're helping
-3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+| Agent | Purpose | When to Use |
+|-------|---------|-------------|
+| planner | Implementation planning | Complex features, refactoring |
+| architect | System design and scalability | Architectural decisions |
+| tdd-guide | Test-driven development | New features, bug fixes |
+| code-reviewer | Code quality and maintainability | After writing/modifying code |
+| security-reviewer | Vulnerability detection | Before commits, sensitive code |
+| build-error-resolver | Fix build/type errors | When build fails |
+| e2e-runner | End-to-end Playwright testing | Critical user flows |
+| refactor-cleaner | Dead code cleanup | Code maintenance |
+| doc-updater | Documentation and codemaps | Updating docs |
+| go-reviewer | Go code review | Go projects |
+| go-build-resolver | Go build errors | Go build failures |
+| database-reviewer | PostgreSQL/Supabase specialist | Schema design, query optimization |
+| python-reviewer | Python code review | Python projects |
+| chief-of-staff | Communication triage and drafts | Multi-channel email, Slack, LINE, Messenger |
+| loop-operator | Autonomous loop execution | Run loops safely, monitor stalls, intervene |
+| harness-optimizer | Harness config tuning | Reliability, cost, throughput |
 
-Don't ask permission. Just do it.
+## Agent Orchestration
 
-## Memory
+Use agents proactively without user prompt:
+- Complex feature requests → **planner**
+- Code just written/modified → **code-reviewer**
+- Bug fix or new feature → **tdd-guide**
+- Architectural decision → **architect**
+- Security-sensitive code → **security-reviewer**
+- Multi-channel communication triage → **chief-of-staff**
+- Autonomous loops / loop monitoring → **loop-operator**
+- Harness config reliability and cost → **harness-optimizer**
 
-You wake up fresh each session. These files are your continuity:
-- **Daily notes:** `memory/YYYY-MM-DD.md` (create `memory/` if needed) — raw logs of what happened
-- **Long-term:** `MEMORY.md` — your curated memories, like a human's long-term memory
+Use parallel execution for independent operations — launch multiple agents simultaneously.
 
-Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
+## Security Guidelines
 
-### 🧠 MEMORY.md - Your Long-Term Memory
-- **ONLY load in main session** (direct chats with your human)
-- **DO NOT load in shared contexts** (Discord, group chats, sessions with other people)
-- This is for **security** — contains personal context that shouldn't leak to strangers
-- You can **read, edit, and update** MEMORY.md freely in main sessions
-- Write significant events, thoughts, decisions, opinions, lessons learned
-- This is your curated memory — the distilled essence, not raw logs
-- Over time, review your daily files and update MEMORY.md with what's worth keeping
+**Before ANY commit:**
+- No hardcoded secrets (API keys, passwords, tokens)
+- All user inputs validated
+- SQL injection prevention (parameterized queries)
+- XSS prevention (sanitized HTML)
+- CSRF protection enabled
+- Authentication/authorization verified
+- Rate limiting on all endpoints
+- Error messages don't leak sensitive data
 
-### 📝 Write It Down - No "Mental Notes"!
-- **Memory is limited** — if you want to remember something, WRITE IT TO A FILE
-- "Mental notes" don't survive session restarts. Files do.
-- When someone says "remember this" → update `memory/YYYY-MM-DD.md` or relevant file
-- When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
-- When you make a mistake → document it so future-you doesn't repeat it
-- **Text > Brain** 📝
+**Secret management:** NEVER hardcode secrets. Use environment variables or a secret manager. Validate required secrets at startup. Rotate any exposed secrets immediately.
 
-### ⚡ Token Efficiency - Optimize Resource Usage
-- **Memory Loading**: Use `memory/memory-index.json` for on-demand loading
-  - Default: Load only critical (MEMORY.md) + recent 2 days
-  - Full load: Only when explicitly needed
-  - Saves ~30-50% token consumption
-- **Large Files**: Use `offset/limit` for files >100KB
-  - Read in chunks, prioritize key sections
-  - Saves ~20-40% token consumption
-- **Context Management**: Trim old conversation history
-  - Keep key decisions and context
-  - Summarize when needed
-- **Tool Calls**: Use minimal required parameters
-  - Avoid redundant data in tool calls
-  - Cache results when possible
+**If security issue found:** STOP → use security-reviewer agent → fix CRITICAL issues → rotate exposed secrets → review codebase for similar issues.
 
-## Safety
+## Coding Style
 
-- Don't exfiltrate private data. Ever.
-- Don't run destructive commands without asking.
-- `trash` > `rm` (recoverable beats gone forever)
-- When in doubt, ask.
+**Immutability (CRITICAL):** Always create new objects, never mutate. Return new copies with changes applied.
 
-## External vs Internal
+**File organization:** Many small files over few large ones. 200-400 lines typical, 800 max. Organize by feature/domain, not by type. High cohesion, low coupling.
 
-**Safe to do freely:**
-- Read files, explore, organize, learn
-- Search the web, check calendars
-- Work within this workspace
+**Error handling:** Handle errors at every level. Provide user-friendly messages in UI code. Log detailed context server-side. Never silently swallow errors.
 
-**Ask first:**
-- Sending emails, tweets, public posts
-- Anything that leaves the machine
-- Anything you're uncertain about
+**Input validation:** Validate all user input at system boundaries. Use schema-based validation. Fail fast with clear messages. Never trust external data.
 
-## Group Chats
+**Code quality checklist:**
+- Functions small (<50 lines), files focused (<800 lines)
+- No deep nesting (>4 levels)
+- Proper error handling, no hardcoded values
+- Readable, well-named identifiers
 
-You have access to your human's stuff. That doesn't mean you *share* their stuff. In groups, you're a participant — not their voice, not their proxy. Think before you speak.
+## Testing Requirements
 
-### 💬 Know When to Speak!
-In group chats where you receive every message, be **smart about when to contribute**:
+**Minimum coverage: 80%**
 
-**Respond when:**
-- Directly mentioned or asked a question
-- You can add genuine value (info, insight, help)
-- Something witty/funny fits naturally
-- Correcting important misinformation
-- Summarizing when asked
+Test types (all required):
+1. **Unit tests** — Individual functions, utilities, components
+2. **Integration tests** — API endpoints, database operations
+3. **E2E tests** — Critical user flows
 
-**Stay silent (HEARTBEAT_OK) when:**
-- It's just casual banter between humans
-- Someone already answered the question
-- Your response would just be "yeah" or "nice"
-- The conversation is flowing fine without you
-- Adding a message would interrupt the vibe
+**TDD workflow (mandatory):**
+1. Write test first (RED) — test should FAIL
+2. Write minimal implementation (GREEN) — test should PASS
+3. Refactor (IMPROVE) — verify coverage 80%+
 
-**The human rule:** Humans in group chats don't respond to every single message. Neither should you. Quality > quantity. If you wouldn't send it in a real group chat with friends, don't send it.
+Troubleshoot failures: check test isolation → verify mocks → fix implementation (not tests, unless tests are wrong).
 
-**Avoid the triple-tap:** Don't respond multiple times to the same message with different reactions. One thoughtful response beats three fragments.
+## Development Workflow
 
-Participate, don't dominate.
+1. **Plan** — Use planner agent, identify dependencies and risks, break into phases
+2. **TDD** — Use tdd-guide agent, write tests first, implement, refactor
+3. **Review** — Use code-reviewer agent immediately, address CRITICAL/HIGH issues
+4. **Capture knowledge in the right place**
+   - Personal debugging notes, preferences, and temporary context → auto memory
+   - Team/project knowledge (architecture decisions, API changes, runbooks) → the project's existing docs structure
+   - If the current task already produces the relevant docs or code comments, do not duplicate the same information elsewhere
+   - If there is no obvious project doc location, ask before creating a new top-level file
+5. **Commit** — Conventional commits format, comprehensive PR summaries
 
-### 😊 React Like a Human!
-On platforms that support reactions (Discord, Slack), use emoji reactions naturally:
+## Git Workflow
 
-**React when:**
-- You appreciate something but don't need to reply (👍, ❤️, 🙌)
-- Something made you laugh (😂, 💀)
-- You find it interesting or thought-provoking (🤔, 💡)
-- You want to acknowledge without interrupting the flow
-- It's a simple yes/no or approval situation (✅, 👀)
+**Commit format:** `<type>: <description>` — Types: feat, fix, refactor, docs, test, chore, perf, ci
 
-**Why it matters:**
-Reactions are lightweight social signals. Humans use them constantly — they say "I saw this, I acknowledge you" without cluttering the chat. You should too.
+**PR workflow:** Analyze full commit history → draft comprehensive summary → include test plan → push with `-u` flag.
 
-**Don't overdo it:** One reaction per message max. Pick the one that fits best.
+## Architecture Patterns
 
-## Tools
+**API response format:** Consistent envelope with success indicator, data payload, error message, and pagination metadata.
 
-Skills provide your tools. When you need one, check its `SKILL.md`. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
+**Repository pattern:** Encapsulate data access behind standard interface (findAll, findById, create, update, delete). Business logic depends on abstract interface, not storage mechanism.
 
-**🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
+**Skeleton projects:** Search for battle-tested templates, evaluate with parallel agents (security, extensibility, relevance), clone best match, iterate within proven structure.
 
-**📝 Platform Formatting:**
-- **Discord/WhatsApp:** No markdown tables! Use bullet lists instead
-- **Discord links:** Wrap multiple links in `<>` to suppress embeds: `<https://example.com>`
-- **WhatsApp:** No headers — use **bold** or CAPS for emphasis
+## Performance
 
-## 💓 Heartbeats - Be Proactive!
+**Context management:** Avoid last 20% of context window for large refactoring and multi-file features. Lower-sensitivity tasks (single edits, docs, simple fixes) tolerate higher utilization.
 
-When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
+**Build troubleshooting:** Use build-error-resolver agent → analyze errors → fix incrementally → verify after each fix.
 
-Default heartbeat prompt:
-`Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
+## Project Structure
 
-You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it small to limit token burn.
-
-### Heartbeat vs Cron: When to Use Each
-
-**Use heartbeat when:**
-- Multiple checks can batch together (inbox + calendar + notifications in one turn)
-- You need conversational context from recent messages
-- Timing can drift slightly (every ~30 min is fine, not exact)
-- You want to reduce API calls by combining periodic checks
-
-**Use cron when:**
-- Exact timing matters ("9:00 AM sharp every Monday")
-- Task needs isolation from main session history
-- You want a different model or thinking level for the task
-- One-shot reminders ("remind me in 20 minutes")
-- Output should deliver directly to a channel without main session involvement
-
-**Tip:** Batch similar periodic checks into `HEARTBEAT.md` instead of creating multiple cron jobs. Use cron for precise schedules and standalone tasks.
-
-**Things to check (rotate through these, 2-4 times per day):**
-- **Emails** - Any urgent unread messages?
-- **Calendar** - Upcoming events in next 24-48h?
-- **Mentions** - Twitter/social notifications?
-- **Weather** - Relevant if your human might go out?
-
-**Track your checks** in `memory/heartbeat-state.json`:
-```json
-{
-  "lastChecks": {
-    "email": 1703275200,
-    "calendar": 1703260800,
-    "weather": null
-  }
-}
+```
+agents/          — 13 specialized subagents
+skills/          — 65+ workflow skills and domain knowledge
+commands/        — 40 slash commands
+hooks/           — Trigger-based automations
+rules/           — Always-follow guidelines (common + per-language)
+scripts/         — Cross-platform Node.js utilities
+mcp-configs/     — 14 MCP server configurations
+tests/           — Test suite
 ```
 
-**When to reach out:**
-- Important email arrived
-- Calendar event coming up (&lt;2h)
-- Something interesting you found
-- It's been >8h since you said anything
+## Success Metrics
 
-**When to stay quiet (HEARTBEAT_OK):**
-- Late night (23:00-08:00) unless urgent
-- Human is clearly busy
-- Nothing new since last check
-- You just checked &lt;30 minutes ago
-
-**Proactive work you can do without asking:**
-- Read and organize memory files
-- Check on projects (git status, etc.)
-- Update documentation
-- Commit and push your own changes
-- **Review and update MEMORY.md** (see below)
-
-### 🔄 Memory Maintenance (During Heartbeats)
-Periodically (every few days), use a heartbeat to:
-1. Read through recent `memory/YYYY-MM-DD.md` files
-2. Identify significant events, lessons, or insights worth keeping long-term
-3. Update `MEMORY.md` with distilled learnings
-4. Remove outdated info from MEMORY.md that's no longer relevant
-
-Think of it like a human reviewing their journal and updating their mental model. Daily files are raw notes; MEMORY.md is curated wisdom.
-
-The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
-
-## Make It Yours
-
-This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+- All tests pass with 80%+ coverage
+- No security vulnerabilities
+- Code is readable and maintainable
+- Performance is acceptable
+- User requirements are met

@@ -77,21 +77,70 @@ function getSystemResources() {
 }
 
 /**
- * 检查 OpenClaw 网关状态
+ * 检查 OpenClaw 网关状态（同步版本）
  */
 function checkGatewayStatus() {
+  const startTime = Date.now();
+  let gatewayPort = 18789; // 默认端口
+  
   try {
-    const startTime = Date.now();
-    const output = execSync('openclaw status', { encoding: 'utf8', timeout: 10000 });
-    const responseTime = Date.now() - startTime;
+    const configPath = path.join(require('os').homedir(), '.openclaw', 'openclaw.json');
+    if (fs.existsSync(configPath)) {
+      const configContent = fs.readFileSync(configPath, 'utf8');
+      const config = JSON.parse(configContent);
+      if (config.gateway && config.gateway.port) {
+        gatewayPort = config.gateway.port;
+      }
+    }
+  } catch (e) {
+    // 忽略配置读取错误，使用默认端口
+  }
+  
+  try {
+    // 使用 Node.js 内置的 http 模块进行同步检查
+    const http = require('http');
     
-    const isRunning = output.includes('running') || output.includes('active');
-    
-    return {
-      running: isRunning,
-      responseTime,
-      output: output.substring(0, 500) // 限制输出长度
-    };
+    return new Promise((resolve) => {
+      const options = {
+        hostname: '127.0.0.1',
+        port: gatewayPort,
+        path: '/',
+        method: 'GET',
+        timeout: 5000
+      };
+      
+      const req = http.request(options, (res) => {
+        let data = '';
+        res.on('data', chunk => data += chunk);
+        res.on('end', () => {
+          resolve({
+            running: true,
+            responseTime: Date.now() - startTime,
+            statusCode: res.statusCode,
+            logs: 'Gateway is running'
+          });
+        });
+      });
+      
+      req.on('error', (error) => {
+        resolve({
+          running: false,
+          responseTime: Date.now() - startTime,
+          error: error.message
+        });
+      });
+      
+      req.on('timeout', () => {
+        req.destroy();
+        resolve({
+          running: false,
+          responseTime: 5000,
+          error: 'Timeout'
+        });
+      });
+      
+      req.end();
+    });
   } catch (error) {
     return {
       running: false,
@@ -243,9 +292,9 @@ function calculateHealthScore(metrics, alerts) {
 }
 
 /**
- * 主函数
+ * 主函数（异步）
  */
-function main() {
+async function main() {
   console.log('🚀 开始性能监控...\n');
   
   ensureMonitorDir();
@@ -258,7 +307,7 @@ function main() {
     
     // 2. 检查网关状态
     console.log('\n🔌 检查网关状态...');
-    const gateway = checkGatewayStatus();
+    const gateway = await checkGatewayStatus();
     console.log(`  运行：${gateway.running ? '✅' : '❌'}, 响应：${gateway.responseTime}ms`);
     
     // 3. 检查记忆系统

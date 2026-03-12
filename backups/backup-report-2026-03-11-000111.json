@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-03-11-000111",
+  "mirrors": [
+    {
+      "mirror": 1,
+      "status": "success",
+      "items": 11
+    },
+    {
+      "mirror": 2,
+      "status": "success",
+      "items": 11
+    },
+    {
+      "mirror": 3,
+      "status": "success",
+      "items": 11
+    }
+  ],
+  "backups": [
+    {
+      "backup": 1,
+      "status": "success",
+      "items": 11,
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\backups\\backup-main\\backup-2026-03-11-000111"
+    },
+    {
+      "backup": 2,
+      "status": "success",
+      "items": 11,
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\backups\\backup-copy\\backup-2026-03-11-000111"
+    },
+    {
+      "backup": 3,
+      "status": "success",
+      "items": 11,
+      "path": "D:\\AAAAAA\\openclaw-backup-history\\backup-2026-03-11-000111"
+    }
+  ],
+  "verification": {
+    "passRate": 100,
+    "results": [
+      {
+        "dir": "C:\\Users\\17589\\.openclaw\\workspace\\backups\\knowledge-main",
+        "valid": true,
+        "items": 11
+      },
+      {
+        "dir": "C:\\Users\\17589\\.openclaw\\workspace\\backups\\knowledge-backup",
+        "valid": true,
+        "items": 11
+      },
+      {
+        "dir": "D:\\AAAAAA\\openclaw-backup",
+        "valid": true,
+        "items": 11
+      },
+      {
+        "dir": "C:\\Users\\17589\\.openclaw\\workspace\\backups\\backup-main\\backup-2026-03-11-000111",
+        "valid": true,
+        "items": 11
+      },
+      {
+        "dir": "C:\\Users\\17589\\.openclaw\\workspace\\backups\\backup-copy\\backup-2026-03-11-000111",
+        "valid": true,
+        "items": 11
+      },
+      {
+        "dir": "D:\\AAAAAA\\openclaw-backup-history\\backup-2026-03-11-000111",
+        "valid": true,
+        "items": 11
+      }
+    ]
+  },
+  "summary": {
+    "totalMirrors": 3,
+    "totalBackups": 3,
+    "passRate": 100
+  }
+}

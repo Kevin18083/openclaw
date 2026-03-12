@@ -1,13 +1,27 @@
 {
-  "scanTime": "2026-03-05T20:52:23.503Z",
-  "totalItems": 10,
+  "scanTime": "2026-03-12T03:43:56.122Z",
+  "totalItems": 18,
   "items": [
+    {
+      "name": "automation",
+      "type": "directory",
+      "size": 0,
+      "modified": "2026-03-06T00:40:27.197Z",
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\automation"
+    },
     {
       "name": "backups",
       "type": "directory",
       "size": 0,
-      "modified": "2026-03-05T20:52:23.506Z",
+      "modified": "2026-03-12T03:43:56.121Z",
       "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\backups"
+    },
+    {
+      "name": "data-analysis",
+      "type": "directory",
+      "size": 0,
+      "modified": "2026-03-06T00:35:01.759Z",
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\data-analysis"
     },
     {
       "name": "data-structures-algorithms",
@@ -31,6 +45,13 @@
       "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\dingtalk_bot_example.js"
     },
     {
+      "name": "diyi_jieduan_xuexi_zongjie.md",
+      "type": "file",
+      "size": 3795,
+      "modified": "2026-03-05T20:14:24.359Z",
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\diyi_jieduan_xuexi_zongjie.md"
+    },
+    {
       "name": "frontend-react",
       "type": "directory",
       "size": 0,
@@ -52,6 +73,13 @@
       "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\learning_summary.md"
     },
     {
+      "name": "machine-learning",
+      "type": "directory",
+      "size": 0,
+      "modified": "2026-03-06T00:39:23.432Z",
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\machine-learning"
+    },
+    {
       "name": "nodejs-advanced",
       "type": "directory",
       "size": 0,
@@ -66,11 +94,39 @@
       "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\openclaw_plugin_example.js"
     },
     {
-      "name": "第一阶段学习总结.md",
+      "name": "project-core-2min.md",
       "type": "file",
-      "size": 3795,
-      "modified": "2026-03-05T20:14:24.359Z",
-      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\第一阶段学习总结.md"
+      "size": 3440,
+      "modified": "2026-03-06T00:46:11.193Z",
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\project-core-2min.md"
+    },
+    {
+      "name": "project-integration",
+      "type": "directory",
+      "size": 0,
+      "modified": "2026-03-06T00:41:56.351Z",
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\project-integration"
+    },
+    {
+      "name": "self-improving",
+      "type": "directory",
+      "size": 0,
+      "modified": "2026-03-06T00:58:20.060Z",
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\self-improving"
+    },
+    {
+      "name": "skill-vetter",
+      "type": "directory",
+      "size": 0,
+      "modified": "2026-03-08T15:24:05.012Z",
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\skill-vetter"
+    },
+    {
+      "name": "tavily-search",
+      "type": "directory",
+      "size": 0,
+      "modified": "2026-03-08T15:24:11.318Z",
+      "path": "C:\\Users\\17589\\.openclaw\\workspace\\learning\\tavily-search"
     }
   ]
 }
