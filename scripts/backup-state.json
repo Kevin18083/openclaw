@@ -1,6 +1,6 @@
 {
   "currentBackup": "primary",
-  "lastCheck": "2026-03-13T23:22:55.400Z",
+  "lastCheck": "2026-03-14T04:04:22.524Z",
   "lastSwitch": "2026-03-09T18:28:22.145Z",
   "switchReason": null,
   "healthHistory": [
@@ -1158,6 +1158,38 @@
     },
     {
       "timestamp": "2026-03-13T23:22:55.400Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-14T04:04:22.524Z",
       "checks": {
         "primary": {
           "exists": true,

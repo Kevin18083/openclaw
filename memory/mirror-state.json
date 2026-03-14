@@ -1,6 +1,6 @@
 {
   "currentMirror": "backup",
-  "lastCheck": "2026-03-13T23:22:44.818Z",
+  "lastCheck": "2026-03-14T04:04:13.377Z",
   "lastSwitch": "2026-03-12T12:43:59.626Z",
   "switchReason": "目录不存在",
   "healthHistory": [
@@ -1659,6 +1659,64 @@
     },
     {
       "timestamp": "2026-03-13T23:22:44.817Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-14T00:26:33.788Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-14T04:04:13.376Z",
       "checks": {
         "primary": {
           "exists": false,
