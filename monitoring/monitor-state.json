@@ -1,15 +1,15 @@
 {
-  "lastCheck": "2026-03-12T06:57:31.032Z",
+  "lastCheck": "2026-03-13T23:52:51.630Z",
   "system": {
-    "cpu": 31,
-    "memory": 79,
-    "disk": 30,
-    "diskFreeGB": "174.39",
-    "timestamp": "2026-03-12T06:57:30.999Z"
+    "cpu": 75,
+    "memory": 91,
+    "disk": 29,
+    "diskFreeGB": "176.58",
+    "timestamp": "2026-03-13T23:52:51.608Z"
   },
   "gateway": {
     "running": true,
-    "responseTime": 29,
+    "responseTime": 17,
     "statusCode": 200,
     "logs": "Gateway is running"
   },
@@ -17,10 +17,10 @@
     "memoryDirExists": true,
     "memoryBackupDirExists": true,
     "memoryMdExists": true,
-    "dailyFileCount": 8,
-    "syncStatus": false,
-    "healthy": false
+    "dailyFileCount": 9,
+    "syncStatus": true,
+    "healthy": true
   },
-  "alertCount": 0,
-  "healthScore": 70
+  "alertCount": 1,
+  "healthScore": 75
 }

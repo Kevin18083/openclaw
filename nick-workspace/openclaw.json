@@ -1,4 +1,4 @@
-{
+﻿{
   "meta": {
     "lastTouchedVersion": "0.1.7",
     "lastTouchedAt": "2026-03-08T09:22:09.371Z"
@@ -154,7 +154,7 @@
       },
       "deepseek": {
         "baseUrl": "https://api.deepseek.com/v1",
-        "apiKey": "sk-b4262ad5806c4d1cbd3a763221c21e12",
+        "apiKey": "sk-REDACTED",
         "api": "openai-completions",
         "models": [
           {

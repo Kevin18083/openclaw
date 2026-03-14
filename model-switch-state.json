@@ -1,11 +1,11 @@
 {
-  "currentProvider": "bailian",
+  "currentProvider": "deepseek",
   "consecutiveFailures": 0,
-  "consecutiveSuccesses": 2,
-  "currentModel": "bailian/qwen3-coder-next",
-  "lastSwitchAt": null,
-  "totalChecks": 0,
-  "totalSwitches": 0,
-  "testStartTime": null,
-  "lastSwitchTime": null
+  "consecutiveSuccesses": 0,
+  "currentModel": "deepseek/deepseek-chat",
+  "lastSwitchAt": "2026-03-10T15:04:58.000Z",
+  "totalChecks": 57,
+  "totalSwitches": 1,
+  "testStartTime": "2026-03-10T15:04:58.000Z",
+  "lastSwitchTime": "2026-03-10T15:04:58.000Z"
 }

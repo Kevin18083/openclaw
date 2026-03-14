@@ -1,0 +1,29 @@
+﻿# Security / secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Logs & reports
+logs/
+*.log
+test-logs/
+
+# Backups / generated data
+backups/
+backup/
+memory-backup/
+memory-archive/
+system-backups/
+skills-backup/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Large binaries (should not be in git)
+*.exe
+*.msi

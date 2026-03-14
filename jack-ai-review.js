@@ -1,61 +1,35 @@
-#!/usr/bin/env node
+﻿#!/usr/bin/env node
 
 /**
- * 杰克 AI 检查系统 - 调用 AI 真正读取内容并输出意见
+ * 鏉板厠 AI 妫€鏌ョ郴缁?- 璋冪敤 AI 鐪熸璇诲彇鍐呭骞惰緭鍑烘剰瑙? *
+ * 鍔熻兘璇存槑锛? * 1. 璇诲彇鎵庡厠鎻愪氦鐨勫唴瀹? * 2. 璋冪敤 AI API 鍒嗘瀽鍐呭璐ㄩ噺
+ * 3. 杈撳嚭鍏蜂綋鐨勩€佹湁閽堝鎬х殑妫€鏌ユ剰瑙? * 4. 淇濆瓨妫€鏌ョ粨鏋滀緵 jack-review.js 浣跨敤
  *
- * 功能说明：
- * 1. 读取扎克提交的内容
- * 2. 调用 AI API 分析内容质量
- * 3. 输出具体的、有针对性的检查意见
- * 4. 保存检查结果供 jack-review.js 使用
+ * 閰嶇疆璇存槑锛? * - API_BASE: 闃块噷鐧剧偧 API 鍦板潃
+ * - API_KEY: 浠庣幆澧冨彉閲忚鍙? * - MODEL: 浣跨敤鐨勬ā鍨? *
+ * 鐢ㄦ硶锛? *   node jack-ai-review.js initial [taskId]    # AI 鍒濇
+ *   node jack-ai-review.js deep [taskId]       # AI 娣辨
  *
- * 配置说明：
- * - API_BASE: 阿里百炼 API 地址
- * - API_KEY: 从环境变量读取
- * - MODEL: 使用的模型
+ * 杈撳叆杈撳嚭锛? *   杈撳叆锛氫换鍔?ID
+ *   杈撳嚭锛欰I 鐢熸垚鐨勬鏌ョ粨鏋? *
+ * 渚濊禆鍏崇郴锛? * - Node.js 14+
+ * - fs, path, https (鍐呯疆妯″潡)
  *
- * 用法：
- *   node jack-ai-review.js initial [taskId]    # AI 初检
- *   node jack-ai-review.js deep [taskId]       # AI 深检
+ * 甯歌闂锛? * - API_KEY 鏈缃?鈫?浣跨敤鐜鍙橀噺 OPENCLAW_API_KEY
+ * - 缃戠粶閿欒 鈫?閲嶈瘯 3 娆? *
+ * 璁捐鎬濊矾锛? * 涓轰粈涔堣璋冪敤 AI 妫€鏌ワ紵
+ * - AI 鑳界湡姝ｇ悊瑙ｅ唴瀹瑰惈涔? * - AI 鑳借緭鍑烘湁閽堝鎬х殑鎰忚
+ * - 闃叉鎵庡厠浼€犳鏌ョ粨鏋? * - 纭繚妫€鏌ヨ川閲? *
+ * 淇敼鍘嗗彶锛? * - 2026-03-11: 鍒濆鐗堟湰
  *
- * 输入输出：
- *   输入：任务 ID
- *   输出：AI 生成的检查结果
+ * 鐘舵€佹爣璁帮細
+ * 鉁?绋冲畾 - 鐢熶骇鐜浣跨敤
  *
- * 依赖关系：
- * - Node.js 14+
- * - fs, path, https (内置模块)
+ * 涓氬姟鍚箟锛? * - 鏉板厠 = AI 妫€鏌ュ櫒
+ * - 蹇呴』瀹為檯璇诲彇鎵庡厠鎻愪氦鐨勫唴瀹? * - 蹇呴』杈撳嚭鍏蜂綋鐨勬鏌ユ剰瑙? *
+ * 鎬ц兘鐗瑰緛锛? * - 妫€鏌ヨ€楁椂锛?-3 绉掞紙AI 鍝嶅簲鏃堕棿锛? * - 鍐呭瓨鍗犵敤锛?5MB
  *
- * 常见问题：
- * - API_KEY 未设置 → 使用环境变量 OPENCLAW_API_KEY
- * - 网络错误 → 重试 3 次
- *
- * 设计思路：
- * 为什么要调用 AI 检查？
- * - AI 能真正理解内容含义
- * - AI 能输出有针对性的意见
- * - 防止扎克伪造检查结果
- * - 确保检查质量
- *
- * 修改历史：
- * - 2026-03-11: 初始版本
- *
- * 状态标记：
- * ✅ 稳定 - 生产环境使用
- *
- * 业务含义：
- * - 杰克 = AI 检查器
- * - 必须实际读取扎克提交的内容
- * - 必须输出具体的检查意见
- *
- * 性能特征：
- * - 检查耗时：1-3 秒（AI 响应时间）
- * - 内存占用：<5MB
- *
- * 安全考虑：
- * - API_KEY 从环境变量读取
- * - 不记录敏感内容
- */
+ * 瀹夊叏鑰冭檻锛? * - API_KEY 浠庣幆澧冨彉閲忚鍙? * - 涓嶈褰曟晱鎰熷唴瀹? */
 
 const fs = require('fs');
 const path = require('path');
@@ -65,25 +39,24 @@ const WORKSPACE = path.join(__dirname);
 const TASKS_DIR = path.join(WORKSPACE, '.jack-review-tasks');
 const CHECKS_DIR = path.join(WORKSPACE, '.jack-checks');
 
-// API 配置 - 使用 DeepSeek API
+// API 閰嶇疆 - 浣跨敤 DeepSeek API
 const API_BASE = 'https://api.deepseek.com';
-const API_KEY = 'sk-b4262ad5806c4d1cbd3a763221c21e12';
+const API_KEY = 'sk-REDACTED';
 const MODEL = 'deepseek-chat';
 
-// 确保目录存在
+// 纭繚鐩綍瀛樺湪
 if (!fs.existsSync(CHECKS_DIR)) {
   fs.mkdirSync(CHECKS_DIR, { recursive: true });
 }
 
-// 获取命令行参数
-const [,, mode, taskId] = process.argv;
+// 鑾峰彇鍛戒护琛屽弬鏁?const [,, mode, taskId] = process.argv;
 
 if (!mode || !taskId) {
-  console.log('❓ 用法：node jack-ai-review.js [initial|deep] [taskId]');
+  console.log('鉂?鐢ㄦ硶锛歯ode jack-ai-review.js [initial|deep] [taskId]');
   process.exit(1);
 }
 
-// 查找任务文件
+// 鏌ユ壘浠诲姟鏂囦欢
 function findTaskFile(id) {
   if (!fs.existsSync(TASKS_DIR)) return null;
   const files = fs.readdirSync(TASKS_DIR).filter(f => f.endsWith('.json'));
@@ -95,13 +68,13 @@ function findTaskFile(id) {
   return null;
 }
 
-// 调用 AI API (使用 DeepSeek)
+// 璋冪敤 AI API (浣跨敤 DeepSeek)
 function callAI(prompt) {
   return new Promise((resolve, reject) => {
     const data = JSON.stringify({
       model: MODEL,
       messages: [
-        { role: 'system', content: '你是一个严格的代码检查员杰克，负责检查扎克提交的任务内容。你必须：1.仔细阅读内容 2.指出具体问题 3.给出修改建议。输出 JSON 格式：{"passed":boolean,"issues":[{"description":"问题描述","location":"位置","severity":"高/中/低"}],"suggestions":["建议 1","建议 2"],"comment":"总结评论"}' },
+        { role: 'system', content: '浣犳槸涓€涓弗鏍肩殑浠ｇ爜妫€鏌ュ憳鏉板厠锛岃礋璐ｆ鏌ユ墡鍏嬫彁浜ょ殑浠诲姟鍐呭銆備綘蹇呴』锛?.浠旂粏闃呰鍐呭 2.鎸囧嚭鍏蜂綋闂 3.缁欏嚭淇敼寤鸿銆傝緭鍑?JSON 鏍煎紡锛歿"passed":boolean,"issues":[{"description":"闂鎻忚堪","location":"浣嶇疆","severity":"楂?涓?浣?}],"suggestions":["寤鸿 1","寤鸿 2"],"comment":"鎬荤粨璇勮"}' },
         { role: 'user', content: prompt }
       ]
     });
@@ -122,28 +95,27 @@ function callAI(prompt) {
       res.on('end', () => {
         try {
           const result = JSON.parse(responseData);
-          // 处理 DeepSeek 响应格式
+          // 澶勭悊 DeepSeek 鍝嶅簲鏍煎紡
           const text = result.choices?.[0]?.message?.content || '';
           resolve(text);
         } catch (e) {
-          reject(new Error(`AI 响应解析失败：${e.message}, 原始响应：${responseData}`));
+          reject(new Error(`AI 鍝嶅簲瑙ｆ瀽澶辫触锛?{e.message}, 鍘熷鍝嶅簲锛?{responseData}`));
         }
       });
     });
 
     req.on('error', (e) => {
-      reject(new Error(`API 请求失败：${e.message}`));
+      reject(new Error(`API 璇锋眰澶辫触锛?{e.message}`));
     });
     req.write(data);
     req.end();
   });
 }
 
-// 主函数
-async function main() {
+// 涓诲嚱鏁?async function main() {
   const taskPath = findTaskFile(taskId);
   if (!taskPath) {
-    console.log(`❌ 找不到任务：${taskId}`);
+    console.log(`鉂?鎵句笉鍒颁换鍔★細${taskId}`);
     process.exit(1);
   }
 
@@ -151,55 +123,52 @@ async function main() {
   const submission = task.history.find(h => h.action === 'submission_received');
 
   if (!submission) {
-    console.log('❌ 扎克还没有提交内容');
+    console.log('鉂?鎵庡厠杩樻病鏈夋彁浜ゅ唴瀹?);
     process.exit(1);
   }
 
-  console.log('════════════════════════════════════════════════════════');
-  console.log('🤖 杰克 AI 检查系统');
-  console.log('════════════════════════════════════════════════════════');
-  console.log(`📋 任务：${task.name}`);
-  console.log(`🔍 类型：${mode === 'initial' ? '初检' : '深检'}`);
+  console.log('鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲');
+  console.log('馃 鏉板厠 AI 妫€鏌ョ郴缁?);
+  console.log('鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲');
+  console.log(`馃搵 浠诲姟锛?{task.name}`);
+  console.log(`馃攳 绫诲瀷锛?{mode === 'initial' ? '鍒濇' : '娣辨'}`);
   console.log('');
 
-  // 构建 AI 提示
+  // 鏋勫缓 AI 鎻愮ず
   const prompt = mode === 'initial'
-    ? `请初检以下扎克提交的任务内容：
+    ? `璇峰垵妫€浠ヤ笅鎵庡厠鎻愪氦鐨勪换鍔″唴瀹癸細
 
-检查清单：
-1. 格式检查 - 报告格式是否完整（有标题、步骤、内容）
-2. 步骤检查 - 步骤是否清晰、可追溯
-3. 文件检查 - 修改的文件是否存在/路径正确
-4. 语法检查 - 代码/配置语法是否正确
-5. 完整性检查 - 是否有遗漏
+妫€鏌ユ竻鍗曪細
+1. 鏍煎紡妫€鏌?- 鎶ュ憡鏍煎紡鏄惁瀹屾暣锛堟湁鏍囬銆佹楠ゃ€佸唴瀹癸級
+2. 姝ラ妫€鏌?- 姝ラ鏄惁娓呮櫚銆佸彲杩芥函
+3. 鏂囦欢妫€鏌?- 淇敼鐨勬枃浠舵槸鍚﹀瓨鍦?璺緞姝ｇ‘
+4. 璇硶妫€鏌?- 浠ｇ爜/閰嶇疆璇硶鏄惁姝ｇ‘
+5. 瀹屾暣鎬ф鏌?- 鏄惁鏈夐仐婕?
+浠诲姟鍐呭锛?${submission.details}
 
-任务内容：
-${submission.details}
+璇疯緭鍑?JSON 鏍煎紡鐨勬鏌ョ粨鏋溿€俙
+    : `璇锋繁妫€浠ヤ笅鎵庡厠鎻愪氦鐨勪换鍔″唴瀹癸紙鍒濇宸查€氳繃锛夛細
 
-请输出 JSON 格式的检查结果。`
-    : `请深检以下扎克提交的任务内容（初检已通过）：
+妫€鏌ユ竻鍗曪細
+1. 閫昏緫妫€鏌?- 浠ｇ爜閫昏緫鏄惁姝ｇ‘
+2. 瀹屾暣鎬ф鏌?- 鍔熻兘鏄惁瀹屾暣瀹炵幇
+3. 鏈€浣冲疄璺?- 鏄惁绗﹀悎缂栫爜瑙勮寖
+4. 鍙淮鎶ゆ€?- 浠ｇ爜鏄惁鏄撲簬缁存姢
+5. 鎬ц兘鑰冭檻 - 鏄惁鏈夋€ц兘闂
 
-检查清单：
-1. 逻辑检查 - 代码逻辑是否正确
-2. 完整性检查 - 功能是否完整实现
-3. 最佳实践 - 是否符合编码规范
-4. 可维护性 - 代码是否易于维护
-5. 性能考虑 - 是否有性能问题
+浠诲姟鍐呭锛?${submission.details}
 
-任务内容：
-${submission.details}
+璇疯緭鍑?JSON 鏍煎紡鐨勬鏌ョ粨鏋溿€俙;
 
-请输出 JSON 格式的检查结果。`;
-
-  console.log('📡 正在调用 AI 检查...');
+  console.log('馃摗 姝ｅ湪璋冪敤 AI 妫€鏌?..');
 
   try {
     const aiResponse = await callAI(prompt);
 
-    // 解析 AI 响应
+    // 瑙ｆ瀽 AI 鍝嶅簲
     let result;
     try {
-      // 尝试提取 JSON
+      // 灏濊瘯鎻愬彇 JSON
       const jsonMatch = aiResponse.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
         result = JSON.parse(jsonMatch[0]);
@@ -210,68 +179,65 @@ ${submission.details}
       result = { passed: true, issues: [], suggestions: [], comment: aiResponse };
     }
 
-    // 确保格式正确
+    // 纭繚鏍煎紡姝ｇ‘
     result = {
       taskId,
       mode,
       passed: result.passed || false,
       issues: result.issues || [],
       suggestions: result.suggestions || [],
-      comment: result.comment || '检查完成',
+      comment: result.comment || '妫€鏌ュ畬鎴?,
       checkedAt: new Date().toISOString(),
       aiResponse: aiResponse
     };
 
-    // 保存检查结果
-    const checkPath = path.join(CHECKS_DIR, `${taskId}-${mode}-${Date.now()}.json`);
+    // 淇濆瓨妫€鏌ョ粨鏋?    const checkPath = path.join(CHECKS_DIR, `${taskId}-${mode}-${Date.now()}.json`);
     fs.writeFileSync(checkPath, JSON.stringify(result, null, 2));
 
-    // 输出结果
+    // 杈撳嚭缁撴灉
     console.log('');
-    console.log('════════════════════════════════════════════════════════');
+    console.log('鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲');
     if (result.passed) {
-      console.log(`✅ ${mode === 'initial' ? '初检' : '深检'}通过`);
+      console.log(`鉁?${mode === 'initial' ? '鍒濇' : '娣辨'}閫氳繃`);
     } else {
-      console.log(`❌ ${mode === 'initial' ? '初检' : '深检'}发现问题`);
+      console.log(`鉂?${mode === 'initial' ? '鍒濇' : '娣辨'}鍙戠幇闂`);
     }
 
     if (result.issues.length > 0) {
       console.log('');
       result.issues.forEach((issue, i) => {
-        console.log(`${i + 1}. 【${issue.severity || '中'}】${issue.description}`);
-        if (issue.location) console.log(`   位置：${issue.location}`);
+        console.log(`${i + 1}. 銆?{issue.severity || '涓?}銆?{issue.description}`);
+        if (issue.location) console.log(`   浣嶇疆锛?{issue.location}`);
       });
     }
 
     if (result.suggestions.length > 0) {
       console.log('');
-      console.log('📝 修改建议：');
+      console.log('馃摑 淇敼寤鸿锛?);
       result.suggestions.forEach((sug, i) => {
         console.log(`${i + 1}. ${sug}`);
       });
     }
 
     console.log('');
-    console.log(`📄 检查结果已保存：${checkPath}`);
-    console.log('════════════════════════════════════════════════════════');
+    console.log(`馃搫 妫€鏌ョ粨鏋滃凡淇濆瓨锛?{checkPath}`);
+    console.log('鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲鈺愨晲');
 
-    // 输出 JSON 供外部读取
-    console.log('');
-    console.log('JSON 结果:');
+    // 杈撳嚭 JSON 渚涘閮ㄨ鍙?    console.log('');
+    console.log('JSON 缁撴灉:');
     console.log(JSON.stringify({ passed: result.passed, issues: result.issues, suggestions: result.suggestions }));
 
   } catch (error) {
-    console.log(`❌ AI 检查失败：${error.message}`);
-    console.log('使用备用检查方案...');
+    console.log(`鉂?AI 妫€鏌ュけ璐ワ細${error.message}`);
+    console.log('浣跨敤澶囩敤妫€鏌ユ柟妗?..');
 
-    // 备用检查方案
-    const fallbackResult = {
+    // 澶囩敤妫€鏌ユ柟妗?    const fallbackResult = {
       taskId,
       mode,
       passed: true,
       issues: [],
-      suggestions: ['建议使用 AI 检查以获取更详细的意见'],
-      comment: 'AI 不可用，使用备用检查',
+      suggestions: ['寤鸿浣跨敤 AI 妫€鏌ヤ互鑾峰彇鏇磋缁嗙殑鎰忚'],
+      comment: 'AI 涓嶅彲鐢紝浣跨敤澶囩敤妫€鏌?,
       checkedAt: new Date().toISOString()
     };
 
@@ -282,3 +248,4 @@ ${submission.details}
 }
 
 main();
+

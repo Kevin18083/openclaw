@@ -1,98 +1,83 @@
-# 教程 02：安全编程实践
-
-> **杰克教扎克系列教程 - 第 02 课**
+﻿# 鏁欑▼ 02锛氬畨鍏ㄧ紪绋嬪疄璺?
+> **鏉板厠鏁欐墡鍏嬬郴鍒楁暀绋?- 绗?02 璇?*
 >
-> 创建时间：2026-03-09
-> 难度：⭐⭐⭐⭐
-> 重要性：⭐⭐⭐⭐⭐（安全问题无小事！）
+> 鍒涘缓鏃堕棿锛?026-03-09
+> 闅惧害锛氣瓙猸愨瓙猸?> 閲嶈鎬э細猸愨瓙猸愨瓙猸愶紙瀹夊叏闂鏃犲皬浜嬶紒锛?
+---
+
+## 馃摎 鏈珷鐩綍
+
+1. [涓轰粈涔堝畨鍏ㄥ緢閲嶈](#1-涓轰粈涔堝畨鍏ㄥ緢閲嶈)
+2. [鏁忔劅淇℃伅澶勭悊](#2-鏁忔劅淇℃伅澶勭悊)
+3. [杈撳叆楠岃瘉](#3-杈撳叆楠岃瘉)
+4. [鏂囦欢鎿嶄綔瀹夊叏](#4-鏂囦欢鎿嶄綔瀹夊叏)
+5. [鍛戒护娉ㄥ叆闃叉姢](#5-鍛戒护娉ㄥ叆闃叉姢)
+6. [瀹夊叏鏃ュ織璁板綍](#6-瀹夊叏鏃ュ織璁板綍)
+7. [瀹夊叏妫€鏌ユ竻鍗昡(#7-瀹夊叏妫€鏌ユ竻鍗?
 
 ---
 
-## 📚 本章目录
+## 1. 涓轰粈涔堝畨鍏ㄥ緢閲嶈
 
-1. [为什么安全很重要](#1-为什么安全很重要)
-2. [敏感信息处理](#2-敏感信息处理)
-3. [输入验证](#3-输入验证)
-4. [文件操作安全](#4-文件操作安全)
-5. [命令注入防护](#5-命令注入防护)
-6. [安全日志记录](#6-安全日志记录)
-7. [安全检查清单](#7-安全检查清单)
-
----
-
-## 1. 为什么安全很重要
-
-### 1.1 真实案例
+### 1.1 鐪熷疄妗堜緥
 
 ```javascript
-// ❌ 真实发生过的安全事故
-// 某公司代码中硬编码了 AWS 密钥
-const AWS_KEY = 'AKIAIOSFODNN7EXAMPLE';  // 被传到 GitHub
-// 结果：黑客入侵，损失数百万美元
+// 鉂?鐪熷疄鍙戠敓杩囩殑瀹夊叏浜嬫晠
+// 鏌愬叕鍙镐唬鐮佷腑纭紪鐮佷簡 AWS 瀵嗛挜
+const AWS_KEY = 'AKIA_REDACTED';  // 琚紶鍒?GitHub
+// 缁撴灉锛氶粦瀹㈠叆渚碉紝鎹熷け鏁扮櫨涓囩編鍏?
+// 鉂?鏌愰」鐩洿鎺ユ嫾鎺ョ敤鎴疯緭鍏ユ墽琛屽懡浠?const userInput = req.query.filename;
+exec('cat ' + userInput);  // 鐢ㄦ埛杈撳叆: "file.txt; rm -rf /"
+// 缁撴灉锛氭湇鍔″櫒鏂囦欢琚垹闄?```
 
-// ❌ 某项目直接拼接用户输入执行命令
-const userInput = req.query.filename;
-exec('cat ' + userInput);  // 用户输入: "file.txt; rm -rf /"
-// 结果：服务器文件被删除
-```
-
-### 1.2 杰克的忠告
-
-> 扎克兄弟，记住：
+### 1.2 鏉板厠鐨勫繝鍛?
+> 鎵庡厠鍏勫紵锛岃浣忥細
 >
-> **安全问题，预防容易，补救难。**
+> **瀹夊叏闂锛岄闃插鏄擄紝琛ユ晳闅俱€?*
 >
-> 一旦出事，轻则数据泄露，重则公司倒闭。
->
-> 宁可多花 5 分钟检查，不要事后 5 天救火。
-
+> 涓€鏃﹀嚭浜嬶紝杞诲垯鏁版嵁娉勯湶锛岄噸鍒欏叕鍙稿€掗棴銆?>
+> 瀹佸彲澶氳姳 5 鍒嗛挓妫€鏌ワ紝涓嶈浜嬪悗 5 澶╂晳鐏€?
 ---
 
-## 2. 敏感信息处理
+## 2. 鏁忔劅淇℃伅澶勭悊
 
-### 2.1 密码、密钥、Token 绝不硬编码
-
+### 2.1 瀵嗙爜銆佸瘑閽ャ€乀oken 缁濅笉纭紪鐮?
 ```javascript
-// ❌ 绝对不要这样写！
+// 鉂?缁濆涓嶈杩欐牱鍐欙紒
 const config = {
   password: 'MySecret123!',
-  apiKey: 'sk-1234567890abcdef',
+  apiKey: 'sk-REDACTED',
   dbPassword: 'prod_db_p@ss'
 };
 
-// ✅ 正确做法 - 从环境变量读取
-const config = {
+// 鉁?姝ｇ‘鍋氭硶 - 浠庣幆澧冨彉閲忚鍙?const config = {
   password: process.env.DB_PASSWORD,
   apiKey: process.env.API_KEY,
   dbPassword: process.env.PROD_DB_PASSWORD
 };
 
-// 启动前设置环境变量
-// Linux/Mac: export DB_PASSWORD="xxx"
+// 鍚姩鍓嶈缃幆澧冨彉閲?// Linux/Mac: export DB_PASSWORD="xxx"
 // Windows: set DB_PASSWORD=xxx
 ```
 
-### 2.2 .env 文件管理
+### 2.2 .env 鏂囦欢绠＄悊
 
 ```bash
-# .env 文件（本地开发用）
-DB_PASSWORD=dev_password123
+# .env 鏂囦欢锛堟湰鍦板紑鍙戠敤锛?DB_PASSWORD=dev_password123
 API_KEY=sk-test-key
 
-# .env.example 文件（可以提交到 Git）
-DB_PASSWORD=your_db_password
+# .env.example 鏂囦欢锛堝彲浠ユ彁浜ゅ埌 Git锛?DB_PASSWORD=your_db_password
 API_KEY=your_api_key
 ```
 
 ```javascript
-// 使用 dotenv 库加载
-require('dotenv').config();
+// 浣跨敤 dotenv 搴撳姞杞?require('dotenv').config();
 
 const dbPassword = process.env.DB_PASSWORD;
 ```
 
 ```gitignore
-# .gitignore - 一定要忽略 .env
+# .gitignore - 涓€瀹氳蹇界暐 .env
 .env
 .env.local
 .env.production
@@ -100,12 +85,12 @@ const dbPassword = process.env.DB_PASSWORD;
 
 ---
 
-### 2.3 加密存储敏感数据
+### 2.3 鍔犲瘑瀛樺偍鏁忔劅鏁版嵁
 
 ```javascript
 const crypto = require('crypto');
 
-// 加密函数
+// 鍔犲瘑鍑芥暟
 function encrypt(text, key) {
   const cipher = crypto.createCipher('aes-256-cbc', key);
   let encrypted = cipher.update(text, 'utf8', 'hex');
@@ -113,7 +98,7 @@ function encrypt(text, key) {
   return encrypted;
 }
 
-// 解密函数
+// 瑙ｅ瘑鍑芥暟
 function decrypt(encryptedText, key) {
   const decipher = crypto.createDecipher('aes-256-cbc', key);
   let decrypted = decipher.update(encryptedText, 'hex', 'utf8');
@@ -121,62 +106,57 @@ function decrypt(encryptedText, key) {
   return decrypted;
 }
 
-// 使用示例
+// 浣跨敤绀轰緥
 const key = process.env.ENCRYPTION_KEY;
 const encryptedPassword = encrypt(userPassword, key);
-// 存储 encryptedPassword 到数据库
+// 瀛樺偍 encryptedPassword 鍒版暟鎹簱
 ```
 
 ---
 
-## 3. 输入验证
+## 3. 杈撳叆楠岃瘉
 
-### 3.1 所有输入都是不可信的
-
+### 3.1 鎵€鏈夎緭鍏ラ兘鏄笉鍙俊鐨?
 ```javascript
-// ❌ 危险！直接使用用户输入
-const filename = req.query.file;
-fs.readFile(`/data/${filename}`, callback);  // 用户可输入 ../../../etc/passwd
+// 鉂?鍗遍櫓锛佺洿鎺ヤ娇鐢ㄧ敤鎴疯緭鍏?const filename = req.query.file;
+fs.readFile(`/data/${filename}`, callback);  // 鐢ㄦ埛鍙緭鍏?../../../etc/passwd
 
-// ✅ 正确做法 - 验证 + 清理
+// 鉁?姝ｇ‘鍋氭硶 - 楠岃瘉 + 娓呯悊
 function sanitizeFilename(filename) {
-  // 只允许字母、数字、下划线、点
+  // 鍙厑璁稿瓧姣嶃€佹暟瀛椼€佷笅鍒掔嚎銆佺偣
   const sanitized = filename.replace(/[^a-zA-Z0-9_.-]/g, '');
 
-  // 防止路径遍历
+  // 闃叉璺緞閬嶅巻
   if (sanitized.includes('..') || sanitized.includes('/')) {
-    throw new Error('非法文件名');
+    throw new Error('闈炴硶鏂囦欢鍚?);
   }
 
   return sanitized;
 }
 
-// 使用
+// 浣跨敤
 const safeFilename = sanitizeFilename(req.query.file);
 fs.readFile(`/data/${safeFilename}`, callback);
 ```
 
 ---
 
-### 3.2 参数化查询（防 SQL 注入）
-
+### 3.2 鍙傛暟鍖栨煡璇紙闃?SQL 娉ㄥ叆锛?
 ```javascript
-// ❌ 危险！SQL 注入漏洞
+// 鉂?鍗遍櫓锛丼QL 娉ㄥ叆婕忔礊
 const sql = `SELECT * FROM users WHERE username = '${username}'`;
-db.query(sql);  // 用户输入：admin' --
+db.query(sql);  // 鐢ㄦ埛杈撳叆锛歛dmin' --
 
-// ✅ 正确做法 - 参数化查询
-const sql = 'SELECT * FROM users WHERE username = ?';
-db.query(sql, [username]);  // 自动转义
+// 鉁?姝ｇ‘鍋氭硶 - 鍙傛暟鍖栨煡璇?const sql = 'SELECT * FROM users WHERE username = ?';
+db.query(sql, [username]);  // 鑷姩杞箟
 ```
 
 ---
 
-### 3.3 输入验证库的使用
+### 3.3 杈撳叆楠岃瘉搴撶殑浣跨敤
 
 ```javascript
-// 使用 joi 库进行验证
-const Joi = require('joi');
+// 浣跨敤 joi 搴撹繘琛岄獙璇?const Joi = require('joi');
 
 const userSchema = Joi.object({
   username: Joi.string().alphanum().min(3).max(30).required(),
@@ -185,40 +165,39 @@ const userSchema = Joi.object({
   password: Joi.string().min(8).pattern(/^[A-Za-z0-9!@#$%]+$/).required()
 });
 
-// 验证用户输入
+// 楠岃瘉鐢ㄦ埛杈撳叆
 const { error, value } = userSchema.validate(req.body);
 if (error) {
   return res.status(400).json({ error: error.message });
 }
-// value 是清理后的安全数据
-```
+// value 鏄竻鐞嗗悗鐨勫畨鍏ㄦ暟鎹?```
 
 ---
 
-## 4. 文件操作安全
+## 4. 鏂囦欢鎿嶄綔瀹夊叏
 
-### 4.1 路径遍历防护
+### 4.1 璺緞閬嶅巻闃叉姢
 
 ```javascript
 const path = require('path');
 
-// ❌ 危险！用户可访问任意文件
+// 鉂?鍗遍櫓锛佺敤鎴峰彲璁块棶浠绘剰鏂囦欢
 app.get('/file', (req, res) => {
   const file = req.query.path;
   res.sendFile(`/var/www/${file}`);  // ../../etc/passwd
 });
 
-// ✅ 正确做法
+// 鉁?姝ｇ‘鍋氭硶
 app.get('/file', (req, res) => {
   const file = req.query.path;
 
-  // 解析并规范化路径
+  // 瑙ｆ瀽骞惰鑼冨寲璺緞
   const basePath = '/var/www';
   const fullPath = path.resolve(basePath, file);
 
-  // 确保在允许目录内
+  // 纭繚鍦ㄥ厑璁哥洰褰曞唴
   if (!fullPath.startsWith(basePath)) {
-    return res.status(403).json({ error: '禁止访问' });
+    return res.status(403).json({ error: '绂佹璁块棶' });
   }
 
   res.sendFile(fullPath);
@@ -227,60 +206,54 @@ app.get('/file', (req, res) => {
 
 ---
 
-### 4.2 文件权限控制
+### 4.2 鏂囦欢鏉冮檺鎺у埗
 
 ```javascript
 const fs = require('fs');
 
-// 创建文件时设置权限
-fs.writeFileSync('sensitive.txt', 'secret data', {
-  mode: 0o600  // 只有所有者可读写
+// 鍒涘缓鏂囦欢鏃惰缃潈闄?fs.writeFileSync('sensitive.txt', 'secret data', {
+  mode: 0o600  // 鍙湁鎵€鏈夎€呭彲璇诲啓
 });
 
-// 检查文件权限
-const stats = fs.statSync('sensitive.txt');
+// 妫€鏌ユ枃浠舵潈闄?const stats = fs.statSync('sensitive.txt');
 console.log(stats.mode.toString(8));  // 100600
 ```
 
 ---
 
-## 5. 命令注入防护
+## 5. 鍛戒护娉ㄥ叆闃叉姢
 
-### 5.1 永远不要拼接用户输入执行命令
+### 5.1 姘歌繙涓嶈鎷兼帴鐢ㄦ埛杈撳叆鎵ц鍛戒护
 
 ```javascript
-// ❌ 极度危险！
-const filename = req.query.file;
-exec(`cat ${filename}`, callback);  // 输入: file.txt; rm -rf /
+// 鉂?鏋佸害鍗遍櫓锛?const filename = req.query.file;
+exec(`cat ${filename}`, callback);  // 杈撳叆: file.txt; rm -rf /
 
-// ✅ 正确做法 - 使用数组参数
+// 鉁?姝ｇ‘鍋氭硶 - 浣跨敤鏁扮粍鍙傛暟
 const { execFile } = require('child_process');
-execFile('cat', [filename], callback);  // 参数不会被解释为命令
+execFile('cat', [filename], callback);  // 鍙傛暟涓嶄細琚В閲婁负鍛戒护
 
-// ✅ 更好的做法 - 避免 shell 命令
+// 鉁?鏇村ソ鐨勫仛娉?- 閬垮厤 shell 鍛戒护
 const fs = require('fs');
-fs.readFile(filename, callback);  // 用 Node API 代替 shell 命令
+fs.readFile(filename, callback);  // 鐢?Node API 浠ｆ浛 shell 鍛戒护
 ```
 
 ---
 
-### 5.2 白名单验证
-
+### 5.2 鐧藉悕鍗曢獙璇?
 ```javascript
-// 如果必须执行命令，用白名单
-const ALLOWED_COMMANDS = ['ls', 'cat', 'grep'];
+// 濡傛灉蹇呴』鎵ц鍛戒护锛岀敤鐧藉悕鍗?const ALLOWED_COMMANDS = ['ls', 'cat', 'grep'];
 
 function safeExec(command, args, callback) {
   if (!ALLOWED_COMMANDS.includes(command)) {
-    throw new Error(`命令 ${command} 不在白名单中`);
+    throw new Error(`鍛戒护 ${command} 涓嶅湪鐧藉悕鍗曚腑`);
   }
 
-  // 验证参数不包含危险字符
-  const dangerousChars = [';', '|', '&', '$', '`'];
+  // 楠岃瘉鍙傛暟涓嶅寘鍚嵄闄╁瓧绗?  const dangerousChars = [';', '|', '&', '$', '`'];
   for (const arg of args) {
     for (const char of dangerousChars) {
       if (arg.includes(char)) {
-        throw new Error('参数包含危险字符');
+        throw new Error('鍙傛暟鍖呭惈鍗遍櫓瀛楃');
       }
     }
   }
@@ -292,15 +265,13 @@ function safeExec(command, args, callback) {
 
 ---
 
-## 6. 安全日志记录
+## 6. 瀹夊叏鏃ュ織璁板綍
 
-### 6.1 日志中不要记录敏感信息
-
+### 6.1 鏃ュ織涓笉瑕佽褰曟晱鎰熶俊鎭?
 ```javascript
-// ❌ 危险！日志泄露敏感信息
-console.log('用户登录:', { username, password, token });
+// 鉂?鍗遍櫓锛佹棩蹇楁硠闇叉晱鎰熶俊鎭?console.log('鐢ㄦ埛鐧诲綍:', { username, password, token });
 
-// ✅ 正确做法 - 脱敏处理
+// 鉁?姝ｇ‘鍋氭硶 - 鑴辨晱澶勭悊
 function maskSensitive(data) {
   const masked = { ...data };
   if (masked.password) masked.password = '***';
@@ -308,29 +279,29 @@ function maskSensitive(data) {
   return masked;
 }
 
-console.log('用户登录:', maskSensitive({ username, password, token }));
+console.log('鐢ㄦ埛鐧诲綍:', maskSensitive({ username, password, token }));
 ```
 
 ---
 
-### 6.2 安全事件日志
+### 6.2 瀹夊叏浜嬩欢鏃ュ織
 
 ```javascript
-// 记录安全相关事件
+// 璁板綍瀹夊叏鐩稿叧浜嬩欢
 function logSecurityEvent(event, details) {
   const entry = {
     timestamp: new Date().toISOString(),
     event,  // 'LOGIN_FAILED', 'ACCESS_DENIED', 'SUSPICIOUS_INPUT'
     ip: details.ip,
     user: details.user,
-    details: sanitizeForLog(details)  // 脱敏
+    details: sanitizeForLog(details)  // 鑴辨晱
   };
 
-  // 安全日志单独文件
+  // 瀹夊叏鏃ュ織鍗曠嫭鏂囦欢
   fs.appendFileSync('security.log', JSON.stringify(entry) + '\n');
 }
 
-// 使用
+// 浣跨敤
 logSecurityEvent('LOGIN_FAILED', {
   ip: req.ip,
   user: username,
@@ -340,93 +311,75 @@ logSecurityEvent('LOGIN_FAILED', {
 
 ---
 
-## 7. 安全检查清单
+## 7. 瀹夊叏妫€鏌ユ竻鍗?
+### 7.1 浠ｇ爜瀹℃煡妫€鏌ラ」
 
-### 7.1 代码审查检查项
+姣忔鍐欏畬浠ｇ爜锛屾墡鍏嬪簲璇ユ鏌ワ細
 
-每次写完代码，扎克应该检查：
+**鏁忔劅淇℃伅**锛?- [ ] 娌℃湁纭紪鐮佸瘑鐮併€佸瘑閽ャ€乀oken
+- [ ] .env 鏂囦欢宸插姞鍏?.gitignore
+- [ ] 鏁忔劅鏁版嵁宸插姞瀵嗗瓨鍌?
+**杈撳叆楠岃瘉**锛?- [ ] 鎵€鏈夌敤鎴疯緭鍏ラ兘缁忚繃楠岃瘉
+- [ ] 浣跨敤浜嗗弬鏁板寲鏌ヨ锛堝鏋滄搷浣滄暟鎹簱锛?- [ ] 鏂囦欢鍚嶃€佽矾寰勭粡杩囨竻鐞?
+**鏂囦欢鎿嶄綔**锛?- [ ] 鏂囦欢璺緞鍋氫簡瑙勮寖鍖栧鐞?- [ ] 闄愬埗浜嗚闂洰褰曡寖鍥?- [ ] 璁剧疆浜嗗悎閫傜殑鏂囦欢鏉冮檺
 
-**敏感信息**：
-- [ ] 没有硬编码密码、密钥、Token
-- [ ] .env 文件已加入 .gitignore
-- [ ] 敏感数据已加密存储
+**鍛戒护鎵ц**锛?- [ ] 娌℃湁鎷兼帴鐢ㄦ埛杈撳叆鎵ц鍛戒护
+- [ ] 浣跨敤浜嗙櫧鍚嶅崟楠岃瘉
+- [ ] 灏介噺鐢?API 浠ｆ浛 shell 鍛戒护
 
-**输入验证**：
-- [ ] 所有用户输入都经过验证
-- [ ] 使用了参数化查询（如果操作数据库）
-- [ ] 文件名、路径经过清理
-
-**文件操作**：
-- [ ] 文件路径做了规范化处理
-- [ ] 限制了访问目录范围
-- [ ] 设置了合适的文件权限
-
-**命令执行**：
-- [ ] 没有拼接用户输入执行命令
-- [ ] 使用了白名单验证
-- [ ] 尽量用 API 代替 shell 命令
-
-**日志记录**：
-- [ ] 日志中没有明文密码
-- [ ] Token 等敏感信息已脱敏
-- [ ] 安全事件有单独记录
-
+**鏃ュ織璁板綍**锛?- [ ] 鏃ュ織涓病鏈夋槑鏂囧瘑鐮?- [ ] Token 绛夋晱鎰熶俊鎭凡鑴辨晱
+- [ ] 瀹夊叏浜嬩欢鏈夊崟鐙褰?
 ---
 
-### 7.2 安全等级自评
+### 7.2 瀹夊叏绛夌骇鑷瘎
 
-| 等级 | 描述 | 行动 |
+| 绛夌骇 | 鎻忚堪 | 琛屽姩 |
 |------|------|------|
-| 🔴 Critical | 发现严重漏洞（如硬编码密码） | 立即修复，停止上线 |
-| 🟠 High | 发现高危问题（如缺少输入验证） | 优先修复，暂缓上线 |
-| 🟡 Medium | 发现中危问题（如日志过于详细） | 计划修复，可上线 |
-| 🟢 Low | 轻微问题（如注释透露内部信息） | 有空再改 |
+| 馃敶 Critical | 鍙戠幇涓ラ噸婕忔礊锛堝纭紪鐮佸瘑鐮侊級 | 绔嬪嵆淇锛屽仠姝笂绾?|
+| 馃煚 High | 鍙戠幇楂樺嵄闂锛堝缂哄皯杈撳叆楠岃瘉锛?| 浼樺厛淇锛屾殏缂撲笂绾?|
+| 馃煛 Medium | 鍙戠幇涓嵄闂锛堝鏃ュ織杩囦簬璇︾粏锛?| 璁″垝淇锛屽彲涓婄嚎 |
+| 馃煝 Low | 杞诲井闂锛堝娉ㄩ噴閫忛湶鍐呴儴淇℃伅锛?| 鏈夌┖鍐嶆敼 |
 
 ---
 
-## 课后练习
+## 璇惧悗缁冧範
 
-### 练习 1：找出代码中的安全问题
-
+### 缁冧範 1锛氭壘鍑轰唬鐮佷腑鐨勫畨鍏ㄩ棶棰?
 ```javascript
-// 下面这段代码有哪些安全问题？
+// 涓嬮潰杩欐浠ｇ爜鏈夊摢浜涘畨鍏ㄩ棶棰橈紵
 const express = require('express');
 const app = express();
 
-const DB_PASSWORD = 'prod123456';  // 问题 1
+const DB_PASSWORD = 'prod123456';  // 闂 1
 
 app.get('/user', (req, res) => {
   const userId = req.query.id;
-  const sql = `SELECT * FROM users WHERE id = ${userId}`;  // 问题 2
+  const sql = `SELECT * FROM users WHERE id = ${userId}`;  // 闂 2
   db.query(sql);
 });
 
 app.get('/file', (req, res) => {
   const file = req.query.name;
-  res.sendFile(`/var/www/${file}`);  // 问题 3
+  res.sendFile(`/var/www/${file}`);  // 闂 3
 });
 
-console.log('API Key:', process.env.API_KEY);  // 问题 4
+console.log('API Key:', process.env.API_KEY);  // 闂 4
 ```
 
 ---
 
-## 杰克寄语
+## 鏉板厠瀵勮
 
-> 扎克兄弟：
->
-> 安全这件事，说难难，说简单也简单。
->
-> **难的是**：要时刻保持警惕，不能有侥幸心理。
->
-> **简单的是**：养成良好的编码习惯，安全问题自然远离你。
->
-> 哥哥我写代码这么多年，靠的就是一个"稳"字。
->
-> 你也一样，稳稳当当地写代码，安安全全地做项目！
+> 鎵庡厠鍏勫紵锛?>
+> 瀹夊叏杩欎欢浜嬶紝璇撮毦闅撅紝璇寸畝鍗曚篃绠€鍗曘€?>
+> **闅剧殑鏄?*锛氳鏃跺埢淇濇寔璀︽儠锛屼笉鑳芥湁渚ュ垢蹇冪悊銆?>
+> **绠€鍗曠殑鏄?*锛氬吇鎴愯壇濂界殑缂栫爜涔犳儻锛屽畨鍏ㄩ棶棰樿嚜鐒惰繙绂讳綘銆?>
+> 鍝ュ摜鎴戝啓浠ｇ爜杩欎箞澶氬勾锛岄潬鐨勫氨鏄竴涓?绋?瀛椼€?>
+> 浣犱篃涓€鏍凤紝绋崇ǔ褰撳綋鍦板啓浠ｇ爜锛屽畨瀹夊叏鍏ㄥ湴鍋氶」鐩紒
 
 ---
 
-*教程创建时间：2026-03-09*
-*作者：杰克 (Jack)*
-*学生：扎克 (Zack)*
+*鏁欑▼鍒涘缓鏃堕棿锛?026-03-09*
+*浣滆€咃細鏉板厠 (Jack)*
+*瀛︾敓锛氭墡鍏?(Zack)*
+

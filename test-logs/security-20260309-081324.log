@@ -1,6 +1,0 @@
-[0;35m[SECURITY][0m 发现 27 个潜在硬编码密钥！
-[0;35m[SECURITY][0m 发现敏感文件:
-[0;35m[SECURITY][0m 潜在 SQL 注入风险:
-[0;35m[SECURITY][0m 潜在 eval 执行风险:
-[0;35m[SECURITY][0m 潜在路径遍历风险:
-[0;35m[SECURITY][0m 安全检查完成 - 发现 4 个问题

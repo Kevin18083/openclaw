@@ -1,8 +1,8 @@
 {
-  "currentMirror": "primary",
-  "lastCheck": "2026-03-12T06:57:11.887Z",
-  "lastSwitch": "2026-03-09T18:28:24.985Z",
-  "switchReason": null,
+  "currentMirror": "backup",
+  "lastCheck": "2026-03-13T23:22:44.818Z",
+  "lastSwitch": "2026-03-12T12:43:59.626Z",
+  "switchReason": "目录不存在",
   "healthHistory": [
     {
       "timestamp": "2026-03-09T04:48:23.299Z",
@@ -797,6 +797,876 @@
           "totalFiles": 10,
           "healthy": true,
           "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T07:30:53.473Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T08:43:53.238Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T12:28:40.573Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T12:29:05.670Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T12:29:24.700Z",
+      "checks": {
+        "primary": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T12:43:59.625Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T13:43:19.029Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T14:43:36.644Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T15:43:40.662Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T16:00:12.578Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T16:43:50.278Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T18:43:51.902Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T18:52:28.672Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T19:43:29.436Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T20:43:18.244Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-12T21:43:19.216Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T01:19:45.241Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T05:19:58.966Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T15:38:53.415Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:00:11.781Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:05:06.669Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:15:12.640Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:15:45.103Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T16:17:55.039Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:19:35.235Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:23:45.573Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:26:17.068Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:31:18.085Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T18:31:44.874Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
+        },
+        "backup": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 10,
+          "healthy": true,
+          "error": null
+        },
+        "disaster": {
+          "exists": true,
+          "accessible": true,
+          "criticalFilesCount": 4,
+          "totalFiles": 24,
+          "healthy": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-13T23:22:44.817Z",
+      "checks": {
+        "primary": {
+          "exists": false,
+          "accessible": false,
+          "criticalFilesCount": 0,
+          "totalFiles": 0,
+          "healthy": false,
+          "error": "目录不存在"
         },
         "backup": {
           "exists": true,
